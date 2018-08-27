@@ -63,7 +63,7 @@ Genre.schema = {
     properties: {
         name: 'string',
         description: 'string',
-        manga: {
+        mangas: {
             type: 'linkingObjects',
             objectType: 'Manga',
             property: 'genres',

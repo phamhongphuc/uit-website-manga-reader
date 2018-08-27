@@ -23,7 +23,12 @@ router.post('/api/image/create', upload.single('image'), async ctx => {
         chapterId: ctx.req.body.chapterId,
     });
 
-    ctx.body = { name: image.name, url: image.url, chapterId: image.chapter.id };
+    ctx.body = {
+        id: image.id,
+        name: image.name,
+        url: image.url,
+        chapterId: image.chapter.id,
+    };
 });
 
 router.post('/api/image/delete', async ctx => {

@@ -1,9 +1,32 @@
 import Router from 'koa-router';
-import { Genre } from '../../server/database/database';
+import { db, Genre } from '../../server/database/database';
 
 const router = new Router();
 
 router
+    .get('/api/genres', async ctx => {
+        //get danh sách thể loại
+        const genres = db.realm.objects('Genre');
+        ctx.body = genres.map(genre => ({
+            name: genre.name,
+            description: genre.description,
+        }));
+    })
+    .get('/api/genre/:name', async ctx => {
+        //get danh sách truyện dựa theo tên thể loại
+        const genre = Genre.getByName(ctx.params.name);
+        ctx.body = {
+            name: genre.name,
+            description: genre.description,
+            mangas: genre.mangas.map(manga => ({
+                id: manga.id,
+                name: manga.name,
+                genres: manga.genres.map(genre => genre.name),
+                description: manga.description,
+                imageId: manga.image.id,
+            })),
+        };
+    })
     .post('/api/genre', async ctx => {
         const genre = await Genre.create(ctx.request.body);
         ctx.body = { name: genre.name, description: genre.description };

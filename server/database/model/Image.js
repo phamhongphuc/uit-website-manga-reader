@@ -25,7 +25,7 @@ class Image extends Model {
         });
     }
 
-    async delete() {
+    delete() {
         return new Promise(resolve => {
             db.realm.write(() => {
                 db.realm.delete(this);

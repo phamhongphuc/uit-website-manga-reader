@@ -5,6 +5,7 @@ import bodyParser from 'koa-bodyparser';
 import database from '../server/database/database';
 import usersRouter from './routes/users';
 import genreRouter from './routes/genre';
+import imageRouter from './routes/image';
 
 (async function() {
     await database();
@@ -28,6 +29,7 @@ import genreRouter from './routes/genre';
 
     app.use(usersRouter.routes());
     app.use(genreRouter.routes());
+    app.use(imageRouter.routes());
 
     app.listen(process.env.PORT || 3000, () => {
         console.log('Server is running on port 3000!');

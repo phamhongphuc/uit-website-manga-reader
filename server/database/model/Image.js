@@ -6,7 +6,7 @@ class Image extends Model {
     /**
      * @param {import('../interface/image').Input} input
      */
-    static isRawValid(input) {
+    static isInputValid(input) {
         isNameValid(input.name);
         isUrlValid(input.url);
         Chapter.isIdValid(input.chapterId);
@@ -16,7 +16,7 @@ class Image extends Model {
      * @param {import('../interface/image').Input} input
      */
     static async create(input) {
-        Image.isRawValid(input);
+        Image.isInputValid(input);
         return await Image.write({
             id: Image.nextId,
             name: input.name,

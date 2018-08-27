@@ -1,5 +1,6 @@
 import {
     isNameValid,
+    isAssociatedNamesValid,
     isDateValid,
     isAuthorsValid,
     isDescriptionValid,
@@ -30,13 +31,15 @@ class Manga extends Model {
      */
     static isInputValid(input) {
         isNameValid(input.name);
-        isNameValid(input.associatedNames);
+        isAssociatedNamesValid(input.associatedNames);
         isMangaTypeValid(input.type);
         isStatusTypeValid(input.status);
         isDateValid(input.publishedFrom);
         isDateValid(input.publishedTo);
+        isGenreNamesValid(input.genreNames);
         isAuthorsValid(input.authors);
         isDescriptionValid(input.description);
+        Image.isIdValid(input.imageId);
     }
 
     /**
@@ -50,9 +53,9 @@ class Manga extends Model {
             associatedNames: input.associatedNames,
             type: input.type,
             status: input.status,
-            publishedFrom: input.publishedFrom,
-            publishedTo: input.publishedTo,
-            genres: input.genres,
+            publishedFrom: moment(input.publishedFrom, 'DD-MM-YYYY').toDate(),
+            publishedTo: moment(input.publishedTo, 'DD-MM-YYYY').toDate(),
+            genres: input.genreNames.map(genreName => Genre.getByName(genreName)),
             authors: input.authors,
             description: input.description,
             image: Image.getById(input.imageId),
@@ -70,7 +73,7 @@ class Manga extends Model {
                     this.name = input.name;
                 }
                 if (input.hasOwnProperty('associatedNames')) {
-                    isNameValid(input.associatedNames);
+                    isAssociatedNamesValid(input.associatedNames);
                     this.associatedNames = input.associatedNames;
                 }
                 if (input.hasOwnProperty('type')) {

@@ -8,13 +8,13 @@ class Genre extends Model {
      * @returns {Genre}
      */
     static getByName(name) {
-        return this.list.filtered('name LIKE $0', name)[0];
+        return this.list.filtered('name == $0', name)[0];
     }
 
     /**
      * @param {import('../interface/genre').Input} input
      */
-    static isRawValid(input) {
+    static isInputValid(input) {
         isNameValid(input.name);
         isDescriptionValid(input.description);
     }
@@ -23,7 +23,7 @@ class Genre extends Model {
      * @param {import('../interface/genre').Input} input
      */
     static async create(input) {
-        Genre.isRawValid(input);
+        Genre.isInputValid(input);
         if (Genre.getByName(input.name) !== undefined) {
             throw 'Thể loại này đã được tạo';
         }

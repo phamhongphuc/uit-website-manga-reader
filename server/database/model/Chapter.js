@@ -7,8 +7,10 @@ class Chapter extends Model {
      * @param {import('../interface/chapter').Input} input
      */
     static async create(input) {
+        Manga.isIdValid(input.mangaId);
         return await Chapter.write({
             id: Chapter.nextId,
+            name: '',
             date: new Date(),
             manga: Manga.getById(input.mangaId),
             isPublished: false,

@@ -6,7 +6,7 @@
     "private": true,
     "scripts": {
         "dev": "cross-env NODE_ENV=development run-p dev:*",
-        "dev:server": "cross-env PORT=3000 nodemon api/index --exec babel-node",
+        "dev:server": "cross-env PORT=3000 nodemon server/api/index --exec babel-node",
         "dev:client": "cross-env PORT=8080 nuxt",
         "build": "nuxt build",
         "start": "nuxt build && nuxt start",
@@ -18,7 +18,7 @@
     },
     "nodemonConfig": {
         "watch": [
-            "api"
+            "server"
         ]
     },
     "engines": {
@@ -28,9 +28,6 @@
         "@koa/cors": "^2.2.2",
         "axios": "^0.18.0",
         "bluebird": "^3.5.1",
-        "body-parser": "^1.18.3",
-        "express": "^4.16.3",
-        "express-session": "^1.15.6",
         "koa": "^2.5.2",
         "koa-bodyparser": "^4.2.1",
         "koa-multer": "^1.0.2",

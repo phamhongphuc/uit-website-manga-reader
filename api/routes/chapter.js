@@ -31,7 +31,7 @@ router
     .patch('/api/chapter/:id', async ctx => {
         const oldChapter = Chapter.getById(ctx.params.id);
         if (oldChapter === undefined) {
-            throw 'Chapter này chưa được tạo';
+            throw 'Chương này chưa được tạo';
         }
         const chapter = await oldChapter.update(ctx.request.body);
         ctx.body = {
@@ -41,6 +41,13 @@ router
             mangaId: chapter.manga.id,
             isPublished: chapter.isPublished,
         };
+    })
+    .delete('/api/chapter/:id', async ctx => {
+        const chapter = Chapter.getById(ctx.params.id);
+        if (chapter === undefined) {
+            throw 'Chương này chưa được tạo';
+        }
+        await chapter.delete();
+        ctx.body = { status: 'success' };
     });
-
 export default router;

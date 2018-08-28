@@ -56,7 +56,7 @@ router
     .patch('/api/manga/:id', async ctx => {
         const oldManga = Manga.getById(ctx.params.id);
         if (oldManga === undefined) {
-            throw 'Manga này chưa được tạo';
+            throw 'Truyện này chưa được tạo';
         }
         const manga = await oldManga.update(ctx.request.body);
         ctx.body = {
@@ -72,8 +72,14 @@ router
             description: manga.description,
             imageId: manga.image.id,
         };
+    })
+    .delete('/api/manga/:id', async ctx => {
+        const manga = Manga.getById(ctx.params.id);
+        if (manga === undefined) {
+            throw 'Truyện này chưa được tạo';
+        }
+        await manga.delete();
+        ctx.body = { status: 'success' };
     });
-
-//delete viết sau
 
 export default router;

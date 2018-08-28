@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import { Chapter } from '../../server/database/database';
+import { Chapter } from '../../database/database';
 
 const router = new Router();
 

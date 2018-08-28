@@ -1,3 +1,4 @@
+import fs from 'fs';
 import Realm from 'realm';
 import Chapter from './model/Chapter';
 import Genre from './model/Genre';
@@ -10,6 +11,7 @@ let instance = null;
 
 export default async () => {
     if (instance) return;
+    if (!fs.existsSync('database')) fs.mkdirSync('database');
     instance = await Realm.open({
         path: 'database/realm.realm',
         schema: [Chapter, Genre, Image, Manga],

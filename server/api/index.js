@@ -2,7 +2,7 @@ import koa from 'koa';
 import cors from '@koa/cors';
 import bodyParser from 'koa-bodyparser';
 
-import database from '../server/database/database';
+import database from '../database/database';
 import usersRouter from './routes/users';
 import chapterRouter from './routes/chapter';
 import genreRouter from './routes/genre';

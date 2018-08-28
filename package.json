@@ -21,14 +21,21 @@
             "api"
         ]
     },
+    "engines": {
+        "node": ">=8.0.0"
+    },
     "dependencies": {
         "@koa/cors": "^2.2.2",
         "axios": "^0.18.0",
+        "bluebird": "^3.5.1",
         "body-parser": "^1.18.3",
         "express": "^4.16.3",
         "express-session": "^1.15.6",
         "koa": "^2.5.2",
+        "koa-bodyparser": "^4.2.1",
+        "koa-multer": "^1.0.2",
         "koa-router": "^7.4.0",
+        "moment": "^2.22.2",
         "nuxt-edge": "^2.0.0-25565730.1ec5cf7",
         "realm": "^2.14.2"
     },
@@ -45,6 +52,7 @@
         "@babel/plugin-proposal-throw-expressions": "^7.0.0-rc.1",
         "@babel/plugin-syntax-dynamic-import": "^7.0.0-rc.1",
         "@babel/plugin-syntax-import-meta": "^7.0.0-rc.1",
+        "@types/node": "^10.9.2",
         "babel-eslint": "^8.2.6",
         "babel-plugin-root-import": "^6.1.0",
         "cross-env": "^5.2.0",

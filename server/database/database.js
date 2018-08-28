@@ -1,5 +1,4 @@
 import Realm from 'realm';
-
 import Chapter from './model/Chapter';
 import Genre from './model/Genre';
 import Image from './model/Image';

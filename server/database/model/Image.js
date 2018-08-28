@@ -1,6 +1,7 @@
-import { isNameValid, isUrlValid } from '../utils/Validation';
+import { isNameValid, isBufferValid } from '../utils/Validation';
 import { Model } from '../utils/Model';
 import { db, Chapter } from '../../database/database';
+import { uploadImage, deleteImage } from '../utils/Imgur';
 
 class Image extends Model {
     /**
@@ -8,8 +9,7 @@ class Image extends Model {
      */
     static isInputValid(input) {
         isNameValid(input.name);
-        isUrlValid(input.url);
-        Chapter.isIdValid(input.chapterId);
+        isBufferValid(input.imageBuffer);
     }
 
     /**
@@ -17,16 +17,23 @@ class Image extends Model {
      */
     static async create(input) {
         Image.isInputValid(input);
-        return await Image.write({
+        const image = await uploadImage(input.imageBuffer);
+        const imageData = {
             id: Image.nextId,
             name: input.name,
-            url: input.url,
-            chapter: Chapter.getById(input.chapterId),
-        });
+            url: image.data.data.link,
+            deletehash: image.data.data.deletehash,
+        };
+        if (input.chapterId !== undefined) {
+            Chapter.isIdValid(input.chapterId);
+            imageData.chapter = Chapter.getById(input.chapterId);
+        }
+        return await Image.write(imageData);
     }
 
     delete() {
-        return new Promise(resolve => {
+        return new Promise(async resolve => {
+            await deleteImage(this.deletehash);
             db.realm.write(() => {
                 db.realm.delete(this);
                 resolve();
@@ -44,6 +51,7 @@ Image.schema = {
         name: 'string',
         url: 'string',
         chapter: 'Chapter',
+        deletehash: 'string',
         manga: {
             type: 'linkingObjects',
             objectType: 'Manga',

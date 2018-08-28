@@ -1,3 +1,4 @@
+import Promise from 'bluebird';
 import {
     isNameValid,
     isAssociatedNamesValid,
@@ -120,9 +121,15 @@ class Manga extends Model {
         });
     }
 
-    //TODO: sẽ viết sau
     delete() {
-        return new Promise(resolve => {
+        return new Promise(async resolve => {
+            await Promise.map(
+                this.chapters,
+                async chapter => {
+                    await chapter.delete();
+                },
+                { concurrency: 3 },
+            );
             db.realm.write(() => {
                 db.realm.delete(this);
                 resolve();

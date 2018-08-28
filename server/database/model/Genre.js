@@ -1,6 +1,6 @@
-import { isNameValid, isDescriptionValid } from '../utils/Validation';
-import { Model } from '../utils/Model';
 import { db } from '../../database/database';
+import { Model } from '../utils/Model';
+import { isDescriptionValid, isNameValid } from '../utils/Validation';
 
 class Genre extends Model {
     /**

@@ -1,6 +1,6 @@
 import moment from 'moment';
-import { MangaType, StatusType } from '../model/Manga';
 import { Genre } from '../database';
+import { MangaType, StatusType } from '../model/Manga';
 
 export function isNameValid(name) {
     if (typeof name !== 'string') throw 'Tên phải là chuỗi';

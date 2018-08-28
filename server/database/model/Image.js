@@ -1,7 +1,7 @@
-import { isNameValid, isBufferValid } from '../utils/Validation';
+import { Chapter, db } from '../../database/database';
+import { deleteImage, uploadImage } from '../utils/Imgur';
 import { Model } from '../utils/Model';
-import { db, Chapter } from '../../database/database';
-import { uploadImage, deleteImage } from '../utils/Imgur';
+import { isBufferValid, isNameValid } from '../utils/Validation';
 
 class Image extends Model {
     /**

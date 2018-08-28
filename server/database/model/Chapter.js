@@ -1,7 +1,7 @@
 import Promise from 'bluebird';
-import { isNameValid } from '../utils/Validation';
-import { Model } from '../utils/Model';
 import { db, Manga } from '../../database/database';
+import { Model } from '../utils/Model';
+import { isNameValid } from '../utils/Validation';
 
 class Chapter extends Model {
     /**
@@ -33,17 +33,10 @@ class Chapter extends Model {
 
     delete() {
         return new Promise(async resolve => {
-            await Promise.map(
-                this.images,
-                async image => {
-                    await image.delete();
-                },
-                { concurrency: 3 },
-            );
-            db.realm.write(() => {
-                db.realm.delete(this);
-                resolve();
+            await Promise.map(this.images, async image => await image.delete(), {
+                concurrency: 3,
             });
+            db.realm.write(() => resolve(db.realm.delete(this)));
         });
     }
 }

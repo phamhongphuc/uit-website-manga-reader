@@ -50,4 +50,5 @@ router
         await chapter.delete();
         ctx.body = { status: 'success' };
     });
+
 export default router;

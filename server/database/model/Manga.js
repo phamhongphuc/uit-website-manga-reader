@@ -1,17 +1,17 @@
 import Promise from 'bluebird';
+import moment from 'moment';
+import { db, Genre, Image } from '../../database/database';
+import { Model } from '../utils/Model';
 import {
-    isNameValid,
     isAssociatedNamesValid,
-    isDateValid,
     isAuthorsValid,
+    isDateValid,
     isDescriptionValid,
     isGenreNamesValid,
     isMangaTypeValid,
+    isNameValid,
     isStatusTypeValid,
 } from '../utils/Validation';
-import { Model } from '../utils/Model';
-import { db, Image, Genre } from '../../database/database';
-import moment from 'moment';
 
 export const MangaType = {
     MANGA: 0,

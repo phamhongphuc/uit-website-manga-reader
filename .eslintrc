@@ -34,7 +34,7 @@
     },
     "rules": {
         "eol-last": "off",
-        "indent": [            "warn",            4, {                "MemberExpression": 1            }        ],
+        "indent": ["warn", 4, { "MemberExpression": 1 }],
         "linebreak-style": ["error", "unix"],
         "no-console": "off",
         "no-global-assign": [

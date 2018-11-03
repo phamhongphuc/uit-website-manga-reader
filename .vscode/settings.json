@@ -1,13 +1,15 @@
 {
     "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
-        "**/.vscode": true,
+        "**/.git": true,
+        "**/.hg": true,
         "**/.nuxt": true,
-        "**/node_modules": true
+        "**/.sonarlint": true,
+        "**/.svn": true,
+        "**/.vscode": true,
+        "**/database": true,
+        "**/dist": true,
+        "**/node_modules": true,
     },
     "eslint.enable": true,
     "eslint.validate": [

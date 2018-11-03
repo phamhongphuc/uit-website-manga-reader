@@ -1,6 +1,7 @@
 import koa from 'koa';
-import cors from '@koa/cors';
 import bodyParser from 'koa-bodyparser';
+import session from 'koa-session';
+import cors from '@koa/cors';
 
 import database from '../database/database';
 import usersRouter from './routes/users';
@@ -20,6 +21,15 @@ import mangaRouter from './routes/manga';
         }),
     );
     app.use(bodyParser());
+    app.use(
+        session({
+            secret: 'super-secret-key',
+            resave: false,
+            saveUninitialized: false,
+            cookie: { maxAge: 60000 },
+        }),
+        app,
+    );
 
     app.use(async (ctx, next) => {
         try {

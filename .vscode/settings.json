@@ -9,7 +9,7 @@
         "**/.vscode": true,
         "**/database": true,
         "**/dist": true,
-        "**/node_modules": true,
+        "**/node_modules": true
     },
     "eslint.enable": true,
     "eslint.validate": [
@@ -25,5 +25,6 @@
     ],
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "files.eol": "\n"
 }

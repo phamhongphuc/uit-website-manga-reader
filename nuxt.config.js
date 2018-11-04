@@ -8,7 +8,7 @@ const config = {
         ],
     },
     port: 8080,
-    css: ['~/assets/scss/main.scss'],
+    css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {
         extend(config, ctx) {
             if (ctx.isDev && ctx.isClient) {
@@ -21,6 +21,7 @@ const config = {
             }
         },
     },
+    modules: [['bootstrap-vue/nuxt', { css: false }]],
 };
 
 if (process.env.NODE_ENV !== 'development') {

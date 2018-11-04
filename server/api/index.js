@@ -22,13 +22,15 @@ import mangaRouter from './routes/manga';
     );
     app.use(bodyParser());
     app.use(
-        session({
-            secret: 'super-secret-key',
-            resave: false,
-            saveUninitialized: false,
-            cookie: { maxAge: 60000 },
-        }),
-        app,
+        session(
+            {
+                secret: 'super-secret-key',
+                resave: false,
+                saveUninitialized: false,
+                cookie: { maxAge: 60000 },
+            },
+            app,
+        ),
     );
 
     app.use(async (ctx, next) => {

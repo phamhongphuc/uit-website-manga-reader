@@ -1,15 +1,8 @@
-# dependencies
-node_modules
+/node_modules
+/.nuxt
+/dist
+/build
+/database
 
-# logs
-npm-debug.log
-
-# Nuxt build
-.nuxt
-
-# Nuxt generate
-dist
-
-# Backpack build
-build
-
+/coverage
+/.nyc_output

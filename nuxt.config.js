@@ -1,7 +1,4 @@
-import bodyParser from 'body-parser';
-import session from 'express-session';
-
-export default {
+const config = {
     head: {
         title: 'Auth Routes',
         meta: [
@@ -11,9 +8,8 @@ export default {
         ],
     },
     port: 8080,
-    css: ['~/assets/css/main.css'],
+    css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {
-        // watch: ['api'],
         extend(config, ctx) {
             if (ctx.isDev && ctx.isClient) {
                 config.module.rules.push({
@@ -25,14 +21,11 @@ export default {
             }
         },
     },
-    // serverMiddleware: [
-    //     bodyParser.json(),
-    //     session({
-    //         secret: 'super-secret-key',
-    //         resave: false,
-    //         saveUninitialized: false,
-    //         cookie: { maxAge: 60000 },
-    //     }),
-    //     '~/api',
-    // ],
+    modules: [['bootstrap-vue/nuxt', { css: false }]],
 };
+
+if (process.env.NODE_ENV !== 'development') {
+    config.serverMiddleware = ['~/api'];
+}
+
+export default config;

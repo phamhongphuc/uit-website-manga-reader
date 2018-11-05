@@ -1,5 +1,5 @@
 import Router from 'koa-router';
-import { db, Manga } from '../../server/database/database';
+import { db, Manga } from '../../database/database';
 
 const router = new Router();
 

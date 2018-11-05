@@ -1,13 +1,18 @@
 import fs from 'fs';
 import Realm from 'realm';
-import Chapter from './model/Chapter';
-import Genre from './model/Genre';
-import Image from './model/Image';
-import Manga from './model/Manga';
 
-export { Chapter, Genre, Image, Manga };
+import { Chapter, Genre, Manga, Image } from './model';
 
 let instance = null;
+
+export const db = {
+    get realm() {
+        if (!(instance instanceof Realm)) {
+            throw 'Đối tượng realm được gọi khi chưa được khởi tạo';
+        }
+        return instance;
+    },
+};
 
 export default async () => {
     if (instance) return;
@@ -17,13 +22,4 @@ export default async () => {
         schema: [Chapter, Genre, Image, Manga],
         deleteRealmIfMigrationNeeded: true,
     });
-};
-
-export const db = {
-    get realm() {
-        if (!(instance instanceof Realm)) {
-            throw 'Đối tượng realm được gọi khi chưa được khởi tạo';
-        }
-        return instance;
-    },
 };

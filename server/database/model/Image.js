@@ -1,4 +1,5 @@
-import { Chapter, db } from '../../database/database';
+import { Chapter } from '.';
+import { db } from '../database';
 import { deleteImage, uploadImage } from '../utils/Imgur';
 import { Model } from '../utils/Model';
 import { isBufferValid, isNameValid } from '../utils/Validation';

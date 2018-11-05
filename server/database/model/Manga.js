@@ -1,6 +1,7 @@
 import Promise from 'bluebird';
 import moment from 'moment';
-import { db, Genre, Image } from '../../database/database';
+import { db } from '../database';
+import { Image, Genre } from '.';
 import { Model } from '../utils/Model';
 import {
     isAssociatedNamesValid,

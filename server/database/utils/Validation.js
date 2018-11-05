@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { Genre } from '../database';
+import { Genre } from '../model';
 import { MangaType, StatusType } from '../model/Manga';
 
 export function isNameValid(name) {

@@ -1,5 +1,6 @@
 import Promise from 'bluebird';
-import { db, Manga } from '../../database/database';
+import { Manga } from '.';
+import { db } from '../database';
 import { Model } from '../utils/Model';
 import { isNameValid } from '../utils/Validation';
 

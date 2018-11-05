@@ -4,6 +4,7 @@ import session from 'koa-session';
 import cors from '@koa/cors';
 
 import database from '../database/database';
+
 import usersRouter from './routes/users';
 import chapterRouter from './routes/chapter';
 import genreRouter from './routes/genre';

@@ -10,6 +10,9 @@ const config = {
     server: {
         port: 8080,
     },
+    env: {
+        ROOT_API: process.env.ROOT_API || 'http://localhost:3000',
+    },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {
         extend(config, ctx) {
@@ -23,7 +26,18 @@ const config = {
             }
         },
     },
-    modules: [['bootstrap-vue/nuxt', { css: false }]],
+    modules: [
+        ['bootstrap-vue/nuxt', { css: false }],
+        [
+            'nuxt-sass-resources-loader',
+            [
+                'assets/scss/before/_before.scss',
+                'bootstrap/scss/_functions.scss',
+                'bootstrap/scss/_variables.scss',
+                'bootstrap/scss/_mixins.scss',
+            ],
+        ],
+    ],
 };
 
 if (process.env.NODE_ENV !== 'development') {

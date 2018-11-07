@@ -1,4 +1,4 @@
-import { db } from '../../database/database';
+import { db } from '../database';
 import { Model } from '../utils/Model';
 import { isDescriptionValid, isNameValid } from '../utils/Validation';
 

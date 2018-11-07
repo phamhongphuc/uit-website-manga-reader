@@ -7,7 +7,9 @@ const config = {
             { hid: 'description', content: 'Auth Routes example' },
         ],
     },
-    port: 8080,
+    server: {
+        port: 8080,
+    },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {
         extend(config, ctx) {
@@ -25,7 +27,7 @@ const config = {
 };
 
 if (process.env.NODE_ENV !== 'development') {
-    config.serverMiddleware = ['~/api'];
+    config.serverMiddleware = ['~/server/api'];
 }
 
 export default config;

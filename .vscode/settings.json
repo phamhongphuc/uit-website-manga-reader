@@ -5,9 +5,9 @@
         "**/.hg": true,
         "**/.nuxt": true,
         "**/.sonarlint": true,
+        "**/.nyc_output": true,
         "**/.svn": true,
         "**/.vscode": true,
-        "**/database": true,
         "**/dist": true,
         "**/node_modules": true
     },

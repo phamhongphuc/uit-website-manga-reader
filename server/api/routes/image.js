@@ -1,6 +1,6 @@
 import multer from 'koa-multer';
 import Router from 'koa-router';
-import { Image } from '../../database/database';
+import { Image } from '../../database/model';
 
 const router = new Router();
 const upload = multer({ storage: multer.memoryStorage() });

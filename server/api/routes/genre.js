@@ -1,6 +1,6 @@
 import Router from 'koa-router';
-import { db, Genre } from '../../database/database';
-
+import { db } from '../../database/database';
+import { Genre } from '../../database/model';
 const router = new Router();
 
 router

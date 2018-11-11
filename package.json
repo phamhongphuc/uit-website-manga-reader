@@ -16,7 +16,7 @@
         "lint:js": "eslint --ext .* .",
         "lint:css": "stylelint **/*.{vue,scss}",
         "lint": "run-s lint:*",
-        "type:fix": "run-s \"lint:* --fix\""
+        "type:fix": "run-s prettier:fix \"lint:* --fix\""
     },
     "nodemonConfig": {
         "watch": [

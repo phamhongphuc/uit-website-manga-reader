@@ -6,7 +6,9 @@
         "mocha": true
     },
     "extends": [
+        "airbnb-base",
         "eslint:recommended",
+        "standard",
         "plugin:vue/recommended",
         "plugin:node/recommended",
         "plugin:import/warnings",
@@ -16,13 +18,9 @@
     "parserOptions": {
         "parser": "babel-eslint",
         "ecmaVersion": 2017,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": true,
-            "experimentalObjectRestSpread": true
-        }
+        "sourceType": "module"
     },
-    "plugins": ["vue", "import", "node"],
+    "plugins": ["standard", "vue", "import", "node", "markdown"],
     "settings": {
         "import/resolver": {
             "babel-plugin-root-import": {
@@ -32,64 +30,44 @@
         }
     },
     "rules": {
-        "eol-last": "off",
-        "indent": ["warn", 4, { "MemberExpression": 1 }],
+        "eol-last": "error",
+        "indent": ["error", 4],
         "linebreak-style": ["error", "unix"],
-        "no-console": "off",
-        "no-global-assign": [
-            "error",
-            {
-                "exceptions": ["Object"]
-            }
-        ],
-        "no-throw-literal": "off",
-        "no-unused-vars": "warn",
-        "node/no-deprecated-api": [
-            "warn",
-            {
-                "ignoreModuleItems": [],
-                "ignoreGlobalItems": []
-            }
-        ],
-        "node/no-unsupported-features/es-syntax": "off",
-        "operator-linebreak": "off",
+        "no-console": "warn",
+        "no-lonely-if": "error",
         "prefer-const": "error",
-        "quotes": [
-            "warn",
-            "single",
-            {
-                "avoidEscape": true,
-                "allowTemplateLiterals": true
-            }
-        ],
+        "camelcase": "error",
+        "comma-dangle": ["error", "always-multiline"],
         "semi": ["error", "always"],
         "space-before-function-paren": [
             "error",
-            {
-                "anonymous": "never",
-                "named": "never",
-                "asyncArrow": "always"
-            }
+            { "anonymous": "never", "named": "never", "asyncArrow": "always" }
         ],
-        "vue/html-indent": [
-            "error",
-            4,
-            {
-                "attribute": 1,
-                "closeBracket": 0,
-                "alignAttributesVertically": true,
-                "ignores": []
-            }
-        ],
+        "node/no-unsupported-features/es-syntax": "off",
+        "import/prefer-default-export": "off",
+        "vue/html-indent": ["error", 4],
         "vue/max-attributes-per-line": [
-            2,
+            "error",
             {
                 "singleline": 1,
-                "multiline": {
-                    "max": 1,
-                    "allowFirstLine": true
-                }
+                "multiline": { "max": 1, "allowFirstLine": false }
             }
+        ],
+        "vue/html-closing-bracket-newline": [
+            "error",
+            { "singleline": "never", "multiline": "always" }
+        ],
+        "vue/html-closing-bracket-spacing": [
+            "error",
+            {
+                "startTag": "never",
+                "endTag": "never",
+                "selfClosingTag": "never"
+            }
+        ],
+        "vue/singleline-html-element-content-newline": [
+            "error",
+            { "ignoreWhenNoAttributes": true, "ignores": ["pre", "textarea"] }
         ]
     }
 }

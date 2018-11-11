@@ -1,14 +1,12 @@
 <template>
-    <div>
+    <div id="header">
         <carousel-/>
         <navbar-/>
-        <nuxt/>
     </div>
 </template>
-
 <script>
-import carousel from '~/components/header/carousel.vue';
-import navbar from '~/components/header/navbar.vue';
+import carousel from './carousel.vue';
+import navbar from './navbar.vue';
 
 export default {
     components: {

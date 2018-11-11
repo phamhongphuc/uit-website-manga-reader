@@ -1,4 +1,5 @@
-import koa from 'koa';
+/* eslint-disable no-console */
+import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 import session from 'koa-session';
 import cors from '@koa/cors';
@@ -10,11 +11,12 @@ import chapterRouter from './routes/chapter';
 import genreRouter from './routes/genre';
 import imageRouter from './routes/image';
 import mangaRouter from './routes/manga';
+import redirectRouter from './routes/redirect';
 
 (async function() {
     await database();
 
-    const app = new koa();
+    const app = new Koa();
 
     app.use(
         cors({
@@ -38,7 +40,7 @@ import mangaRouter from './routes/manga';
         try {
             await next();
         } catch (err) {
-            console.log(err);
+            console.error(err);
             ctx.body = err;
         }
     });
@@ -48,6 +50,8 @@ import mangaRouter from './routes/manga';
     app.use(genreRouter.routes());
     app.use(imageRouter.routes());
     app.use(mangaRouter.routes());
+
+    app.use(redirectRouter.routes());
 
     app.listen(process.env.PORT || 3000, () => {
         console.log('Server is running on port 3000!');

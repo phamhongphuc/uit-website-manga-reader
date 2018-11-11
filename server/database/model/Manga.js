@@ -47,9 +47,9 @@ class Manga extends Model {
     /**
      * @param {import('../interface/manga').Input} input
      */
-    static async create(input) {
+    static create(input) {
         Manga.isInputValid(input);
-        return await Manga.write({
+        return Manga.write({
             id: Manga.nextId,
             name: input.name,
             associatedNames: input.associatedNames,
@@ -57,7 +57,9 @@ class Manga extends Model {
             status: input.status,
             publishedFrom: moment(input.publishedFrom, 'DD-MM-YYYY').toDate(),
             publishedTo: moment(input.publishedTo, 'DD-MM-YYYY').toDate(),
-            genres: input.genreNames.map(genreName => Genre.getByName(genreName)),
+            genres: input.genreNames.map(genreName =>
+                Genre.getByName(genreName),
+            ),
             authors: input.authors,
             description: input.description,
             image: Image.getById(input.imageId),
@@ -95,7 +97,10 @@ class Manga extends Model {
                     this.publishedFrom = publishedFrom;
                 }
                 if (input.hasOwnProperty('publishedTo')) {
-                    const publishedTo = moment(input.publishedTo, 'DD-MM-YYYY').toDate();
+                    const publishedTo = moment(
+                        input.publishedTo,
+                        'DD-MM-YYYY',
+                    ).toDate();
                     isDateValid(publishedTo);
                     this.publishedTo = publishedTo;
                 }

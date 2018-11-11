@@ -5,10 +5,10 @@ const headers = {
     // Authorization: 'Client-ID xxx',
 };
 
-export const uploadImage = async imageBuffer => {
+export const uploadImage = imageBuffer => {
     const data = new FormData();
     data.append('image', imageBuffer);
-    return await axios.post('https://api.imgur.com/3/image', data, {
+    return axios.post('https://api.imgur.com/3/image', data, {
         headers: {
             ...data.getHeaders(),
             ...headers,

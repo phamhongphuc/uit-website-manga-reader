@@ -8,7 +8,7 @@ let instance = null;
 export const db = {
     get realm() {
         if (!(instance instanceof Realm)) {
-            throw 'Đối tượng realm được gọi khi chưa được khởi tạo';
+            throw new Error('Đối tượng realm được gọi khi chưa được khởi tạo');
         }
         return instance;
     },

@@ -10,21 +10,25 @@ export class Model {
         if (instance instanceof this === false) return false;
 
         return (
-            db.realm.objects(this.schema.name).filtered(`id == ${instance.id}`)[0] !==
-            undefined
+            db.realm
+                .objects(this.schema.name)
+                .filtered(`id == ${instance.id}`)[0] !== undefined
         );
     }
 
     static isIdValid(id) {
-        if (typeof id == 'string') id = Number(id);
-        if (typeof id !== 'number') throw 'Id phải là number';
-        if (this.getById(id) === undefined)
-            throw `Không tồn tại đối tượng {${this.name}} có id là ${id}`;
+        if (typeof id === 'string') id = Number(id);
+        if (typeof id !== 'number') throw new Error('Id phải là number');
+        if (this.getById(id) === undefined) {
+            throw new Error(
+                `Không tồn tại đối tượng {${this.name}} có id là ${id}`,
+            );
+        }
     }
 
     static get nextId() {
         const items = db.realm.objects(this.schema.name);
-        return items.length == 0 ? 1 : items.max('id') + 1;
+        return items.length === 0 ? 1 : items.max('id') + 1;
     }
 
     /**

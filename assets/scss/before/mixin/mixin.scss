@@ -1,0 +1,16 @@
+@mixin icon {
+    font-family: 'ai-web-font', serif !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    // line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin transition-all {
+    transition: all 0.2s;
+}

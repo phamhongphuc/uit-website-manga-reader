@@ -13,7 +13,7 @@ import imageRouter from './routes/image';
 import mangaRouter from './routes/manga';
 import redirectRouter from './routes/redirect';
 
-(async function() {
+export default (async function() {
     await database();
 
     const app = new Koa();
@@ -53,7 +53,10 @@ import redirectRouter from './routes/redirect';
 
     app.use(redirectRouter.routes());
 
-    app.listen(process.env.PORT || 3000, () => {
-        console.log('Server is running on port 3000!');
+    if (!process.server) return app.callback;
+
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}!`);
     });
 })();

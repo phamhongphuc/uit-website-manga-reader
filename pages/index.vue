@@ -1,34 +1,26 @@
 <template>
-    <section class="container">
-        <img src="~assets/img/logo.png" 
-             alt="Nuxt.js Logo" 
-             class="logo" >
-        <h1 class="title">
-            USERS
-        </h1>
-        <ul class="users">
-            <li v-for="(user, index) in users" 
-                :key="index" 
-                class="user">
-                <nuxt-link :to="{ name: 'id', params: { id: index }}">
-                    {{ user.name }}
-                </nuxt-link>
-            </li>
-        </ul>
-    </section>
+    <div
+        id="body"
+        class="container mt-3 mt-sm-4 mt-md-5"
+    >
+        <div class="row">
+            <latest- class="col-24 col-md-15 col-lg-17"/>
+            <ranking- class="col-24 col-md-9 col-lg-7"/>
+        </div>
+    </div>
 </template>
-
 <script>
-import axios from '~/plugins/axios';
+import ranking from '~/components/custom/ranking.vue';
+import latest from '~/components/custom/latest.vue';
 
 export default {
-    async asyncData() {
-        const { data } = await axios.get('/api/users');
-        return { users: data };
+    components: {
+        'ranking-': ranking,
+        'latest-': latest,
     },
     head() {
         return {
-            title: 'Home',
+            title: 'Manga Scanlation',
         };
     },
 };

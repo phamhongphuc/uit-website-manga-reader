@@ -7,7 +7,6 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 router
     .post('/api/image', upload.single('image'), async ctx => {
-        console.log(ctx.req.file);
         const image = await Image.create({
             name: ctx.req.file.originalname,
             imageBuffer: ctx.req.file.buffer,
@@ -25,7 +24,7 @@ router
     .delete('/api/image/:id', async ctx => {
         const image = Image.getById(ctx.params.id);
         if (image === undefined) {
-            throw 'Hình ảnh này chưa được tạo';
+            throw new Error('Hình ảnh này chưa được tạo');
         }
         await image.delete();
         ctx.body = { status: 'success' };

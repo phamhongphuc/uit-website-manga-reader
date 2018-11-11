@@ -29,7 +29,8 @@ class Image extends Model {
             Chapter.isIdValid(input.chapterId);
             imageData.chapter = Chapter.getById(input.chapterId);
         }
-        return await Image.write(imageData);
+        const result = await Image.write(imageData);
+        return result;
     }
 
     delete() {

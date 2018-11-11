@@ -22,18 +22,18 @@ class Genre extends Model {
     /**
      * @param {import('../interface/genre').Input} input
      */
-    static async create(input) {
+    static create(input) {
         Genre.isInputValid(input);
         if (Genre.getByName(input.name) !== undefined) {
-            throw 'Thể loại này đã được tạo';
+            throw new Error('Thể loại này đã được tạo');
         }
-        return await Genre.write({
+        return Genre.write({
             name: input.name,
             description: input.description,
         });
     }
 
-    //vì name là khóa chính nên không thể sửa
+    // vì name là khóa chính nên không thể sửa
     update(input) {
         return new Promise(resolve => {
             db.realm.write(() => {

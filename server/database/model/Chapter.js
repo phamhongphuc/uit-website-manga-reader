@@ -8,9 +8,9 @@ class Chapter extends Model {
     /**
      * @param {import('../interface/chapter').Input} input
      */
-    static async create(input) {
+    static create(input) {
         Manga.isIdValid(input.mangaId);
-        return await Chapter.write({
+        return Chapter.write({
             id: Chapter.nextId,
             name: '',
             date: new Date(),
@@ -34,7 +34,7 @@ class Chapter extends Model {
 
     delete() {
         return new Promise(async resolve => {
-            await Promise.map(this.images, async image => await image.delete(), {
+            await Promise.map(this.images, image => image.delete(), {
                 concurrency: 3,
             });
             db.realm.write(() => resolve(db.realm.delete(this)));

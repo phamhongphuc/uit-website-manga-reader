@@ -1,11 +1,12 @@
 import Router from 'koa-router';
 import { db } from '../../database/database';
 import { Genre } from '../../database/model';
+
 const router = new Router();
 
 router
     .get('/api/genres', async ctx => {
-        //get danh sách thể loại
+        // get danh sách thể loại
         const genres = db.realm.objects('Genre');
         ctx.body = genres.map(genre => ({
             name: genre.name,
@@ -13,7 +14,7 @@ router
         }));
     })
     .get('/api/genre/:name', async ctx => {
-        //get danh sách truyện dựa theo tên thể loại
+        // get danh sách truyện dựa theo tên thể loại
         const genre = Genre.getByName(ctx.params.name);
         ctx.body = {
             name: genre.name,
@@ -34,7 +35,7 @@ router
     .patch('/api/genre/:name', async ctx => {
         const oldGenre = Genre.getByName(ctx.params.name);
         if (oldGenre === undefined) {
-            throw 'Thể loại này chưa được tạo';
+            throw new Error('Thể loại này chưa được tạo');
         }
         const genre = await oldGenre.update(ctx.request.body);
         ctx.body = { name: genre.name, description: genre.description };
@@ -42,7 +43,7 @@ router
     .delete('/api/genre/:name', async ctx => {
         const genre = Genre.getByName(ctx.params.name);
         if (genre === undefined) {
-            throw 'Thể loại này chưa được tạo';
+            throw new Error('Thể loại này chưa được tạo');
         }
         await genre.delete();
         ctx.body = { status: 'success' };

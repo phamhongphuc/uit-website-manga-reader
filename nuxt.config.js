@@ -14,10 +14,7 @@ const config = {
         port: 8080,
     },
     env: {
-        ROOT_API:
-            process.env.NODE_ENV === 'development'
-                ? 'http://localhost:3000'
-                : '',
+        ROOT_API: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '',
     },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {

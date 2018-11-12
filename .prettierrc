@@ -5,7 +5,8 @@
     "trailingComma": "all",
     "bracketSpacing": true,
     "arrowParens": "avoid",
-    "printWidth": 80,
+    "htmlWhitespaceSensitivity": "ignore",
+    "printWidth": 120,
     "overrides": [
         {
             "files": ["*.code-workspace", ".stylelintrc", ".babelrc"],

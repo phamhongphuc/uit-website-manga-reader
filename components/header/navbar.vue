@@ -44,7 +44,7 @@
                     class="profile child-align-items-center"
                 >
                     <img
-                        src="http://localhost:3000/api/redirect/twitter/image/DrMpC5CXcAApzT7"
+                        src="https://github.com/thaotram.png?size=40"
                         height="32"
                         width="32"
                         class="rounded-circle d-block"

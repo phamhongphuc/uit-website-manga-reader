@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 import Koa from 'koa';
 import { Nuxt, Builder } from 'nuxt';
-import database from '../database/database';
-import routes from './_routers';
-import middleware from './_middleware';
-import config from '../../nuxt.config';
+import database from './database/database';
+import routes from './api/_routers';
+import middleware from './api/_middleware';
+import config from '../nuxt.config';
 
 config.dev = process.env.NODE_ENV === 'development';
 
@@ -19,13 +19,13 @@ const PORT = process.env.PORT || 3000;
     routes(app);
 
     const nuxt = new Nuxt(config);
+
     if (config.dev) {
         const builder = new Builder(nuxt);
         await builder.build();
-    } else {
-        // production
-        app.use(nuxt.render);
     }
+
+    app.use(nuxt.render);
 
     app.listen(PORT, HOST, () => {
         console.log(`Server is running on port ${PORT}!`);

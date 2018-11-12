@@ -1,62 +1,33 @@
 /* eslint-disable no-console */
 import Koa from 'koa';
-import bodyParser from 'koa-bodyparser';
-import session from 'koa-session';
-import cors from '@koa/cors';
-
+import { Nuxt, Builder } from 'nuxt';
 import database from '../database/database';
+import routes from './_routers';
+import middleware from './_middleware';
+import config from '../../nuxt.config';
 
-import usersRouter from './routes/users';
-import chapterRouter from './routes/chapter';
-import genreRouter from './routes/genre';
-import imageRouter from './routes/image';
-import mangaRouter from './routes/manga';
-import redirectRouter from './routes/redirect';
+config.dev = process.env.NODE_ENV === 'development';
 
-export default (async function() {
-    await database();
+const HOST = process.env.HOST || '127.0.0.1';
+const PORT = process.env.PORT || 3000;
 
+(async function() {
     const app = new Koa();
 
-    app.use(
-        cors({
-            origin: 'http://localhost:8080',
-        }),
-    );
-    app.use(bodyParser());
-    app.use(
-        session(
-            {
-                secret: 'super-secret-key',
-                resave: false,
-                saveUninitialized: false,
-                cookie: { maxAge: 60000 },
-            },
-            app,
-        ),
-    );
+    await database();
+    middleware(app);
+    routes(app);
 
-    app.use(async (ctx, next) => {
-        try {
-            await next();
-        } catch (err) {
-            console.error(err);
-            ctx.body = err;
-        }
-    });
+    const nuxt = new Nuxt(config);
+    if (config.dev) {
+        const builder = new Builder(nuxt);
+        await builder.build();
+    } else {
+        // production
+        app.use(nuxt.render);
+    }
 
-    app.use(usersRouter.routes());
-    app.use(chapterRouter.routes());
-    app.use(genreRouter.routes());
-    app.use(imageRouter.routes());
-    app.use(mangaRouter.routes());
-
-    app.use(redirectRouter.routes());
-
-    if (!process.server) return app.callback;
-
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
+    app.listen(PORT, HOST, () => {
         console.log(`Server is running on port ${PORT}!`);
     });
 })();

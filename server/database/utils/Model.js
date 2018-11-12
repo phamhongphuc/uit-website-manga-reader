@@ -9,20 +9,14 @@ export class Model {
         if (!instance) return false;
         if (instance instanceof this === false) return false;
 
-        return (
-            db.realm
-                .objects(this.schema.name)
-                .filtered(`id == ${instance.id}`)[0] !== undefined
-        );
+        return db.realm.objects(this.schema.name).filtered(`id == ${instance.id}`)[0] !== undefined;
     }
 
     static isIdValid(id) {
         if (typeof id === 'string') id = Number(id);
         if (typeof id !== 'number') throw new Error('Id phải là number');
         if (this.getById(id) === undefined) {
-            throw new Error(
-                `Không tồn tại đối tượng {${this.name}} có id là ${id}`,
-            );
+            throw new Error(`Không tồn tại đối tượng {${this.name}} có id là ${id}`);
         }
     }
 
@@ -47,9 +41,7 @@ export class Model {
      */
     static write(data, overwrite = false) {
         return new Promise(resolve => {
-            db.realm.write(() =>
-                resolve(db.realm.create(this.schema.name, data, overwrite)),
-            );
+            db.realm.write(() => resolve(db.realm.create(this.schema.name, data, overwrite)));
         });
     }
 
@@ -65,9 +57,7 @@ export class Model {
                     object[property] = this[property];
                 }
                 if (properties[property] === 'date') {
-                    object[property] = moment(this[property]).format(
-                        'hh:mm:ss DD-MM-YYYY',
-                    );
+                    object[property] = moment(this[property]).format('hh:mm:ss DD-MM-YYYY');
                 }
             }
         }

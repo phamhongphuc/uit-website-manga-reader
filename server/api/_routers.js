@@ -11,12 +11,6 @@ import redirectRouter from './routes/redirect';
  * @param {Koa} app
  */
 export default function(app) {
-    [
-        usersRouter,
-        chapterRouter,
-        genreRouter,
-        imageRouter,
-        mangaRouter,
-        redirectRouter,
-    ].forEach(router => app.use(router.routes()));
+    const routers = [usersRouter, chapterRouter, genreRouter, imageRouter, mangaRouter, redirectRouter];
+    routers.forEach(router => app.use(router.routes()));
 }

@@ -7,7 +7,10 @@ const config = {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
             },
-            { hid: 'description', content: 'Auth Routes example' },
+            {
+                hid: 'description',
+                content: 'Auth Routes example',
+            },
         ],
     },
     server: {

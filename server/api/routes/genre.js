@@ -30,7 +30,10 @@ router
     })
     .post('/api/genre', async ctx => {
         const genre = await Genre.create(ctx.request.body);
-        ctx.body = { name: genre.name, description: genre.description };
+        ctx.body = {
+            name: genre.name,
+            description: genre.description,
+        };
     })
     .patch('/api/genre/:name', async ctx => {
         const oldGenre = Genre.getByName(ctx.params.name);
@@ -38,7 +41,10 @@ router
             throw new Error('Thể loại này chưa được tạo');
         }
         const genre = await oldGenre.update(ctx.request.body);
-        ctx.body = { name: genre.name, description: genre.description };
+        ctx.body = {
+            name: genre.name,
+            description: genre.description,
+        };
     })
     .delete('/api/genre/:name', async ctx => {
         const genre = Genre.getByName(ctx.params.name);

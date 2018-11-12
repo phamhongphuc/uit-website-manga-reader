@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
     head: {
         title: 'Auth Routes',
         meta: [
@@ -46,5 +46,3 @@ const config = {
         ],
     ],
 };
-
-export default config;

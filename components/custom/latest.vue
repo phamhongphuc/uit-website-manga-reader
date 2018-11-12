@@ -1,8 +1,6 @@
 <template>
     <div>
-        <h4 class="text-bold px-3">
-            Latest Manga Updates
-        </h4>
+        <h4 class="text-bold px-3">Latest Manga Updates</h4>
         <div class="row m-0 align-items-stretch">
             <book-vertical-
                 v-for="(item, index) in images"

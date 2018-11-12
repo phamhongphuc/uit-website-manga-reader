@@ -1,18 +1,7 @@
 <template>
-    <b-navbar
-        id="navbar"
-        toggleable="md"
-        type="dark"
-        sticky
-        class="p-2 px-md-3 w-100"
-    >
-        <b-navbar-toggle target="header-collapse"/>
-        <b-navbar-brand
-            class="mx-2"
-            to="/"
-        >
-            Manga Scanlation
-        </b-navbar-brand>
+    <b-navbar id="navbar" toggleable="md" type="dark" sticky class="p-2 px-md-3 w-100">
+        <b-navbar-toggle target="header-collapse" />
+        <b-navbar-brand class="mx-2" to="/">Manga Scanlation</b-navbar-brand>
         <!--
             <b-navbar-nav class="text-medium">
                 <b-nav-item
@@ -21,37 +10,20 @@
                 >Thảo Trâm</b-nav-item>
             </b-navbar-nav>
         -->
-        <b-navbar-nav
-            class="search-bar ml-md-auto px-0 px-md-2 align-self-center"
-        >
-            <input
-                type="text"
-                placeholder="Search"
-                class="d-none d-md-block"
-            >
-            <b-nav-item class="icon">
-                
-            </b-nav-item>
+        <b-navbar-nav class="search-bar ml-md-auto px-0 px-md-2 align-self-center">
+            <input type="text" placeholder="Search" class="d-none d-md-block" />
+            <b-nav-item class="icon"></b-nav-item>
         </b-navbar-nav>
-        <b-collapse
-            id="header-collapse"
-            class="px-2 px-md-0"
-            is-nav
-        >
+        <b-collapse id="header-collapse" class="px-2 px-md-0" is-nav>
             <b-navbar-nav class="text-medium">
-                <b-nav-item
-                    to="/profile"
-                    class="profile child-align-items-center"
-                >
+                <b-nav-item to="/profile" class="profile child-align-items-center">
                     <img
                         src="https://github.com/thaotram.png?size=40"
                         height="32"
                         width="32"
                         class="rounded-circle d-block"
-                    >
-                    <span class="d-block d-md-none ml-2 ">
-                        Thảo Trâm
-                    </span>
+                    />
+                    <span class="d-block d-md-none ml-2 ">Thảo Trâm</span>
                 </b-nav-item>
             </b-navbar-nav>
         </b-collapse>

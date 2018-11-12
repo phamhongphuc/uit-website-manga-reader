@@ -1,8 +1,8 @@
 <template>
     <div>
-        <carousel-/>
-        <navbar-/>
-        <nuxt/>
+        <carousel- />
+        <navbar- />
+        <nuxt />
     </div>
 </template>
 

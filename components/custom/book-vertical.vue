@@ -1,20 +1,15 @@
 <template>
-    <nuxt-link
-        to="/"
-        class="p-2 book-vertical"
-    >
+    <nuxt-link to="/" class="p-2 book-vertical">
         <div class="bg-white rounded shadow overflow-hidden d-flex flex-column h-100">
             <img
                 :src="`${ROOT_API}/api/redirect/twitter/image/${item.img}`"
                 class="d-block shadow-sm img-fluid w-100 flex-fill object-fit-cover mh-100"
-            >
+            />
             <div class="p-3">
                 <p class="d-block m-0 text-dark text-nowrap overflow-hidden text-truncate text-bold">
-                    <span> {{ item.name }} </span>
+                    <span>{{ item.name }}</span>
                 </p>
-                <p class="m-0 text-black-50">
-                    Chapter: 69
-                </p>
+                <p class="m-0 text-black-50">Chapter: 69</p>
             </div>
         </div>
     </nuxt-link>

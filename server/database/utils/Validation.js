@@ -74,9 +74,7 @@ export function isGenreNamesValid(genreNames) {
     //     }
     // }
 
-    const isInvalid = genreNames.some(
-        genreName => Genre.getByName(genreName) === undefined,
-    );
+    const isInvalid = genreNames.some(genreName => Genre.getByName(genreName) === undefined);
     if (isInvalid) throw new Error('Tên thể loại không tồn tại');
 }
 

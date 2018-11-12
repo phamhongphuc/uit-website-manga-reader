@@ -57,9 +57,7 @@ class Manga extends Model {
             status: input.status,
             publishedFrom: moment(input.publishedFrom, 'DD-MM-YYYY').toDate(),
             publishedTo: moment(input.publishedTo, 'DD-MM-YYYY').toDate(),
-            genres: input.genreNames.map(genreName =>
-                Genre.getByName(genreName),
-            ),
+            genres: input.genreNames.map(genreName => Genre.getByName(genreName)),
             authors: input.authors,
             description: input.description,
             image: Image.getById(input.imageId),
@@ -89,26 +87,18 @@ class Manga extends Model {
                     this.status = input.status;
                 }
                 if (input.hasOwnProperty('publishedFrom')) {
-                    const publishedFrom = moment(
-                        input.publishedFrom,
-                        'DD-MM-YYYY',
-                    ).toDate();
+                    const publishedFrom = moment(input.publishedFrom, 'DD-MM-YYYY').toDate();
                     isDateValid(publishedFrom);
                     this.publishedFrom = publishedFrom;
                 }
                 if (input.hasOwnProperty('publishedTo')) {
-                    const publishedTo = moment(
-                        input.publishedTo,
-                        'DD-MM-YYYY',
-                    ).toDate();
+                    const publishedTo = moment(input.publishedTo, 'DD-MM-YYYY').toDate();
                     isDateValid(publishedTo);
                     this.publishedTo = publishedTo;
                 }
                 if (input.hasOwnProperty('genres')) {
                     isGenreNamesValid(input.genreNames);
-                    this.genres = input.genreNames.map(genreName =>
-                        Genre.getByName(genreName),
-                    );
+                    this.genres = input.genreNames.map(genreName => Genre.getByName(genreName));
                 }
                 if (input.hasOwnProperty('authors')) {
                     isAuthorsValid(input.authors);

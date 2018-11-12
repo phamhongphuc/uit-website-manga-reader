@@ -12,7 +12,9 @@
         "plugin:vue/recommended",
         "plugin:node/recommended",
         "plugin:import/warnings",
-        "plugin:import/errors"
+        "plugin:import/errors",
+        "plugin:prettier/recommended",
+        "prettier/vue"
     ],
     "parser": "vue-eslint-parser",
     "parserOptions": {
@@ -41,33 +43,14 @@
         "semi": ["error", "always"],
         "space-before-function-paren": [
             "error",
-            { "anonymous": "never", "named": "never", "asyncArrow": "always" }
+            {
+                "anonymous": "never",
+                "named": "never",
+                "asyncArrow": "always"
+            }
         ],
         "node/no-unsupported-features/es-syntax": "off",
         "import/prefer-default-export": "off",
-        "vue/html-indent": ["error", 4],
-        "vue/max-attributes-per-line": [
-            "error",
-            {
-                "singleline": 1,
-                "multiline": { "max": 1, "allowFirstLine": false }
-            }
-        ],
-        "vue/html-closing-bracket-newline": [
-            "error",
-            { "singleline": "never", "multiline": "always" }
-        ],
-        "vue/html-closing-bracket-spacing": [
-            "error",
-            {
-                "startTag": "never",
-                "endTag": "never",
-                "selfClosingTag": "never"
-            }
-        ],
-        "vue/singleline-html-element-content-newline": [
-            "error",
-            { "ignoreWhenNoAttributes": true, "ignores": ["pre", "textarea"] }
-        ]
+        "vue/html-indent": ["error", 4]
     }
 }

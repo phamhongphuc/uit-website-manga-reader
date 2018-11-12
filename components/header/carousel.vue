@@ -1,17 +1,6 @@
 <template>
-    <b-carousel
-        id="carousel"
-        ref="123"
-        :interval="7000"
-        class="overflow-hidden carousel-fade"
-        controls
-        indicators
-    >
-        <b-carousel-slide
-            v-for="i in 2"
-            :key="i"
-            :img-src="`/img/carousel/${i}.jpg`"
-        />
+    <b-carousel id="carousel" :interval="7000" class="overflow-hidden carousel-fade" controls indicators>
+        <b-carousel-slide v-for="i in 2" :key="i" :img-src="`/img/carousel/${i}.jpg`" />
     </b-carousel>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
     <div id="header">
-        <carousel-/>
-        <navbar-/>
+        <carousel- />
+        <navbar- />
     </div>
 </template>
 <script>

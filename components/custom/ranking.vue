@@ -1,21 +1,12 @@
 <template>
     <div id="ranking">
-        <h4 class="text-bold px-3">
-            Ranking
-        </h4>
+        <h4 class="text-bold px-3">Ranking</h4>
         <b-tabs class="text-medium m-2">
-            <b-tab
-                title="Day"
-                active
-            >
-                <book-horizontal-
-                    v-for="(item, index) in images"
-                    :key="index"
-                    :item="item"
-                />
+            <b-tab title="Day" active>
+                <book-horizontal- v-for="(item, index) in images" :key="index" :item="item" />
             </b-tab>
-            <b-tab title="Week"/>
-            <b-tab title="Month"/>
+            <b-tab title="Week" />
+            <b-tab title="Month" />
         </b-tabs>
     </div>
 </template>

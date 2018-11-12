@@ -7,14 +7,17 @@ const config = {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1',
             },
-            { hid: 'description', content: 'Auth Routes example' },
+            {
+                hid: 'description',
+                content: 'Auth Routes example',
+            },
         ],
     },
     server: {
         port: 8080,
     },
     env: {
-        ROOT_API: process.env.ROOT_API || 'http://localhost:3000',
+        ROOT_API: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '',
     },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {

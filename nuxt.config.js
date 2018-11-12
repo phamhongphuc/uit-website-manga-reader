@@ -13,6 +13,7 @@ const config = {
             },
         ],
     },
+    srcDir: 'client/',
     server: {
         port: 8080,
     },
@@ -45,9 +46,5 @@ const config = {
         ],
     ],
 };
-
-if (process.env.NODE_ENV !== 'development') {
-    config.serverMiddleware = ['~/server/api'];
-}
 
 export default config;

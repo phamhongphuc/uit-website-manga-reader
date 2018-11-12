@@ -27,7 +27,7 @@
         "import/resolver": {
             "babel-plugin-root-import": {
                 "rootPathPrefix": "~",
-                "rootPathSuffix": ""
+                "rootPathSuffix": "client"
             }
         }
     },

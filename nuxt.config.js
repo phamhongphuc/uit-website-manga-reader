@@ -12,6 +12,7 @@ module.exports = {
                 content: 'Auth Routes example',
             },
         ],
+        link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico' }],
     },
     srcDir: 'client/',
     server: {

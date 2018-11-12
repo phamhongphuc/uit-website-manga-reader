@@ -23,7 +23,7 @@
                         width="32"
                         class="rounded-circle d-block"
                     />
-                    <span class="d-block d-md-none ml-2 ">Thảo Trâm</span>
+                    <span class="d-block d-md-none ml-2">Thảo Trâm</span>
                 </b-nav-item>
             </b-navbar-nav>
         </b-collapse>

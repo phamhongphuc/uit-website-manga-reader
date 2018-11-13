@@ -4,7 +4,7 @@
             class="position-absolute shadow shadow-back rounded bg-white mt-3 ml-3 h-100 t-0 col overflow-hidden p-2"
         />
         <div class="col-8 col-xl-7 p-0 shadow overflow-hidden rounded img-container">
-            <img :src="`${ROOT_API}/api/redirect/twitter/image/${item.img}`" class="d-block img-fluid w-100" />
+            <img :src="`${SERVER_API}/api/redirect/twitter/image/${item.img}`" class="d-block img-fluid w-100" />
         </div>
 
         <div class="col mt-4 overflow-hidden pl-3 pr-0">
@@ -28,7 +28,7 @@ export default {
     },
     data() {
         return {
-            ROOT_API: process.env.ROOT_API,
+            SERVER_API: process.env.SERVER_API,
         };
     },
 };

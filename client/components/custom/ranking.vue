@@ -35,7 +35,6 @@ export default {
                     name: 'Isekai Nonbiri Nouka',
                 },
             ],
-            ROOT_API: process.env.ROOT_API,
         };
     },
 };

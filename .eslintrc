@@ -39,8 +39,6 @@
         "no-lonely-if": "error",
         "prefer-const": "error",
         "camelcase": "error",
-        "comma-dangle": ["error", "always-multiline"],
-        "semi": ["error", "always"],
         "space-before-function-paren": [
             "error",
             {

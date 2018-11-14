@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
-        "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "experimentalDecorators": true,
         "module": "commonjs",
         "noImplicitAny": true,
-        "paths": { "~/*": ["./*"] },
+        "paths": {
+            "~/*": ["./*"]
+        },
         "sourceMap": true,
         "strict": true,
         "target": "ES6"

@@ -49,6 +49,8 @@
         "zhuangtongfa.Material-theme",
         // Path Autocomplete
         "ionutvmi.path-autocomplete",
+        //? Path Intellisense >> ERROR
+        //? "christian-kohler.path-intellisense",
         // Promise snippets
         "progre.promise-snippets",
         // Rainbow Brackets

@@ -7,5 +7,12 @@
             "path": "node_modules\\bootstrap\\scss"
         }
     ],
-    "settings": {}
+    "settings": {
+        "prettier.disableLanguages": [],
+        "path-autocomplete.pathMappings": {
+            "~": "${folder}/client"
+        },
+        "javascript.suggest.paths": false,
+        "typescript.suggest.paths": false
+    }
 }

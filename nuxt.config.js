@@ -20,22 +20,12 @@ module.exports = {
     },
     env: {
         SERVER_API: (() => {
-            return process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';
+            return process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'generation'
+                ? 'http://localhost:3000'
+                : '';
         })(),
     },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
-    build: {
-        extend(config, ctx) {
-            if (ctx.isDev && ctx.isClient) {
-                config.module.rules.push({
-                    enforce: 'pre',
-                    test: /\.(js|vue)$/,
-                    loader: 'eslint-loader',
-                    exclude: /(node_modules)/,
-                });
-            }
-        },
-    },
     modules: [
         ['bootstrap-vue/nuxt', { css: false }],
         [
@@ -48,4 +38,19 @@ module.exports = {
             ],
         ],
     ],
+    build: {
+        extend(config, ctx) {
+            if (ctx.isDev && ctx.isClient) {
+                config.module.rules.push({
+                    enforce: 'pre',
+                    test: /\.(js|vue)$/,
+                    loader: 'eslint-loader',
+                    exclude: /(node_modules)/,
+                });
+            }
+        },
+    },
+    // generate: {
+    //     routes: ['/users/1', '/users/2', '/users/3'],
+    // },
 };

@@ -27,7 +27,7 @@
         "import/resolver": {
             "babel-plugin-root-import": {
                 "rootPathPrefix": "~",
-                "rootPathSuffix": ""
+                "rootPathSuffix": "client"
             }
         }
     },
@@ -39,8 +39,6 @@
         "no-lonely-if": "error",
         "prefer-const": "error",
         "camelcase": "error",
-        "comma-dangle": ["error", "always-multiline"],
-        "semi": ["error", "always"],
         "space-before-function-paren": [
             "error",
             {

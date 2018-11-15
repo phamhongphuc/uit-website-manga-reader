@@ -34,8 +34,6 @@
 export default {};
 </script>
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-
 #navbar {
     background-color: $body-color;
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.4);

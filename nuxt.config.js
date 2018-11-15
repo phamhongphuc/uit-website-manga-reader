@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
     head: {
         title: 'Auth Routes',
         meta: [
@@ -12,12 +12,16 @@ const config = {
                 content: 'Auth Routes example',
             },
         ],
+        link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico' }],
     },
+    srcDir: 'client/',
     server: {
         port: 8080,
     },
     env: {
-        ROOT_API: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '',
+        SERVER_API: (() => {
+            return process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';
+        })(),
     },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     build: {
@@ -45,9 +49,3 @@ const config = {
         ],
     ],
 };
-
-if (process.env.NODE_ENV !== 'development') {
-    config.serverMiddleware = ['~/server/api'];
-}
-
-export default config;

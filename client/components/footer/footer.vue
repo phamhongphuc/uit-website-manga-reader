@@ -1,0 +1,68 @@
+<template>
+    <div id="footer" class="mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div>
+                    <div class="logo">Manga Scanlation</div>
+                    <p class="mb-0">
+                        This website is a project by
+                        <u><a href="https://github.com/thaotram/">Thảo Trâm</a></u>
+                    </p>
+                </div>
+                <div>
+                    <div class="footer-link d-flex align-items-center ml-auto">
+                        <a href="#" class="icon"></a>
+                        <a href="#">About Us</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    components: {},
+    mounted() {},
+};
+</script>
+<style lang="scss">
+#footer {
+    background-color: $body-color;
+    color: rgba(white, 0.7);
+
+    p,
+    a {
+        opacity: 0.7;
+        color: rgba(white, 0.7);
+    }
+
+    .logo {
+        font-family: 'Pacifico', cursive;
+        font-size: 1.4em;
+    }
+
+    .icon {
+        font-size: 1.4em;
+    }
+
+    .footer-link {
+        > a {
+            display: block;
+            margin-left: 20px;
+        }
+    }
+}
+
+.manga-scanlation {
+    margin-top: 10px;
+    width: 400px;
+
+    path {
+        fill: rgba(white, 0.2);
+        stroke: rgba(white, 0.5);
+        stroke-miterlimit: 10;
+        stroke-width: 0.8px;
+    }
+}
+</style>

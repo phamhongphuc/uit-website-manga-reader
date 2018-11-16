@@ -19,10 +19,13 @@ module.exports = {
         port: 8080,
     },
     env: {
-        SERVER_API: (() => {
+        DATA_API: (() => {
             return process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'generation'
                 ? 'http://localhost:3000'
                 : '';
+        })(),
+        REDIRECT_API: (() => {
+            return process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';
         })(),
     },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],

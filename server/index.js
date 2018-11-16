@@ -38,6 +38,10 @@ const PORT = process.env.PORT || 3000;
             try {
                 await generate.generate();
                 console.log('Nuxt generated');
+
+                redirects();
+                console.log('Redirects generated');
+
                 process.exit(0);
             } catch (e) {
                 console.log(e);
@@ -46,3 +50,25 @@ const PORT = process.env.PORT || 3000;
         }
     });
 })();
+
+function redirects() {
+    const fs = require('fs');
+
+    const imageIds = [
+        'DrMpC5CXcAApzT7',
+        'DrLSOhtXcAYJPI8',
+        `DrMqUOwXgAAQovd`,
+        `DrEcwc4W4AI7UPh`,
+        `DrEbaS9X4AAN4j3`,
+        `DrASKcjWsAA4Dji`,
+        `Dq9Dz60XQAA2KPq`,
+        `Dq9C6GvWsAM3jDD`,
+        `DqaHFAgX4AAipnm`,
+    ];
+
+    const content = imageIds
+        .map(imageId => `/api/redirect/twitter/image/${imageId} https://pbs.twimg.com/media/${imageId}?format=jpg`)
+        .join('\n');
+
+    fs.writeFileSync('dist/_redirects', content);
+}

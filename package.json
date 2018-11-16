@@ -14,7 +14,7 @@
         "build:server": "babel server -d build",
         "build": "run-s build:*",
         "start": "node build/index.js",
-        "generate": "nuxt generate",
+        "generate": "cross-env NODE_ENV=generation babel-node server/index",
         "prettier:fix": "prettier ** --write",
         "lint:js": "eslint --ext .* .",
         "lint:css": "stylelint **/*.{vue,scss}",

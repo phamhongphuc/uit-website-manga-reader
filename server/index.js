@@ -1,7 +1,8 @@
+/* eslint-disable no-process-exit */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import Koa from 'koa';
-import { Nuxt, Builder } from 'nuxt';
+import { Nuxt, Builder, Generator } from 'nuxt';
 import database from './database/database';
 import routes from './api/_routers';
 import middleware from './api/_middleware';
@@ -21,11 +22,6 @@ const PORT = process.env.PORT || 3000;
 
     const nuxt = new Nuxt(config);
 
-    // if (config.dev) {
-    //     const builder = new Builder(nuxt);
-    //     await builder.build();
-    // }
-
     app.use(ctx => {
         ctx.status = 200;
         ctx.respond = false;
@@ -33,7 +29,20 @@ const PORT = process.env.PORT || 3000;
         nuxt.render(ctx.req, ctx.res);
     });
 
-    app.listen(PORT, HOST, () => {
+    app.listen(PORT, HOST, async () => {
         console.log(`Server is running on port ${PORT}!`);
+
+        if (process.env.NODE_ENV === 'generation') {
+            const builder = new Builder(nuxt);
+            const generate = new Generator(nuxt, builder);
+            try {
+                await generate.generate();
+                console.log('Nuxt generated');
+                process.exit(0);
+            } catch (e) {
+                console.log(e);
+                process.exit(1);
+            }
+        }
     });
 })();

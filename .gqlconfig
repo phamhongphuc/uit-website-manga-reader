@@ -2,7 +2,6 @@
     "schema": {
         "files": "server/**/*.gql"
     },
-    "schemaPath": "server/graphql/typeDefs/schema.gql",
     "query": {
         "files": [
             {

@@ -1,0 +1,20 @@
+{
+    "schema": {
+        "files": "server/**/*.gql"
+    },
+    "schemaPath": "server/graphql/typeDefs/schema.gql",
+    "query": {
+        "files": [
+            {
+                "match": "client/**/*.js",
+                "parser": ["EmbeddedQueryParser", { "startTag": "gql`", "endTag": "`" }],
+                "isRelay": true
+            },
+            {
+                "match": "client/**/*.vue",
+                "parser": ["EmbeddedQueryParser", { "startTag": "gql`", "endTag": "`" }],
+                "isRelay": true
+            }
+        ]
+    }
+}

@@ -6,6 +6,8 @@ import { Nuxt, Builder, Generator } from 'nuxt';
 import database from './database/database';
 import routes from './api/_routers';
 import middleware from './api/_middleware';
+import graphql from './graphql/_graphql';
+
 import config from '../nuxt.config';
 
 config.dev = process.env.NODE_ENV === 'development';
@@ -19,6 +21,7 @@ const PORT = process.env.PORT || 3000;
     await database();
     middleware(app);
     routes(app);
+    graphql(app);
 
     const nuxt = new Nuxt(config);
 

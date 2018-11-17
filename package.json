@@ -67,6 +67,7 @@
         "@playlyfe/gql": "^2.6.0",
         "@types/node": "^10.12.9",
         "babel-eslint": "^10.0.1",
+        "babel-plugin-import-graphql": "^2.6.2",
         "babel-plugin-root-import": "^6.1.0",
         "cross-env": "^5.2.0",
         "eslint": "^5.9.0",

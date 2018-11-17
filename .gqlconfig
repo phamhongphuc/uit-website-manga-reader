@@ -1,0 +1,19 @@
+{
+    "schema": {
+        "files": "server/**/*.gql"
+    },
+    "query": {
+        "files": [
+            {
+                "match": "client/**/*.js",
+                "parser": ["EmbeddedQueryParser", { "startTag": "gql`", "endTag": "`" }],
+                "isRelay": true
+            },
+            {
+                "match": "client/**/*.vue",
+                "parser": ["EmbeddedQueryParser", { "startTag": "gql`", "endTag": "`" }],
+                "isRelay": true
+            }
+        ]
+    }
+}

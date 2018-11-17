@@ -1,3 +1,8 @@
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isGeneration = process.env.NODE_ENV === 'generation';
+const DATA_API = isDevelopment || isGeneration ? 'http://localhost:3000' : '';
+const REDIRECT_API = isDevelopment ? 'http://localhost:3000' : '';
+
 module.exports = {
     head: {
         title: 'Auth Routes',
@@ -18,18 +23,10 @@ module.exports = {
     server: {
         port: 8080,
     },
-    env: {
-        DATA_API: (() => {
-            return process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'generation'
-                ? 'http://localhost:3000'
-                : '';
-        })(),
-        REDIRECT_API: (() => {
-            return process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';
-        })(),
-    },
+    env: { DATA_API, REDIRECT_API },
     css: [{ src: '~/assets/scss/main.scss', lang: 'scss' }],
     modules: [
+        '@nuxtjs/apollo',
         ['bootstrap-vue/nuxt', { css: false }],
         [
             'nuxt-sass-resources-loader',
@@ -41,6 +38,13 @@ module.exports = {
             ],
         ],
     ],
+    apollo: {
+        clientConfigs: {
+            default: {
+                httpEndpoint: `${DATA_API}/api/graphql`,
+            },
+        },
+    },
     build: {
         extend(config, ctx) {
             if (ctx.isDev && ctx.isClient) {

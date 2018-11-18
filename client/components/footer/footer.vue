@@ -29,12 +29,11 @@ export default {
 <style lang="scss">
 #footer {
     background-color: $body-color;
-    color: rgba(white, 0.7);
 
+    div,
     p,
     a {
-        opacity: 0.7;
-        color: rgba(white, 0.7);
+        color: rgba(white, 0.4);
     }
 
     .logo {
@@ -57,12 +56,5 @@ export default {
 .manga-scanlation {
     margin-top: 10px;
     width: 400px;
-
-    path {
-        fill: rgba(white, 0.2);
-        stroke: rgba(white, 0.5);
-        stroke-miterlimit: 10;
-        stroke-width: 0.8px;
-    }
 }
 </style>

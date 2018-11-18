@@ -6,7 +6,7 @@
             <div slot="default" class="container pt-2 pb-5 h-100 d-flex">
                 <div class="carousel-box position-relative h-100">
                     <img src="~/assets/img/box.png" class="h-100" style="opacity: 0.4" />
-                    <div class="px-6 py-4 h-100 position-absolute overflow-hidden flex-column d-flex t-0">
+                    <div class="px-5 py-4 h-100 position-absolute overflow-hidden flex-column d-flex t-0">
                         <div class="carousel-title">{{ content.title }}</div>
                         <div class="carousel-synopsis"><line-clamp- :content="content.synopsis"></line-clamp-></div>
                     </div>
@@ -57,12 +57,13 @@ export default {
     text-align: left;
     bottom: 0;
     top: 0;
-    // padding: 15px 0;
 }
 
 .carousel-box {
     position: absolute;
     overflow: hidden;
+    margin-right: calc(#{$grid-gutter-width / -2} - 1rem);
+    margin-left: calc(#{$grid-gutter-width / -2} - 1rem);
 
     .carousel-title {
         font-size: 1.5rem;

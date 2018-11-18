@@ -1,7 +1,7 @@
 <template>
     <div>
-        <carousel- />
         <navbar- />
+        <carousel- />
         <nuxt />
         <footer- />
     </div>

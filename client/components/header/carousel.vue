@@ -1,11 +1,11 @@
 <template>
-    <b-carousel id="carousel" :interval="7000" class="overflow-hidden carousel-fade shadow" controls indicators>
+    <b-carousel id="carousel" :interval="7000" class="overflow-hidden carousel-fade shadow" indicators>
         <b-carousel-slide v-for="(content, index) in contents" :key="index">
-            <img slot="img" :src="content.background" class="img-fluid w-100 d-block object-fit-cover" />
+            <img slot="img" :src="content.background" class="img-fluid d-block object-fit-cover carousel-background" />
 
-            <div slot="default" class="container pt-2 pb-5 h-100 d-flex">
+            <div slot="default" class="container pt-2 pb-6 h-100 d-flex">
                 <div class="carousel-box position-relative h-100">
-                    <img src="~/assets/img/box.png" class="h-100" style="opacity: 0.4" />
+                    <img src="~/assets/img/box.png" class="h-100 carousel-box-image" />
                     <div class="px-5 py-4 h-100 position-absolute overflow-hidden flex-column d-flex t-0">
                         <div class="carousel-title">{{ content.title }}</div>
                         <div class="carousel-synopsis"><line-clamp- :content="content.synopsis"></line-clamp-></div>
@@ -37,23 +37,19 @@ export default {
 };
 </script>
 <style lang="scss">
-@each $breakpoint, $value in $map-breakpoints {
-    @include media-breakpoint-only($breakpoint) {
-        #carousel,
-        .carousel-caption {
-            min-height: #{200 + $value * 40}px;
-            max-height: #{200 + $value * 40}px;
-        }
-        .carousel-item > img {
-            height: #{200 + $value * 40}px;
-        }
-    }
+.carousel-box-image {
+    opacity: 0.4;
+}
+
+.carousel-background {
+    width: 100%;
 }
 
 .carousel-caption {
     @include make-container();
     @include make-container-max-widths();
 
+    color: $body-color;
     text-align: left;
     bottom: 0;
     top: 0;
@@ -66,16 +62,49 @@ export default {
     margin-left: calc(#{$grid-gutter-width / -2} - 1rem);
 
     .carousel-title {
-        font-size: 1.5rem;
+        font-size: $h4-font-size;
         font-weight: 900;
-        color: $body-color;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     .carousel-synopsis {
-        color: $body-color;
         font-weight: 500;
-        padding: 0;
-        flex: 1;
         overflow: hidden;
+    }
+}
+
+@include media-breakpoint-only(xs) {
+    .carousel-caption {
+        background-color: rgba(white, 0.5);
+        // background-image: linear-gradient(to bottom, $body-color 0%, transparent 50%);
+    }
+
+    .carousel-box {
+        width: 100%;
+    }
+
+    .carousel-box-image {
+        opacity: 0;
+    }
+}
+
+@each $breakpoint, $lines in (xs: 5, sm: 4, md: 5, lg: 5, xl: 6) {
+    $rem-height: map-get($spacers, 2) +
+        map-get($spacers, 6) +
+        map-get($spacers, 4) *
+        2 +
+        $h4-font-size *
+        $line-height-base +
+        $font-size-base *
+        $line-height-base *
+        $lines;
+    @include media-breakpoint-only($breakpoint) {
+        #carousel,
+        .carousel-caption,
+        .carousel-item > img {
+            height: calc(20px * 2 + #{$rem-height});
+        }
     }
 }
 </style>

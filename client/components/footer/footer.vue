@@ -4,7 +4,7 @@
             <div class="container py-3">
                 <div class="row">
                     <div class="col-24">
-                        <div class="logo">Ai Scanlation</div>
+                        <div class="logo font-pacifico">Ai Scanlation</div>
                         <p class="mb-0">Scanlation will last as long as there are those willing to do it.</p>
                     </div>
                 </div>
@@ -43,7 +43,6 @@ export default {
         color: map-get($theme-colors, semi-light);
     }
     .logo {
-        font-family: 'Pacifico', cursive;
         font-size: 1.4em;
     }
 

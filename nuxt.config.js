@@ -1,7 +1,8 @@
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isGeneration = process.env.NODE_ENV === 'generation';
-const DATA_API = isDevelopment || isGeneration ? 'http://localhost:3000' : '';
-const REDIRECT_API = isDevelopment ? 'http://localhost:3000' : '';
+const LOCALHOST = `http://localhost:3000`;
+const DATA_API = isDevelopment || isGeneration ? LOCALHOST : '';
+const REDIRECT_API = isDevelopment ? LOCALHOST : '';
 
 module.exports = {
     head: {
@@ -41,7 +42,7 @@ module.exports = {
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: `${DATA_API}/api/graphql`,
+                httpEndpoint: `${process.env.HTTP_ENDPOINT || LOCALHOST}/api/graphql`,
             },
         },
     },

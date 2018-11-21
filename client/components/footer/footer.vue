@@ -1,20 +1,26 @@
 <template>
     <div id="footer" class="mt-5">
-        <div class="container py-4">
-            <div class="row">
-                <div>
-                    <div class="logo">Manga Scanlation</div>
-                    <p class="mb-0">
-                        This website is a project by
-                        <u><a href="https://github.com/thaotram/">Thảo Trâm</a></u>
-                    </p>
-                </div>
-                <div>
-                    <div class="footer-link d-flex align-items-center ml-auto">
-                        <a href="#" class="icon"></a>
-                        <a href="#">About Us</a>
-                        <a href="#">Privacy</a>
+        <div>
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-24">
+                        <div class="logo">Ai Scanlation</div>
+                        <p class="mb-0">Scanlation will last as long as there are those willing to do it.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-black-3 bottom">
+            <div class="container py-2 d-flex flex-wrap">
+                <div class="d-inline-flex flex-wrap n-ml-2">
+                    <a href="#">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Feedback</a>
+                </div>
+                <div class="d-inline-flex flex-wrap ml-auto n-mr-2">
+                    <a href="#" class="icon ml-auto"></a>
+                    <a href="#" class="icon"></a>
                 </div>
             </div>
         </div>
@@ -29,32 +35,29 @@ export default {
 <style lang="scss">
 #footer {
     background-color: $body-color;
+    font-weight: lighter;
 
     div,
     p,
     a {
-        color: rgba(white, 0.4);
+        color: map-get($theme-colors, semi-light);
     }
-
     .logo {
         font-family: 'Pacifico', cursive;
         font-size: 1.4em;
     }
 
-    .icon {
-        font-size: 1.4em;
-    }
-
-    .footer-link {
-        > a {
+    .bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        a {
             display: block;
-            margin-left: 20px;
+            line-height: 2rem;
+            font-size: 0.875em;
+            margin: 0 map-get($spacers, 2);
+            &.icon {
+                font-size: 1.375em;
+            }
         }
     }
-}
-
-.manga-scanlation {
-    margin-top: 10px;
-    width: 400px;
 }
 </style>

@@ -1,5 +1,7 @@
 # uit.open.source.project
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c96d87ae823949288a5a5221ffae817c)](https://app.codacy.com/app/phamhongphuc.info/uit.open.source.project?utm_source=github.com&utm_medium=referral&utm_content=phamhongphuc/uit.open.source.project&utm_campaign=Badge_Grade_Dashboard)
+
 > Nuxt.js project
 
 ## Build Setup

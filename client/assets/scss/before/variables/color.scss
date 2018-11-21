@@ -4,9 +4,10 @@ $body-color: #212529;
 $light: #f8f9fa;
 $dark: #212529;
 
+$dribbble-color: #ea4c89;
+$facebook-color: #4267b2;
+
 $theme-colors: (
-    'black-1': rgba(black, 0.1),
-    'black-2': rgba(black, 0.2),
-    'black-3': rgba(black, 0.3),
-    'semi-light': #7a7c7f,
+    'darker': darken($dark, 5),
+    'semi-light': mix($dark, white, 60%),
 );

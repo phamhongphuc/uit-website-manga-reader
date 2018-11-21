@@ -1,6 +1,6 @@
 <template>
     <div id="footer" class="mt-5">
-        <div>
+        <div class="bg-dark">
             <div class="container py-3">
                 <div class="row">
                     <div class="col-24">
@@ -10,31 +10,27 @@
                 </div>
             </div>
         </div>
-        <div class="bg-black-3 bottom">
+        <div class="bottom bg-darker">
             <div class="container py-2 d-flex flex-wrap">
-                <div class="d-inline-flex flex-wrap n-ml-2">
+                <div class="d-inline-flex flex-wrap nml-2">
                     <a href="#">About</a>
                     <a href="#">Privacy</a>
                     <a href="#">Contact</a>
                     <a href="#">Feedback</a>
                 </div>
-                <div class="d-inline-flex flex-wrap ml-auto n-mr-2">
-                    <a href="#" class="icon ml-auto"></a>
-                    <a href="#" class="icon"></a>
+                <div class="d-inline-flex flex-wrap ml-auto nmr-2">
+                    <a href="#" class="dribbble icon ml-auto"></a>
+                    <a href="#" class="facebook icon"></a>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-export default {
-    components: {},
-    mounted() {},
-};
+export default {};
 </script>
 <style lang="scss">
 #footer {
-    background-color: $body-color;
     font-weight: lighter;
 
     div,
@@ -42,8 +38,34 @@ export default {
     a {
         color: map-get($theme-colors, semi-light);
     }
+
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
+    a.icon {
+        transition: transform 0.7s, color 0.5s;
+    }
+    a.icon:hover {
+        transform: rotate(360deg);
+    }
+
+    a.dribbble:hover {
+        color: $dribbble-color;
+    }
+
+    a.facebook:hover {
+        color: $facebook-color;
+    }
+
     .logo {
         font-size: 1.4em;
+    }
+
+    .top-footer {
+        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+        width: calc(100% + 10px);
+        margin: 0 -5px -5px;
     }
 
     .bottom {

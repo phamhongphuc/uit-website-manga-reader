@@ -42,23 +42,23 @@
 
         @each $prop, $abbrev in (margin: m, padding: p) {
             @each $size, $length in $spacers {
-                .n-#{$abbrev}#{$infix}-#{$size} {
+                .n#{$abbrev}#{$infix}-#{$size} {
                     #{$prop}: $length * -1 !important;
                 }
-                .n-#{$abbrev}t#{$infix}-#{$size},
-                .n-#{$abbrev}y#{$infix}-#{$size} {
+                .n#{$abbrev}t#{$infix}-#{$size},
+                .n#{$abbrev}y#{$infix}-#{$size} {
                     #{$prop}-top: $length * -1 !important;
                 }
-                .n-#{$abbrev}r#{$infix}-#{$size},
-                .n-#{$abbrev}x#{$infix}-#{$size} {
+                .n#{$abbrev}r#{$infix}-#{$size},
+                .n#{$abbrev}x#{$infix}-#{$size} {
                     #{$prop}-right: $length * -1 !important;
                 }
-                .n-#{$abbrev}b#{$infix}-#{$size},
-                .n-#{$abbrev}y#{$infix}-#{$size} {
+                .n#{$abbrev}b#{$infix}-#{$size},
+                .n#{$abbrev}y#{$infix}-#{$size} {
                     #{$prop}-bottom: $length * -1 !important;
                 }
-                .n-#{$abbrev}l#{$infix}-#{$size},
-                .n-#{$abbrev}x#{$infix}-#{$size} {
+                .n#{$abbrev}l#{$infix}-#{$size},
+                .n#{$abbrev}x#{$infix}-#{$size} {
                     #{$prop}-left: $length * -1 !important;
                 }
             }

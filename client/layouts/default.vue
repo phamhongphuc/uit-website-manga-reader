@@ -1,16 +1,16 @@
 <template>
     <div>
+        <navbar- />
         <nuxt />
         <footer- />
     </div>
 </template>
 
 <script>
-import footer from '~/components/footer/footer.vue';
-
 export default {
     components: {
-        'footer-': footer,
+        'footer-': () => import('~/components/footer/footer.vue'),
+        'navbar-': () => import('~/components/header/navbar.vue'),
     },
 };
 </script>

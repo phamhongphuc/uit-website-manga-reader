@@ -12,7 +12,7 @@ router.get('/api/users', ctx => {
 
 /* GET user by ID. */
 router.get('/api/users/:id', ctx => {
-    const id = parseInt(ctx.params.id);
+    const id = parseInt(ctx.params.id, 10);
     if (id >= 0 && id < users.length) {
         ctx.body = users[id];
     } else {

@@ -2,7 +2,7 @@
     <nuxt-link to="/" class="p-2 book-vertical">
         <div class="bg-white rounded shadow overflow-hidden d-flex flex-column h-100">
             <img
-                :src="`${SERVER_API}/api/redirect/twitter/image/${item.img}`"
+                :src="`${REDIRECT_API}/api/redirect/twitter/image/${item.img}`"
                 class="d-block shadow-sm img-fluid w-100 flex-fill object-fit-cover mh-100"
             />
             <div class="p-3">
@@ -25,7 +25,7 @@ export default {
     },
     data() {
         return {
-            SERVER_API: process.env.SERVER_API,
+            REDIRECT_API: process.env.REDIRECT_API,
         };
     },
 };

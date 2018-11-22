@@ -1,68 +1,84 @@
 <template>
     <div id="footer" class="mt-5">
-        <div class="container py-4">
-            <div class="row">
-                <div>
-                    <div class="logo">Manga Scanlation</div>
-                    <p class="mb-0">
-                        This website is a project by
-                        <u><a href="https://github.com/thaotram/">Thảo Trâm</a></u>
-                    </p>
-                </div>
-                <div>
-                    <div class="footer-link d-flex align-items-center ml-auto">
-                        <a href="#" class="icon"></a>
-                        <a href="#">About Us</a>
-                        <a href="#">Privacy</a>
+        <div class="bg-dark">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-24">
+                        <div class="logo font-pacifico">Ai Scanlation</div>
+                        <p class="mb-0">Scanlation will last as long as there are those willing to do it.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom bg-darker">
+            <div class="container py-2 d-flex flex-wrap">
+                <div class="d-inline-flex flex-wrap nml-2">
+                    <a href="#">About</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Feedback</a>
+                </div>
+                <div class="d-inline-flex flex-wrap ml-auto nmr-2">
+                    <a href="#" class="dribbble icon ml-auto"></a>
+                    <a href="#" class="facebook icon"></a>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-export default {
-    components: {},
-    mounted() {},
-};
+export default {};
 </script>
 <style lang="scss">
 #footer {
-    background-color: $body-color;
-    color: rgba(white, 0.7);
+    font-weight: lighter;
 
+    div,
     p,
     a {
-        opacity: 0.7;
-        color: rgba(white, 0.7);
+        color: map-get($theme-colors, semi-light);
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
+    a.icon {
+        transition: transform 0.7s, color 0.5s;
+    }
+    a.icon:hover {
+        transform: rotate(360deg);
+    }
+
+    a.dribbble:hover {
+        color: $dribbble-color;
+    }
+
+    a.facebook:hover {
+        color: $facebook-color;
     }
 
     .logo {
-        font-family: 'Pacifico', cursive;
         font-size: 1.4em;
     }
 
-    .icon {
-        font-size: 1.4em;
+    .top-footer {
+        filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+        width: calc(100% + 10px);
+        margin: 0 -5px -5px;
     }
 
-    .footer-link {
-        > a {
+    .bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        a {
             display: block;
-            margin-left: 20px;
+            line-height: 2rem;
+            font-size: 0.875em;
+            margin: 0 map-get($spacers, 2);
+            &.icon {
+                font-size: 1.375em;
+            }
         }
-    }
-}
-
-.manga-scanlation {
-    margin-top: 10px;
-    width: 400px;
-
-    path {
-        fill: rgba(white, 0.2);
-        stroke: rgba(white, 0.5);
-        stroke-miterlimit: 10;
-        stroke-width: 0.8px;
     }
 }
 </style>

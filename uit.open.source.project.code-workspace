@@ -13,6 +13,9 @@
             "~": "${folder}/client"
         },
         "javascript.suggest.paths": false,
-        "typescript.suggest.paths": false
+        "typescript.suggest.paths": false,
+        "stylelint.configOverrides": {
+            "ignoreFiles": "**/bootstrap/scss/**"
+        }
     }
 }

@@ -1,29 +1,75 @@
 <template>
-    <b-navbar id="navbar" toggleable="md" type="dark" sticky class="p-2 px-md-3 w-100">
+    <b-navbar
+        id="navbar"
+        toggleable="md"
+        type="dark"
+        class="bg-darker pb-0 py-md-0 px-md-2"
+        :class="{ 'on-top': isScrollTop }"
+        sticky
+    >
         <b-navbar-toggle target="header-collapse" />
-        <b-navbar-brand class="mx-2" to="/">Manga Scanlation</b-navbar-brand>
+        <b-navbar-nav><b-nav-item class="font-pacifico logo ml-md-2" to="/">Ai Scanlation</b-nav-item></b-navbar-nav>
+
         <!--
-            <b-navbar-nav class="text-medium">
-                <b-nav-item
-                    to="/profile"
-                    class="profile"
-                >Thảo Trâm</b-nav-item>
+            <b-navbar-nav class="search-bar ml-md-auto px-0 px-md-2 align-self-center d-md-none">
+                <input type="text" placeholder="Search" class="d-none d-md-block" />
+                <b-nav-item class="icon"></b-nav-item>
             </b-navbar-nav>
         -->
-        <b-navbar-nav class="search-bar ml-md-auto px-0 px-md-2 align-self-center">
-            <input type="text" placeholder="Search" class="d-none d-md-block" />
-            <b-nav-item class="icon"></b-nav-item>
-        </b-navbar-nav>
-        <b-collapse id="header-collapse" class="px-2 px-md-0" is-nav>
-            <b-navbar-nav class="text-medium">
-                <b-nav-item to="/profile" class="profile child-align-items-center">
-                    <img
-                        src="https://github.com/thaotram.png?size=40"
-                        height="32"
-                        width="32"
+        <b-navbar-nav class="d-flex d-md-none">
+            <b-nav-item to="/profile" class="icon">
+                <div class="p-2">
+                    <image-
+                        source="https://github.com/thaotram.png?size=24"
+                        height="24"
+                        width="24"
                         class="rounded-circle d-block"
                     />
-                    <span class="d-block d-md-none ml-2">Thảo Trâm</span>
+                </div>
+            </b-nav-item>
+        </b-navbar-nav>
+
+        <div class="horizontal d-md-none"></div>
+
+        <b-collapse
+            id="header-collapse"
+            is-nav
+            class="nmx-2 nmx-md-0 p-0 justify-content-end"
+            :class="{ 'input-focused': isInputFocus }"
+        >
+            <b-navbar-nav class="py-2 flex-fill justify-content-end">
+                <b-nav-item class="search-bar flex-fill">
+                    <div class="icon"></div>
+                    <input
+                        type="text"
+                        placeholder="Search or jump to..."
+                        class="flex-fill p-0 text-white border-0 mw-0"
+                        @focus="isInputFocus = true;"
+                        @blur="isInputFocus = false;"
+                    />
+                </b-nav-item>
+                <b-nav-item to="/profile/saved-manga">
+                    <div class="icon"></div>
+                    <div class="d-md-none">Saved Manga</div>
+                </b-nav-item>
+                <b-nav-item to="/mangas">
+                    <div class="icon"></div>
+                    <div class="d-md-none">All Manga</div>
+                </b-nav-item>
+                <b-nav-item to="/genres">
+                    <div class="icon"></div>
+                    <div class="d-md-none">Genre</div>
+                </b-nav-item>
+                <b-nav-item to="/profile" class="d-none d-md-block">
+                    <div class="icon">
+                        <image-
+                            source="https://github.com/thaotram.png?size=24"
+                            height="24"
+                            width="24"
+                            class="rounded-circle d-block m-2"
+                        />
+                    </div>
+                    <div class="d-md-none">Thảo Trâm</div>
                 </b-nav-item>
             </b-navbar-nav>
         </b-collapse>
@@ -31,135 +77,136 @@
 </template>
 
 <script>
-export default {};
+import image from '~/components/utilities/image.vue';
+
+export default {
+    components: {
+        'image-': image,
+    },
+    data() {
+        return {
+            isScrollTop: true,
+            isInputFocus: false,
+        };
+    },
+    mounted() {},
+    methods: {},
+};
 </script>
 <style lang="scss">
 #navbar {
-    background-color: $body-color;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.4);
+    .navbar-nav {
+        line-height: 2.5rem;
 
-    .navbar-brand {
-        font-family: 'Pacifico', cursive;
-        font-size: 1.5em;
+        > li.nav-item > .nav-link {
+            display: flex;
+        }
+
+        > li.logo {
+            font-size: 1.2em;
+            > a {
+                color: white;
+            }
+        }
     }
 
-    .navbar-toggler {
+    > .navbar-toggler {
         height: 2.5rem;
         border: none !important;
 
         &:focus {
             outline: none;
         }
-
-        > .navbar-toggler-icon {
-            display: none;
-        }
-
         &::after {
             @include icon;
         }
+        > .navbar-toggler-icon {
+            display: none;
+        }
     }
 
-    .nav-link {
-        display: flex;
+    > .horizontal {
+        flex-basis: 100%;
+        flex-grow: 1;
+        height: 0.5rem;
     }
 
     // Icon
-    .navbar-toggler::after,
-    .nav-item.icon > .nav-link {
+    .navbar-nav > .nav-item.icon > .nav-link,
+    > .navbar-toggler::after,
+    > .navbar-collapse > .navbar-nav > .nav-item > .nav-link > .icon {
         content: $navbar-toggler-icon;
         display: block;
         font-size: 1.25rem;
         line-height: $navbar-toggler-width;
+        min-height: $navbar-toggler-width;
         padding: 0;
         text-align: center;
         width: $navbar-toggler-width;
+        min-width: $navbar-toggler-width;
     }
 
-    .search-bar {
-        $search-line-size: 1px;
+    > #header-collapse {
+        transition: all 0.2s;
+        border-top: 1px solid rgba(white, 0.1);
+        background-color: $dark;
 
-        input,
-        li {
-            border-width: $search-line-size 0;
-            border-style: solid;
-            border-color: transparent;
+        &.show,
+        &.collapsing {
+            padding-left: 0.5rem !important;
+            padding-right: 0.5rem !important;
         }
 
-        input,
-        li > a {
-            color: $navbar-dark-active-color;
+        > .navbar-nav > .nav-item {
+            height: 2.5rem;
+            transition: all 0.2s;
+            overflow: hidden;
+
+            &.search-bar {
+                border-bottom: 0 solid transparent;
+                transition: border 0.2s;
+
+                > .nav-link > input {
+                    background: rgba(255, 255, 255, 0);
+                    outline: none;
+                    height: $navbar-toggler-width;
+                }
+            }
+
+            .nav-link > .icon {
+                margin-right: 0.25rem;
+            }
         }
 
-        li {
-            @include transition-all;
-        }
-
-        input {
-            @include transition-all;
-
+        @include media-breakpoint-up(md) {
             background-color: transparent;
-            line-height: 2.5rem;
-            padding: 0 0 0 0.75rem;
-
-            &:focus {
-                outline: none;
-
-                &,
-                & + li {
-                    border-bottom-color: white;
+            > .navbar-nav > .nav-item {
+                width: 2.5rem;
+                > .nav-link > .icon {
+                    margin-right: 0;
+                }
+            }
+            > .navbar-nav > .search-bar {
+                max-width: 300px;
+                > .nav-link {
+                    > .icon {
+                        order: 1;
+                    }
+                    > input {
+                        text-align: right;
+                    }
                 }
             }
         }
-    }
 
-    .profile {
-        img {
-            border: 2px solid;
-        }
-    }
-
-    &.navbar-dark {
-        .navbar-toggler {
-            color: $navbar-dark-active-color;
-        }
-    }
-
-    &.navbar-light {
-        .navbar-toggler {
-            color: $body-color;
-        }
-    }
-
-    @include media-breakpoint-up(md) {
-        .navbar-collapse {
-            flex-grow: 0;
-            flex-shrink: 1;
-            flex-basis: auto;
-        }
-
-        .search-bar {
-            > input,
-            > li {
-                border-color: transparent transparent $navbar-dark-color;
+        &.input-focused > .navbar-nav > .nav-item {
+            &.search-bar {
+                border-bottom-color: rgba(white, 0.1);
+                border-bottom-width: 1px;
             }
-
-            > input {
-                &,
-                & + li > a {
-                    color: $navbar-dark-color;
-
-                    &:hover {
-                        color: $navbar-dark-hover-color;
-                    }
-                }
-
-                &:focus {
-                    &,
-                    & + li > a {
-                        color: $navbar-dark-active-color;
-                    }
-                }
+            &:not(.search-bar):not(.search-result) {
+                height: 0;
+                width: 0;
             }
         }
     }

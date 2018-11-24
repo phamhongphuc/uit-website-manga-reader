@@ -1,13 +1,27 @@
-$body-bg: #f2f2f2;
+// Use Lab ( x , 0 , -9 )
+$darkest: #000818;
+$darker: #101621;
+$dark: #181e2a;
+$mix: #dbdde0;
+$light: #717786;
+$lighter: #a5abbb;
+$lightest: #b1caff;
+
+$body-bg: #f4f4f4;
 $body-color: #212529;
 
-$light: #f8f9fa;
-$dark: #212529;
-
-$dribbble-color: #ea4c89;
-$facebook-color: #4267b2;
-
 $theme-colors: (
-    'darker': darken($dark, 5),
-    'semi-light': mix($dark, white, 60%),
+    'darkest': $darkest,
+    'darker': $darker,
+    'dark': $dark,
+    'mix': $mix,
+    'light': $light,
+    'lighter': $lighter,
+    'lightest': $lightest,
+    'dribbble': #ea4c89,
+    'facebook': #4267b2,
+    'netlify': #25c7b7,
 );
+
+$link-color: inherit;
+$link-hover-color: inherit;

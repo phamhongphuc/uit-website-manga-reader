@@ -6,7 +6,7 @@
     "bracketSpacing": true,
     "arrowParens": "avoid",
     "htmlWhitespaceSensitivity": "ignore",
-    "printWidth": 120,
+    "printWidth": 80,
     "overrides": [
         {
             "files": ["*.code-workspace", ".stylelintrc", ".babelrc"],

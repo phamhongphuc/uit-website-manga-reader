@@ -18,7 +18,10 @@ module.exports = {
                 content: 'Auth Routes example',
             },
         ],
-        link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico' }],
+        link: [
+            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico' },
+            { rel: 'icon', type: 'image/png', href: 'favicon.png' },
+        ],
     },
     srcDir: 'client/',
     server: {
@@ -36,6 +39,7 @@ module.exports = {
                 'bootstrap/scss/_functions.scss',
                 'bootstrap/scss/_variables.scss',
                 'bootstrap/scss/_mixins.scss',
+                'assets/scss/after/_after.scss',
             ],
         ],
     ],

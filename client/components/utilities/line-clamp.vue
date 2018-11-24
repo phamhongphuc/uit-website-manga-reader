@@ -33,7 +33,10 @@ export default {
             await Vue.nextTick();
             const parent = this.$el.parentElement;
             let content = this.content;
-            while (parent.clientHeight < parent.scrollHeight && content.length > 0) {
+            while (
+                parent.clientHeight < parent.scrollHeight &&
+                content.length > 0
+            ) {
                 await Vue.nextTick();
                 content = content.substring(0, content.lastIndexOf(' '));
                 this.render = content + '...';

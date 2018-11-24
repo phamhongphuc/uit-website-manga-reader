@@ -19,7 +19,10 @@ module.exports = {
             },
         ],
         link: [
-            { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico' },
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css?family=Pacifico',
+            },
             { rel: 'icon', type: 'image/png', href: 'favicon.png' },
         ],
     },
@@ -46,7 +49,8 @@ module.exports = {
     apollo: {
         clientConfigs: {
             default: {
-                httpEndpoint: `${process.env.HTTP_ENDPOINT || LOCALHOST}/api/graphql`,
+                httpEndpoint: `${process.env.HTTP_ENDPOINT ||
+                    LOCALHOST}/api/graphql`,
             },
         },
     },

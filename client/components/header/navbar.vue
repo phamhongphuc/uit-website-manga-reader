@@ -1,9 +1,24 @@
 <template>
-    <b-navbar id="navbar" toggleable="md" type="light" class="pb-0 py-md-0 px-md-2" sticky>
+    <b-navbar
+        id="navbar"
+        toggleable="md"
+        type="light"
+        class="pb-0 py-md-0 px-md-2"
+        sticky
+    >
         <b-navbar-nav class="flex-row flex-grow-1 flex-md-grow-0 mb-2 mb-md-0">
             <b-navbar-toggle target="navbar-collapse" class="mx-1" />
-            <b-nav-item class="font-pacifico font-size-bigger ml-md-2 mx-auto" to="/">Ai Scanlation</b-nav-item>
-            <b-nav-item-icon- class="d-md-none mx-1" to="/profile" image="/favicon.heart.pixel.png" />
+            <b-nav-item
+                class="font-pacifico font-size-bigger ml-md-2 mx-auto"
+                to="/"
+            >
+                Ai Scanlation
+            </b-nav-item>
+            <b-nav-item-icon-
+                class="d-md-none mx-1"
+                to="/profile"
+                image="/favicon.heart.pixel.png"
+            />
         </b-navbar-nav>
 
         <b-collapse

@@ -32,13 +32,13 @@ const config = {
         },
     },
     rules: {
-        'eol-last': 'error',
         indent: ['error', 4],
+        camelcase: 'error',
+        'eol-last': 'error',
         'linebreak-style': ['error', 'unix'],
         'no-console': 'warn',
         'no-lonely-if': 'error',
         'prefer-const': 'error',
-        camelcase: 'error',
         'space-before-function-paren': [
             'error',
             {
@@ -50,6 +50,34 @@ const config = {
         'node/no-unsupported-features/es-syntax': 'off',
         'import/prefer-default-export': 'off',
         'vue/html-indent': ['error', 4],
+        'vue/html-self-closing': [
+            'error',
+            {
+                html: {
+                    void: 'always',
+                    normal: 'always',
+                    component: 'always',
+                },
+            },
+        ],
+        'vue/attributes-order': [
+            'error',
+            {
+                order: [
+                    'DEFINITION', //        is
+                    'LIST_RENDERING', //    v-for
+                    'CONDITIONALS', //      v-if | v-else-if | v-else | v-show | v-cloak
+                    'RENDER_MODIFIERS', //  v-pre | v-once
+                    'GLOBAL', //            id
+                    'UNIQUE', //            ref | key | slot | slot-scope
+                    'TWO_WAY_BINDING', //   v-model
+                    'OTHER_DIRECTIVES', //  v-custom-directive
+                    'OTHER_ATTR', //        custom-prop | v-bind:prop | :prop
+                    'EVENTS', //            v-on:click | @click
+                    'CONTENT', //           v-text | v-html
+                ],
+            },
+        ],
     },
 };
 

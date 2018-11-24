@@ -48,7 +48,7 @@
         "moment": "^2.22.2",
         "nuxt": "^2.3.2",
         "nuxt-sass-resources-loader": "^2.0.5",
-        "realm": "^2.19.1"
+        "realm": "^2.20.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.1.5",

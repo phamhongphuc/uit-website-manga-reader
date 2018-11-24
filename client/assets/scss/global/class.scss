@@ -19,21 +19,15 @@
 }
 
 .h-0 {
-    height: 0;
+    height: 0 !important;
 }
 
-.child-mx-1 {
-    margin-right: map-get($spacers, 1) * -1;
-    margin-left: map-get($spacers, 1) * -1;
-
-    > * {
-        margin-right: map-get($spacers, 1);
-        margin-left: map-get($spacers, 1);
-    }
+.w-0 {
+    width: 0 !important;
 }
 
 .vh-100 {
-    height: 60vh;
+    height: 100vh;
 }
 
 .mw-0 {
@@ -47,25 +41,31 @@
         @each $prop, $abbrev in (margin: m, padding: p) {
             @each $size, $length in $spacers {
                 .n#{$abbrev}#{$infix}-#{$size} {
-                    #{$prop}: $length * -1 !important;
+                    #{$prop}: -#{$length} !important;
                 }
                 .n#{$abbrev}t#{$infix}-#{$size},
                 .n#{$abbrev}y#{$infix}-#{$size} {
-                    #{$prop}-top: $length * -1 !important;
+                    #{$prop}-top: -#{$length} !important;
                 }
                 .n#{$abbrev}r#{$infix}-#{$size},
                 .n#{$abbrev}x#{$infix}-#{$size} {
-                    #{$prop}-right: $length * -1 !important;
+                    #{$prop}-right: -#{$length} !important;
                 }
                 .n#{$abbrev}b#{$infix}-#{$size},
                 .n#{$abbrev}y#{$infix}-#{$size} {
-                    #{$prop}-bottom: $length * -1 !important;
+                    #{$prop}-bottom: -#{$length} !important;
                 }
                 .n#{$abbrev}l#{$infix}-#{$size},
                 .n#{$abbrev}x#{$infix}-#{$size} {
-                    #{$prop}-left: $length * -1 !important;
+                    #{$prop}-left: -#{$length} !important;
                 }
             }
         }
+    }
+}
+
+@each $color, $value in $theme-colors {
+    .text-hover-#{$color}:hover {
+        color: $value !important;
     }
 }

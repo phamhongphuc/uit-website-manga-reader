@@ -16,6 +16,7 @@
         "typescript.suggest.paths": false,
         "stylelint.configOverrides": {
             "ignoreFiles": "**/bootstrap/scss/**"
-        }
+        },
+        "html-css-class-completion.includeGlobPattern": "**/*.{scss,css,html}"
     }
 }

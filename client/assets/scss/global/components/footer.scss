@@ -1,6 +1,9 @@
-footer,
-.footer {
+footer {
     &.footer-light {
-        background-color: white;
+        color: $footer-light-color;
+        a:hover {
+            text-decoration: none;
+            color: $footer-light-hover-color;
+        }
     }
 }

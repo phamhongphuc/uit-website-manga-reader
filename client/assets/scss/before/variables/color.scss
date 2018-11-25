@@ -7,8 +7,13 @@ $light: #717786;
 $lighter: #a5abbb;
 $lightest: #b1caff;
 
-$body-bg: #f4f4f4;
+$main: #eb4d4b;
+
+$body-bg: #f9f9f9;
 $body-color: #212529;
+
+$black: black;
+$white: white;
 
 $theme-colors: (
     'darkest': $darkest,
@@ -18,6 +23,7 @@ $theme-colors: (
     'light': $light,
     'lighter': $lighter,
     'lightest': $lightest,
+    'main': $main,
     'dribbble': #ea4c89,
     'facebook': #4267b2,
     'netlify': #25c7b7,

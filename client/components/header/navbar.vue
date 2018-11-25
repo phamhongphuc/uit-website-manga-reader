@@ -3,7 +3,7 @@
         id="navbar"
         toggleable="md"
         type="light"
-        class="pb-0 py-md-0 px-md-2 border-shadow-bottom"
+        class="pb-0 py-md-0 px-md-2 shadow-sm"
         sticky
     >
         <b-navbar-nav class="flex-row flex-grow-1 flex-md-grow-0 mb-2 mb-md-0">

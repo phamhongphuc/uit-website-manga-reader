@@ -1,6 +1,6 @@
 <template>
-    <footer class="footer-light mt-5 border-shadow-top">
-        <div class="footer-block-light bg-white">
+    <footer class="footer-light mt-5 bg-white">
+        <div class="footer-block-light  border-top">
             <div class="container py-3">
                 <div class="row">
                     <div class="col-12">
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-block-darker bottom border-top bg-white">
+        <div class="footer-block-darker bottom border-top">
             <div class="container py-2 d-flex flex-wrap">
                 <div class="d-inline-flex flex-wrap nml-2">
                     <a href="#">About</a>

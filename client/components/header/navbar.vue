@@ -3,7 +3,7 @@
         id="navbar"
         toggleable="md"
         type="light"
-        class="pb-0 py-md-0 px-md-2"
+        class="pb-0 py-md-0 px-md-2 border-shadow-bottom"
         sticky
     >
         <b-navbar-nav class="flex-row flex-grow-1 flex-md-grow-0 mb-2 mb-md-0">
@@ -17,7 +17,7 @@
             <b-nav-item-icon-
                 class="d-md-none mx-1"
                 to="/profile"
-                image="/favicon.heart.pixel.png"
+                image="/img/favicon/favicon.heart.pixel.png"
             />
         </b-navbar-nav>
 
@@ -45,7 +45,7 @@
                 />
                 <b-nav-item-icon-
                     to="/profile"
-                    image="/favicon.heart.pixel.png"
+                    image="/img/favicon/favicon.heart.pixel.png"
                     text="Thảo Trâm"
                     text-class="d-md-none"
                     class="d-none d-md-block"
@@ -72,7 +72,5 @@ export default {
             isInputFocus: false,
         };
     },
-    mounted() {},
-    methods: {},
 };
 </script>

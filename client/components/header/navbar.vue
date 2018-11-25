@@ -44,12 +44,12 @@
                     :class="isInputFocus ? 'w-0 h-0' : ''"
                 />
                 <b-nav-item-icon-
-                    :class="isInputFocus ? 'w-0 h-0' : ''"
-                    class="d-none d-md-block"
                     to="/profile"
                     image="/favicon.heart.pixel.png"
                     text="Thảo Trâm"
                     text-class="d-md-none"
+                    class="d-none d-md-block"
+                    :class="isInputFocus ? 'w-0 h-0' : ''"
                 />
             </b-navbar-nav>
         </b-collapse>

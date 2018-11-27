@@ -1,18 +1,13 @@
+$navbar-size: 2.5rem; // Custom
+
 $navbar-toggler-padding-x: 0;
 $navbar-toggler-padding-y: 0;
 $border-width: 1px !default;
-$navbar-toggler-width: 2.5rem;
-$navbar-toggler-icon: '';
+$navbar-toggler-width: $navbar-size;
+$navbar-toggler-icon: ''; // Custom
 
 $navbar-padding-x: 0.5rem;
 $navbar-padding-y: 0.5rem;
 
-$navbar-dark-color: map-get($theme-colors, semi-light);
-$navbar-dark-active-color: white;
-
 $navbar-brand-padding-y: 0;
-
 $navbar-nav-link-padding-x: 0;
-
-$nav-link-padding-y: 0;
-$nav-link-padding-x: 0;

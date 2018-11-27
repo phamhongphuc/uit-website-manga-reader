@@ -1,5 +1,3 @@
-$grid-columns: 24;
-
 $map-breakpoints: (
     xs: 0,
     sm: 1,
@@ -11,9 +9,12 @@ $map-breakpoints: (
 $spacer: 1rem;
 
 $spacers: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
     5: $spacer * 2,
-    6: $spacer * 2.5,
-    7: $spacer * 3,
 );
 
 $carousel-caption-width: 100%;

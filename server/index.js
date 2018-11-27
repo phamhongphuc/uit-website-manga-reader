@@ -70,7 +70,10 @@ function redirects() {
     ];
 
     const content = imageIds
-        .map(imageId => `/api/redirect/twitter/image/${imageId} https://pbs.twimg.com/media/${imageId}?format=jpg`)
+        .map(
+            imageId =>
+                `/api/redirect/twitter/image/${imageId} https://pbs.twimg.com/media/${imageId}?format=jpg`,
+        )
         .join('\n');
 
     fs.writeFileSync('dist/_redirects', content);

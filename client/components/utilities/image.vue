@@ -9,6 +9,10 @@ export default {
             type: String,
             default: '/img/circle.svg',
         },
+        redirect: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -22,9 +26,13 @@ export default {
         },
     },
     render(createElement) {
+        const REDIRECT_API = process.env.REDIRECT_API;
+        const source = this.redirect
+            ? `${REDIRECT_API}/api/redirect/twitter/image/${this.source}`
+            : this.source;
         return createElement('img', {
             attrs: {
-                src: this.isError ? this.default : this.source,
+                src: this.isError ? this.default : source,
             },
             class: {
                 image: true,

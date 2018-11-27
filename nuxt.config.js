@@ -64,6 +64,21 @@ module.exports = {
                     exclude: /(node_modules)/,
                 });
             }
+
+            const vueLoader = config.module.rules.find(
+                rule => rule.loader === 'vue-loader',
+            );
+
+            vueLoader.use = [
+                { loader: vueLoader.loader, options: vueLoader.options },
+                {
+                    loader: 'vue-import-loader',
+                    options: { allowPath: 'client' },
+                },
+            ];
+
+            delete vueLoader.options;
+            delete vueLoader.loader;
         },
     },
     generate: {

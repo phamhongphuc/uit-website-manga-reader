@@ -14,11 +14,9 @@
     </b-nav-item>
 </template>
 <script>
-import image from '~/components/utilities/image.vue';
-
 export default {
     components: {
-        'image-': image,
+        ...'~/components/utilities/image.vue',
     },
     props: {
         image: {

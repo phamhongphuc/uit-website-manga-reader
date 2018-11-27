@@ -57,15 +57,11 @@
 </template>
 
 <script>
-import bNavItemIcon from '~/components/bootstrap/b-nav-item-icon.vue';
-import bNavItemInput from '~/components/bootstrap/b-nav-item-input.vue';
-import bNavbarHr from '~/components/bootstrap/b-navbar-hr.vue';
-
 export default {
     components: {
-        'b-nav-item-icon-': bNavItemIcon,
-        'b-nav-item-input-': bNavItemInput,
-        'b-navbar-hr-': bNavbarHr,
+        ...'~/components/bootstrap/b-nav-item-icon.vue',
+        ...'~/components/bootstrap/b-nav-item-input.vue',
+        ...'~/components/bootstrap/b-navbar-hr.vue',
     },
     data() {
         return {

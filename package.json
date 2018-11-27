@@ -33,7 +33,7 @@
         "@koa/cors": "^2.2.2",
         "@nuxtjs/apollo": "^4.0.0-rc2.3",
         "animejs": "^2.2.0",
-        "apollo-server-koa": "^2.2.2",
+        "apollo-server-koa": "^2.2.3",
         "axios": "^0.18.0",
         "bluebird": "^3.5.3",
         "bootstrap-vue": "^2.0.0-rc.11",

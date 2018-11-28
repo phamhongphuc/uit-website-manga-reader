@@ -20,10 +20,5 @@
         "prettier.disableLanguages": [],
         "vetur.format.options.tabSize": 4,
         "vetur.format.options.useTabs": false,
-        "vetur.format.defaultFormatterOptions": {
-            "prettyhtml": {
-                "printWidth": 80
-            }
-        }
     }
 }

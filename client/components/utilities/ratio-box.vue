@@ -1,11 +1,7 @@
 <template>
-    <div
-        class="ratio-box"
-        :class="{ 'ratio-box-only-child': multiChild }"
-        :style="{ paddingBottom: `${100 * (dy / dx)}%` }"
-    >
-        <div v-if="multiChild"><slot /></div>
-        <slot v-else />
+    <div class="ratio-box" :style="{ paddingBottom: `${100 * (dy / dx)}%` }">
+        <slot v-if="multiChild" />
+        <div v-else><slot /></div>
     </div>
 </template>
 

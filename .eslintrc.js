@@ -60,6 +60,7 @@ const config = {
                 },
             },
         ],
+        'vue/component-name-in-template-casing': ['error', 'kebab-case'],
         'vue/attributes-order': [
             'error',
             {

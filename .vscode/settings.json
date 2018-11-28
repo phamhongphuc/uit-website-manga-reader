@@ -10,6 +10,7 @@
         "**/.vscode": true,
         "**/dist": true,
         "**/node_modules": true,
+        "realm-object-server": true,
         "build": true,
         "coverage": true,
         "database": true

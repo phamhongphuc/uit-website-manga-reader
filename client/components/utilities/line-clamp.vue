@@ -2,8 +2,6 @@
     <div>{{ render }}</div>
 </template>
 <script>
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vue from 'vue';
 
@@ -19,10 +17,6 @@ export default {
     },
     mounted() {
         this.reload();
-        /**
-         * @type {HTMLElement}
-         */
-        const parent = this.$el.parentElement;
         window.addEventListener('resize', () => {
             this.reload();
         });

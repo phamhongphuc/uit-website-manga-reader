@@ -41,24 +41,14 @@ const config = {
         'prefer-const': 'error',
         'space-before-function-paren': [
             'error',
-            {
-                anonymous: 'never',
-                named: 'never',
-                asyncArrow: 'always',
-            },
+            { anonymous: 'never', named: 'never', asyncArrow: 'always' },
         ],
         'node/no-unsupported-features/es-syntax': 'off',
         'import/prefer-default-export': 'off',
         'vue/html-indent': ['error', 4],
         'vue/html-self-closing': [
             'error',
-            {
-                html: {
-                    void: 'always',
-                    normal: 'always',
-                    component: 'always',
-                },
-            },
+            { html: { void: 'always', normal: 'always', component: 'always' } },
         ],
         'vue/component-name-in-template-casing': ['error', 'kebab-case'],
         'vue/attributes-order': [

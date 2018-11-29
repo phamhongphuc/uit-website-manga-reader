@@ -12,7 +12,7 @@
                 class="font-pacifico font-size-bigger ml-md-2 mx-auto"
                 to="/"
             >
-                Ai Scanlation
+                Ai Scanlation {{ breakpoint }}
             </b-nav-item>
             <b-nav-item-icon-
                 class="d-md-none mx-1"
@@ -66,7 +66,22 @@ export default {
     data() {
         return {
             isInputFocus: false,
+            breakpoint: 'none',
         };
+    },
+    mounted() {
+        if (process.browser) {
+            window.addEventListener('resize', () => {
+                const w = window.innerWidth;
+                let breakpoint = 'none';
+                if (w < 576) breakpoint = 'xs';
+                if (w >= 576) breakpoint = 'sm';
+                if (w >= 768) breakpoint = 'md';
+                if (w >= 992) breakpoint = 'lg';
+                if (w >= 1200) breakpoint = 'xl';
+                this.breakpoint = breakpoint;
+            });
+        }
     },
 };
 </script>

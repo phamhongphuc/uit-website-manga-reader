@@ -1,8 +1,10 @@
 <template>
     <div class="ratio-box" :style="{ paddingBottom: `${100 * (dy / dx)}%` }">
-        <div :class="childClass"><slot /></div>
+        <slot v-if="multiChild" />
+        <div v-else><slot /></div>
     </div>
 </template>
+
 <script>
 export default {
     props: {
@@ -18,6 +20,10 @@ export default {
         childClass: {
             type: [String, Object, Array],
             default: '',
+        },
+        multiChild: {
+            type: Boolean,
+            default: false,
         },
     },
 };

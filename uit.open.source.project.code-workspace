@@ -8,7 +8,6 @@
         }
     ],
     "settings": {
-        "prettier.disableLanguages": [],
         "path-autocomplete.pathMappings": {
             "~": "${folder}/client"
         },
@@ -17,6 +16,21 @@
         "stylelint.configOverrides": {
             "ignoreFiles": "**/bootstrap/scss/**"
         },
-        "html-css-class-completion.includeGlobPattern": "**/*.{scss,css,html}"
+        "html-css-class-completion.includeGlobPattern": "**/*.{scss,css,html}",
+        "prettier.disableLanguages": [],
+        "vetur.format.options.tabSize": 4,
+        "vetur.format.options.useTabs": false,
+        "vetur.format.defaultFormatter.html": "none",
+        "eslint.validate": [
+            "javascript",
+            {
+                "language": "html",
+                "autoFix": true
+            },
+            {
+                "language": "vue",
+                "autoFix": true
+            }
+        ]
     }
 }

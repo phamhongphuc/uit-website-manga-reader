@@ -46,6 +46,7 @@ module.exports = {
             ],
         ],
     ],
+    plugins: [{ src: '~/plugins/vue-line-clamp', ssr: false }],
     apollo: {
         clientConfigs: {
             default: {

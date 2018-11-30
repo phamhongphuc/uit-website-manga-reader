@@ -57,6 +57,9 @@
 </template>
 
 <script>
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { mapState } from 'vuex';
+
 export default {
     components: {
         ...'~/components/bootstrap/b-nav-item-icon.vue',
@@ -66,24 +69,12 @@ export default {
     data() {
         return {
             isInputFocus: false,
-            breakpoint: 'none',
         };
     },
-    mounted() {
-        const updateBreakpoint = () => {
-            const w = window.innerWidth;
-            let breakpoint = 'none';
-            if (w < 576) breakpoint = 'xs';
-            if (w >= 576) breakpoint = 'sm';
-            if (w >= 768) breakpoint = 'md';
-            if (w >= 992) breakpoint = 'lg';
-            if (w >= 1200) breakpoint = 'xl';
-            this.breakpoint = breakpoint;
-        };
-        updateBreakpoint();
-        if (process.browser) {
-            window.addEventListener('resize', updateBreakpoint);
-        }
+    computed: {
+        ...mapState({
+            breakpoint: state => state.style.breakpoint,
+        }),
     },
 };
 </script>

@@ -70,17 +70,19 @@ export default {
         };
     },
     mounted() {
+        const updateBreakpoint = () => {
+            const w = window.innerWidth;
+            let breakpoint = 'none';
+            if (w < 576) breakpoint = 'xs';
+            if (w >= 576) breakpoint = 'sm';
+            if (w >= 768) breakpoint = 'md';
+            if (w >= 992) breakpoint = 'lg';
+            if (w >= 1200) breakpoint = 'xl';
+            this.breakpoint = breakpoint;
+        };
+        updateBreakpoint();
         if (process.browser) {
-            window.addEventListener('resize', () => {
-                const w = window.innerWidth;
-                let breakpoint = 'none';
-                if (w < 576) breakpoint = 'xs';
-                if (w >= 576) breakpoint = 'sm';
-                if (w >= 768) breakpoint = 'md';
-                if (w >= 992) breakpoint = 'lg';
-                if (w >= 1200) breakpoint = 'xl';
-                this.breakpoint = breakpoint;
-            });
+            window.addEventListener('resize', updateBreakpoint);
         }
     },
 };

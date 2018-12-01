@@ -161,8 +161,7 @@ $description-line-height: 1.5rem;
             > span {
                 $span-height: 1.25rem;
 
-                color: rgba($white, 0.75);
-                background: rgba($black, 0.75);
+                background: $body-bg;
                 font-weight: 500;
                 padding: 0 #{$span-height / 2};
                 line-height: $span-height;
@@ -170,7 +169,6 @@ $description-line-height: 1.5rem;
                 font-size: 0.75em;
                 border-radius: 0.25rem;
                 margin: 0 0.25rem;
-                box-shadow: $box-shadow-sm;
             }
         }
         > .book-item-description {

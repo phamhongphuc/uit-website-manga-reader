@@ -4,13 +4,15 @@ $darker: #101621;
 $dark: #181e2a;
 $mix: #dbdde0;
 $light: #717786;
-$lighter: #a5abbb;
-$lightest: #b1caff;
 
 $main: #eb4d4b;
 
+$dribbble: #ea4c89;
+$facebook: #4267b2;
+$netlify: #25c7b7;
+
 $body-bg: #f2f2f2;
-$body-color: #212529;
+$body-color: lighten(#212529, 25%);
 
 $black: black;
 $white: white;
@@ -21,12 +23,10 @@ $theme-colors: (
     'dark': $dark,
     'mix': $mix,
     'light': $light,
-    'lighter': $lighter,
-    'lightest': $lightest,
     'main': $main,
-    'dribbble': #ea4c89,
-    'facebook': #4267b2,
-    'netlify': #25c7b7,
+    'dribbble': $dribbble,
+    'facebook': $facebook,
+    'netlify': $netlify,
 );
 
 $link-color: inherit;

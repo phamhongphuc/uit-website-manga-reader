@@ -1,13 +1,44 @@
 <template>
-    <ratio-box- class="book-item" :dx="16" :dy="9">
-        <div class="book-item-background" />
-        <div class="book-item-image">
-            <image- redirect :source="item.img" />
+    <div class="book-item ratio-box">
+        <div>
+            <div class="book-item-box" />
+            <div class="book-item-image">
+                <image- redirect :source="item.img" />
+            </div>
+            <div class="book-item-text">
+                <nuxt-link class="book-item-title" to="/">
+                    {{ item.name }}
+                </nuxt-link>
+                <div class="book-item-tags">
+                    <span class="icon"></span>
+                    <template v-for="(tag, index) in tags">
+                        <span v-if="index !== 0" :key="index * 2 + 1">,</span>
+                        <nuxt-link :key="index * 2" to="/">{{ tag }}</nuxt-link>
+                    </template>
+                </div>
+                <div
+                    v-line-clamp:24="breakpointMap[breakpoint]"
+                    class="book-item-description"
+                >
+                    <span class="icon"></span>
+                    <span class="book-item-description-content">
+                        {{ content }}
+                    </span>
+                </div>
+                <nuxt-link to="/" class="book-item-chapter">
+                    <span class="icon"></span>
+                    <span>Chapter 1</span>
+                    <span class="book-item-chapter-name">
+                        The love love love love
+                    </span>
+                </nuxt-link>
+            </div>
         </div>
-        <div class="book-item-text">Text</div>
-    </ratio-box->
+    </div>
 </template>
 <script>
+import { mapState } from 'vuex';
+
 export default {
     components: {
         ...'~/components/utilities/ratio-box.vue',
@@ -16,62 +47,34 @@ export default {
     props: {
         item: {
             type: Object,
-            default: () => ({
-                title: 'hello',
-                img: 'DrMpC5CXcAApzT7',
-            }),
+            required: true,
         },
+    },
+    data() {
+        return {
+            breakpointMap: {
+                xs: 2,
+                sm: 3,
+                md: 3,
+                lg: 4,
+                xl: 4,
+            },
+            tags: ['Action', 'Yuri', 'Shoujo Ai'],
+            content:
+                'In the city of Ergastulum, a shady ville filled with made men and petty thieves, whores on the make and cops on the take, there are some deeds too dirty for even its jaded inhabitants to touch. Enter the “Handymen,” Nic and Worick, who take care of the jobs no one else will handle. Until the day when a cop they know on the force requests their help in taking down a new gang muscling in on the territory of a top Mafia family. It seems like business (and mayhem) as usual, but the Handymen are about to find that this job is a lot more than they bargained for.',
+        };
+    },
+    computed: {
+        ...mapState({
+            breakpoint: state => state.style.breakpoint,
+        }),
     },
 };
 </script>
 <style lang="scss">
 .book-item {
-    $card-w: 16;
-    $card-h: 9;
-
-    $wp: 1 / $card-w * 100%;
-    $hp: 1 / $card-h * 100%;
-
-    $space: 1;
-
-    $image-r-w: 85; /* ratio */
-    $image-r-h: 120; /* ratio */
-
-    $image-h: $card-h - $space;
-    $image-w: $image-h / $image-r-h * $image-r-w;
-
-    $space-w: $space * $wp;
-    $space-h: $space * $hp;
-
-    > div {
-        display: grid;
-        grid-template-columns: $space-w #{($image-w - $space) * $wp} auto;
-        grid-template-rows: $space-h auto $space-h;
-    }
-
-    .book-item-background {
-        grid-column: 2 / 4;
-        grid-row: 2 / 4;
-        box-shadow: $box-shadow-sm;
-        background: $white;
-        border-radius: $border-radius;
-    }
-    .book-item-image {
-        grid-column: 1 / 3;
-        grid-row: 1 / 3;
-        box-shadow: $box-shadow-sm;
-        background: $white;
-        border-radius: $border-radius;
-        overflow: hidden;
-        > img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-    }
-    .book-item-text {
-        grid-column: 3 / 4;
-        grid-row: 2 / 4;
-    }
+    @include book-item-grid(2);
+    @include book-item-grid-up(3, sm);
+    @include book-item-grid-up(4, lg);
 }
 </style>

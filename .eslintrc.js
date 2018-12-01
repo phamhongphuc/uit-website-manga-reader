@@ -30,6 +30,7 @@ const config = {
                 rootPathSuffix: 'client',
             },
         },
+        'import/core-modules': ['vue', 'vuex'],
     },
     rules: {
         indent: ['error', 4],

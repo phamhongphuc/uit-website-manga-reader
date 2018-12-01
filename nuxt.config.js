@@ -3,6 +3,7 @@ const isGeneration = process.env.NODE_ENV === 'generation';
 const LOCALHOST = `http://localhost:3000`;
 const DATA_API = isDevelopment || isGeneration ? LOCALHOST : '';
 const REDIRECT_API = isDevelopment ? LOCALHOST : '';
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     head: {
@@ -46,6 +47,10 @@ module.exports = {
             ],
         ],
     ],
+    plugins: [
+        { src: '~/plugins/global', ssr: false },
+        { src: '~/plugins/vue-line-clamp', ssr: false },
+    ],
     apollo: {
         clientConfigs: {
             default: {
@@ -80,6 +85,7 @@ module.exports = {
             delete vueLoader.options;
             delete vueLoader.loader;
         },
+        postcss: [autoprefixer()],
     },
     generate: {
         routes: (() => {

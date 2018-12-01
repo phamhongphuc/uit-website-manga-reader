@@ -57,7 +57,6 @@
 </template>
 
 <script>
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { mapState } from 'vuex';
 
 export default {

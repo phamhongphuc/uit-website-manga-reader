@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable import/no-extraneous-dependencies */
 import { MutationTree, ActionTree } from 'vuex';
 
 export const state = () => ({

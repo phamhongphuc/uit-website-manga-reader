@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable import/no-extraneous-dependencies */
 import Vue, { ComponentOptions } from 'vue';
+
 /**
  * @param {Object} Nuxt
  * @param {Vue} Nuxt.app

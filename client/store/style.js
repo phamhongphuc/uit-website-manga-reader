@@ -2,7 +2,7 @@
 import { MutationTree, ActionTree } from 'vuex';
 
 export const state = () => ({
-    breakpoint: '',
+    breakpoint: 'md',
 });
 
 /** @type {MutationTree} */

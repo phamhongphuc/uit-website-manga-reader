@@ -18,6 +18,11 @@
                 >
                     {{ content }}
                 </div>
+                <nuxt-link to="/" class="book-item-chapter">
+                    <span class="icon"></span>
+                    Chapter 1
+                    <span class="book-item-chapter-name">The love</span>
+                </nuxt-link>
             </div>
         </div>
     </div>
@@ -45,7 +50,17 @@ export default {
                 lg: 4,
                 xl: 4,
             },
-            tags: ['Action', 'Yuri', 'Shoujo Ai'],
+            tags: [
+                'Action',
+                'Yuri',
+                'Shoujo Ai',
+                'Action',
+                'Yuri',
+                'Shoujo Ai',
+                'Action',
+                'Yuri',
+                'Shoujo Ai',
+            ],
             content:
                 'In the city of Ergastulum, a shady ville filled with made men and petty thieves, whores on the make and cops on the take, there are some deeds too dirty for even its jaded inhabitants to touch. Enter the “Handymen,” Nic and Worick, who take care of the jobs no one else will handle. Until the day when a cop they know on the force requests their help in taking down a new gang muscling in on the territory of a top Mafia family. It seems like business (and mayhem) as usual, but the Handymen are about to find that this job is a lot more than they bargained for.',
         };
@@ -58,41 +73,48 @@ export default {
 };
 </script>
 <style lang="scss">
+$space: 0.75rem;
+
 $img-rw: 852;
 $img-rh: 1200;
 $img-r: $img-rw / $img-rh;
 
 $title-height: 2rem;
 $description-line-height: 1.5rem;
+$tags-line-height: 1.25rem;
+$tags-margin-y: 0.25rem;
+$tags-height: $tags-line-height + $tags-margin-y * 2;
+$chapter-height: 1.5rem;
 
 @mixin book-item-grid() {
     $description-lines: 4;
-    $spa-v: 0.75rem;
-    $box-vh: $title-height + $description-line-height * $description-lines +
-        $spa-v * 2.5 + 1.25rem + 0.5rem;
+    $description-padding-top: $space;
+    $description-padding-bottom: $space * 1.5;
+    $description-height: $description-line-height * $description-lines +
+        $description-padding-top + $description-padding-bottom;
+
+    $box-vh: $title-height + $description-height + $tags-height +
+        $chapter-height;
 
     $img-vh: $box-vh; /* Bằng chiều cao của box ở dưới */
     $img-vw: $img-vh * $img-r;
 
-    $text-padding-top: $spa-v;
-    $text-padding-bottom: $spa-v * 1.5;
-
     // Tạo ra tỉ lệ cho toàn bộ box ở ngoài (bao gồm cả box nền và img)
-    height: $box-vh + $spa-v;
+    height: $box-vh + $space;
     > div {
         grid-template-columns:
-            [left-img] $spa-v
-            [left-box] #{$img-vw - $spa-v}
-            [right-img] $spa-v * 1.5
+            [left-img] $space
+            [left-box] #{$img-vw - $space}
+            [right-img] $space * 1.5
             [left-text] auto
-            [right-text] $spa-v * 1.5
+            [right-text] $space * 1.5
             [right-box];
         grid-template-rows:
-            [top-img] $spa-v
-            [top-box] $text-padding-top
+            [top-img] $space
+            [top-box] $description-padding-top
             [top-text] auto
-            [bottom-text] #{$text-padding-bottom - $spa-v}
-            [bottom-img] $spa-v
+            [bottom-text] #{$description-padding-bottom - $space}
+            [bottom-img] $space
             [bottom-box];
     }
 }
@@ -134,10 +156,6 @@ $description-line-height: 1.5rem;
         }
     }
     .book-item-text {
-        &:hover {
-            background: rgba(darkslategrey, 0.2);
-        }
-
         grid-column: left-text / right-text;
         grid-row: top-text / bottom-text;
         overflow: hidden;
@@ -151,6 +169,7 @@ $description-line-height: 1.5rem;
             font-weight: bold;
             font-size: 1.25rem;
             height: 2rem;
+            // color: darken($main, 40%);
             line-height: $title-height;
         }
         > .book-item-tags {
@@ -158,6 +177,8 @@ $description-line-height: 1.5rem;
             display: flex;
             margin: 0.25rem -0.25rem;
             height: 1.25rem;
+            flex-wrap: no-wrap;
+            overflow: hidden;
             > span {
                 $span-height: 1.25rem;
 
@@ -174,6 +195,24 @@ $description-line-height: 1.5rem;
         > .book-item-description {
             line-height: $description-line-height;
             height: $description-line-height * 4;
+            opacity: 0.95;
+        }
+        > .book-item-chapter {
+            height: $chapter-height;
+            line-height: $chapter-height;
+            font-weight: 700;
+            color: darken($main, 20%);
+            transition: 0.2s all;
+            &:hover {
+                text-decoration: none;
+                border-left: 4px solid;
+                padding-left: 0.25rem;
+            }
+
+            > .book-item-chapter-name {
+                opacity: 0.5;
+                font-size: 0.8em;
+            }
         }
     }
 }

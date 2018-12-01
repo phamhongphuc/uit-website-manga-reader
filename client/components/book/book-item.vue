@@ -53,11 +53,11 @@ export default {
     data() {
         return {
             breakpointMap: {
-                xs: 3,
-                sm: 4,
-                md: 4,
-                lg: 5,
-                xl: 5,
+                xs: 2,
+                sm: 3,
+                md: 3,
+                lg: 4,
+                xl: 4,
             },
             tags: ['Action', 'Yuri', 'Shoujo Ai'],
             content:
@@ -73,8 +73,8 @@ export default {
 </script>
 <style lang="scss">
 .book-item {
-    @include book-item-grid(3);
-    @include book-item-grid-up(4, sm);
-    @include book-item-grid-up(5, lg);
+    @include book-item-grid(2);
+    @include book-item-grid-up(3, sm);
+    @include book-item-grid-up(4, lg);
 }
 </style>

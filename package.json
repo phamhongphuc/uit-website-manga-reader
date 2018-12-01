@@ -69,7 +69,7 @@
         "@babel/plugin-syntax-import-meta": "^7.0.0",
         "@babel/plugin-syntax-jsx": "^7.0.0",
         "@playlyfe/gql": "^2.6.0",
-        "@types/node": "^10.12.10",
+        "@types/node": "^10.12.11",
         "babel-eslint": "^10.0.1",
         "babel-plugin-import-graphql": "^2.6.2",
         "babel-plugin-root-import": "^6.1.0",

@@ -2,11 +2,11 @@
     <div id="body" class="container mt-3 mt-sm-4 mt-md-5">
         <div class="row">
             <div class="main-left col-12 col-md-8">
-                <div class="row">
+                <div class="row p-2">
                     <div
                         v-for="(item, index) in items"
                         :key="index"
-                        class="col-12 p-3"
+                        class="col-12 p-2"
                     >
                         <book-item- :item="item" />
                     </div>

@@ -9,7 +9,7 @@
                         :variant="
                             select === 'recommended' ? 'netlify' : 'white'
                         "
-                        @click="select = 'recommended';"
+                        @click="select = 'recommended'"
                     >
                         Recommended
                     </b-button>
@@ -17,7 +17,7 @@
                         class="mx-2 shadow"
                         size="md"
                         :variant="select === 'popular' ? 'netlify' : 'white'"
-                        @click="select = 'popular';"
+                        @click="select = 'popular'"
                     >
                         Popular
                     </b-button>
@@ -25,7 +25,7 @@
                         class="mx-2 shadow"
                         size="md"
                         :variant="select === 'latest' ? 'netlify' : 'white'"
-                        @click="select = 'latest';"
+                        @click="select = 'latest'"
                     >
                         Latest
                     </b-button>

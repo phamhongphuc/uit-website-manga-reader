@@ -16,4 +16,23 @@ export const Mutation = {
         const genre = await Genre.create({ name, description });
         return genre;
     },
+
+    async updateGenre(_, { input }) {
+        const { name, description } = input;
+        const oldGenre = Genre.getByName(name);
+        if (oldGenre === undefined) {
+            throw new Error('Thể loại này chưa được tạo');
+        }
+        const genre = await oldGenre.update({ name, description });
+        return genre;
+    },
+
+    async deleteGenre(_, { name }) {
+        const genre = Genre.getByName(name);
+        if (genre === undefined) {
+            throw new Error('Thể loại này chưa được tạo');
+        }
+        await genre.delete();
+        return true;
+    },
 };

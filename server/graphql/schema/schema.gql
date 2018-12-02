@@ -1,5 +1,7 @@
 type Mutation {
-    addGenre(input: GenreInput!): Genre!
+    addGenre(input: GenreInput!): Genre
+    updateGenre(input: GenreInput!): Genre
+    deleteGenre(name: String): Boolean
 }
 
 type Query {

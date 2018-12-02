@@ -1,4 +1,2 @@
 # Base type
-type Date {
-    unix: Int
-}
+scalar Date

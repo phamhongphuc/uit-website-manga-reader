@@ -10,6 +10,7 @@
         "dev": "run-p dev:*",
         "dev:server": "cross-env NODE_ENV=development nodemon server/index --exec babel-node",
         "dev:server:one": "cross-env NODE_ENV=development babel-node server/index",
+        "dev:server:data": "babel-node server/initialize/_initialize",
         "dev:client": "cross-env NODE_ENV=development nuxt",
         "build:client": "nuxt build",
         "build:server": "babel server -d build",

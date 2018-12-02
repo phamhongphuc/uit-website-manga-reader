@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 import database, { db } from '../database/database';
 
 import { Genre } from '../database/model';
-import genreData from './genreData';
+import genreData from './data/genreData';
 
 (async function() {
     await database();
@@ -18,9 +18,9 @@ import genreData from './genreData';
             await Genre.create({ name, description });
             console.log('create', name);
         },
-        { concurrency: 3 },
+        { concurrency: 10 },
     );
 
-    console.log('done!');
+    console.log('Done!');
     process.exit(0);
 })();

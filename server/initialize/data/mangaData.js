@@ -1,0 +1,88 @@
+export default [
+    {
+        id: '1',
+        name: ['kure-nai'],
+        associatedNames: '紅 kure-nai',
+        type: 'Manga',
+        status: 'Finished',
+        publishedFrom: '02-11-2007',
+        publishedTo: '04-06-2012',
+        genres: [
+            'Action',
+            'Drama',
+            'Martial Arts',
+            'Romance',
+            'Shounen',
+            'Harem',
+            'Supernatural',
+        ],
+        authors:
+            'Katayama, Kentarou (Story), Yamamoto, Yamato (Art), Furuya, Daisuke (Story)',
+        description:
+            '16-year-old Kurenai Shinkurou, a specialist in settling squabbles between people, is one day approached by the daughter of a powerful plutocratic family asking him to be her bodyguard.',
+        image: 'https://i.imgur.com/qqdzWs0.jpg',
+    },
+    {
+        id: '2',
+        name: 'A Thousand Years Ninetails',
+        associatedNames: [
+            'Cheonnyeon Kumiho',
+            'Millennium Nine-Tailed Fox',
+            'Nine Tails of a Thousand Years',
+        ],
+        type: 'Manhwa',
+        status: 'Finished',
+        publishedFrom: '04-11-2011',
+        publishedTo: '16-09-2016',
+        genres: ['Adventure', 'Comedy', 'Fantasy', 'Romance', 'Supernatural'],
+        authors: 'Giryang (Story & Art)',
+        description:
+            "In a city that is neither small nor big, there's a mountain that people avoid. The undeveloped mountain isn't protected with a green belt nor is it a site of environmental conservation. The avoided, prohibited forest... With the dismal atmosphere and the rumors that whisper about the spirits, let it to be called Spirit Mountain. On the mountain there's a house, a famed house of mediums that shows off their long glorious history of their heritage. Hence, it was once called Medium Mountain. But once, a long time ago, they said a Ninetails lived there... and was known as the Fox Mountain. But now, 20 years later, a dark aura covered this isolated place...",
+        image: 'https://i.imgur.com/hrWJmn4.jpg',
+    },
+    {
+        id: '3',
+        name: 'Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui!',
+        associatedNames: [
+            'No Matter How I Look at It',
+            "It's You Guys' Fault I'm Not Popular!",
+        ],
+        type: 'Manga',
+        status: 'Publishing',
+        publishedFrom: '04-08-2011',
+        publishedTo: 'undefined',
+        genres: ['Comedy', 'School'],
+        authors: 'Tanigawa, Nico (Story & Art)',
+        description:
+            "Tomoko Kuroki is not cool. She is unattractive, socially awkward, and spends most of her evenings playing video games. Even so, no one wants popularity as desperately as she does. With one ingenious idea after another, Tomoko comes ever closer to achieving her goal—or so she thinks. Utilizing such innovative methods as imitating popular anime personas and buying expensive panties, she claws her way toward attaining the social status of her dreams. Pathetically hilarious and strangely charming, Watashi ga Motenai no wa Dou Kangaetemo Omaera ga Warui! depicts Tomoko's daily struggles with social anxiety in a lighthearted and relatable way.",
+        image: 'https://i.imgur.com/5A3HtXr.jpg',
+    },
+    {
+        id: '4',
+        name: 'Soshite, Hare ni Naru',
+        associatedNames: ['And It Will Be Sunny', 'Cotton no Ashioto'],
+        type: 'Manga',
+        status: 'Publishing',
+        publishedFrom: '23-09-2011',
+        publishedTo: 'undefined',
+        genres: ['Romance', 'Slice of Life', 'Josei'],
+        authors: 'Tendou, Kirin (Story & Art)',
+        description:
+            'Life does not always go as planned. Noriko fell in love, got engaged, and imagined a bright future. Instead, her fiance fell in love with her older sister, Eiko. Noriko refused to let go, and they ended up getting married despite this significant problem. Some years of marriage and two children later, Noriko became a single mother. She returned to her family home, with her daughters Eri and Madoka. Her life continued, alongside Eiko (who ended up never marrying or leaving home), and their now elderly mother. Years later, Eri and Madoka are entering the time of life where they have their own problems with love. This manga follows the lives of this house of women.',
+        image: 'https://i.imgur.com/l3icGE3.png',
+    },
+    {
+        id: '5',
+        name: 'Ookami Shounen wa Kyou mo Uso wo Kasaneru',
+        associatedNames: ['The boy who cried wolf tells a lie today also'],
+        type: 'Manga',
+        status: 'Finished',
+        publishedFrom: '29-08-2014',
+        publishedTo: '08-11-2017',
+        genres: ['Drama', 'Romance', 'Gender Bender'],
+        authors: 'namo (Story & Art)',
+        description:
+            "Despite being kind and considerate, Keitarou Itsuki has a menacing look in his eyes that scares away others. When Keitarou attempts to confess to Aoi Tokujira, she flatly rejects him, leading him to believe that his intimidating eyes are to blame. Confiding his worries to his older sister, she gives him a hand by offering a complete makeover. But much to Keitarou's surprise, she turns him into a girl! Forced to head home in his new appearance, he unexpectedly comes across Aoi being harassed by a group of boys from their school, and rushes to her rescue. Surprisingly, she doesn't recognize him, and reveals a secret that she has held for a long time: she has an intense fear of men. Believing him to be a tomboyish girl, she asks Keitarou in his female guise to assist her in overcoming her fear.",
+        image: 'https://i.imgur.com/1RqpPfB.jpg',
+    },
+];

@@ -3,8 +3,10 @@
 import Promise from 'bluebird';
 import database, { db } from '../database/database';
 
-import { Genre } from '../database/model';
+import { Genre, Manga } from '../database/model';
 import genreData from './data/genreData';
+import mangaData from './data/mangaData';
+import { MangaType, StatusType } from '../database/model/Manga';
 
 (async function() {
     await database();
@@ -14,9 +16,21 @@ import genreData from './data/genreData';
 
     await Promise.map(
         genreData,
-        async ({ name, description }) => {
-            await Genre.create({ name, description });
-            console.log('create', name);
+        async data => {
+            await Genre.create(data);
+            console.log('create', data.name);
+        },
+        { concurrency: 10 },
+    );
+
+    await Promise.map(
+        mangaData,
+        async data => {
+            data.type = MangaType[data.type];
+            data.status = StatusType[data.status];
+            data.imageId = 0;
+            await Manga.create(data);
+            console.log('create', data.name);
         },
         { concurrency: 10 },
     );

@@ -12,18 +12,16 @@ export const Query = {
 
 export const Mutation = {
     async addGenre(_, { input }) {
-        const { name, description } = input;
-        const genre = await Genre.create({ name, description });
+        const genre = await Genre.create(input);
         return genre;
     },
 
     async updateGenre(_, { input }) {
-        const { name, description } = input;
         const oldGenre = Genre.getByName(name);
         if (oldGenre === undefined) {
             throw new Error('Thể loại này chưa được tạo');
         }
-        const genre = await oldGenre.update({ name, description });
+        const genre = await oldGenre.update(input);
         return genre;
     },
 

@@ -2,6 +2,10 @@ import { db } from '../database';
 import { Model } from '../utils/Model';
 import { isDescriptionValid, isNameValid } from '../utils/Validation';
 
+/**
+ * @typedef {import('../interface/genre').IGenreInput} IGenreInput
+ * @typedef {import('../interface/genre').IGenreOutput} IGenreOutput
+ */
 class Genre extends Model {
     /**
      * @param {String} name
@@ -12,7 +16,7 @@ class Genre extends Model {
     }
 
     /**
-     * @param {import('../interface/genre').Input} input
+     * @param {IGenreInput} input
      */
     static isInputValid(input) {
         isNameValid(input.name);
@@ -20,7 +24,8 @@ class Genre extends Model {
     }
 
     /**
-     * @param {import('../interface/genre').Input} input
+     * @param {IGenreInput} input
+     * @return {Genre}
      */
     static create(input) {
         Genre.isInputValid(input);
@@ -33,7 +38,10 @@ class Genre extends Model {
         });
     }
 
-    // vì name là khóa chính nên không thể sửa
+    /**
+     * @param {IGenreInput} input
+     * @return {Promise<Genre>}
+     */
     update(input) {
         return new Promise(resolve => {
             db.realm.write(() => {
@@ -46,6 +54,9 @@ class Genre extends Model {
         });
     }
 
+    /**
+     * @return {Promise<void>}
+     */
     delete() {
         return new Promise(resolve => {
             db.realm.write(() => {

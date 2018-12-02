@@ -5,6 +5,9 @@ type Mutation {
 }
 
 type Query {
+    mangas: [Manga!]!
+    manga(name: String): Manga
+
     genres: [Genre!]!
     genre(name: String): Genre
 

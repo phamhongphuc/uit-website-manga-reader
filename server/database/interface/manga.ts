@@ -1,4 +1,4 @@
-export interface Input {
+export interface IMangaInput {
     name: string;
     associatedNames?: string[];
     type?: number;
@@ -8,5 +8,5 @@ export interface Input {
     genreNames: string[];
     authors?: string;
     description?: string;
-    imageId: number;
+    imageId?: number;
 }

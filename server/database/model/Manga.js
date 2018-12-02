@@ -27,9 +27,12 @@ export const StatusType = {
     DROP: 2,
 };
 
+/**
+ * @typedef {import('../interface/manga').IMangaInput} IMangaInput
+ */
 class Manga extends Model {
     /**
-     * @param {import('../interface/manga').Input} input
+     * @param {IMangaInput} input
      */
     static isInputValid(input) {
         isNameValid(input.name);
@@ -45,7 +48,8 @@ class Manga extends Model {
     }
 
     /**
-     * @param {import('../interface/manga').Input} input
+     * @param {IMangaInput} input
+     * @return {Manga}
      */
     static create(input) {
         Manga.isInputValid(input);
@@ -67,7 +71,8 @@ class Manga extends Model {
     }
 
     /**
-     * @param {import('../interface/manga').Input} input
+     * @param {IMangaInput} input
+     * @return {Manga}
      */
     update(input) {
         return new Promise(resolve => {

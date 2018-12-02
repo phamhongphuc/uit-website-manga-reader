@@ -10,7 +10,7 @@ const importGraphql = filePath => {
 
 const typeDefs = [
     importGraphql('./schema/schema.gql'),
-    importGraphql('./schema/date.gql'),
+    importGraphql('./schema/custom.gql'),
     importGraphql('./schema/model/chapter.gql'),
     importGraphql('./schema/model/genre.gql'),
     importGraphql('./schema/model/image.gql'),

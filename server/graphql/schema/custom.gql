@@ -1,0 +1,15 @@
+# Base type
+scalar Date
+
+enum MangaType {
+    MANGA
+    MANHWA
+    MANHUA
+    COMIC
+}
+
+enum StatusType {
+    ONGOING
+    COMPLETED
+    DROP
+}

@@ -1,6 +1,10 @@
 import { ApolloServer } from 'apollo-server-koa';
-import typeDefs from './shema.gql';
+import fs from 'fs';
+import path from 'path';
 import resolvers from './_resolvers';
+
+const schemaPath = path.resolve(__dirname, './schema.gql');
+const typeDefs = fs.readFileSync(schemaPath).toString();
 
 /**
  * @typedef {import("koa")} Koa

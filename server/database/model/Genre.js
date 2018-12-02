@@ -4,7 +4,6 @@ import { isDescriptionValid, isNameValid } from '../utils/Validation';
 
 /**
  * @typedef {import('../interface/genre').IGenreInput} IGenreInput
- * @typedef {import('../interface/genre').IGenreOutput} IGenreOutput
  */
 class Genre extends Model {
     /**

@@ -3,6 +3,8 @@ type Mutation {
 }
 
 type Query {
-    chapters: [Chapter!]!
     genres: [Genre!]!
+    genre(name: String): Genre
+
+    # chapters: [Chapter!]!
 }

@@ -1,0 +1,8 @@
+type Mutation {
+    addGenre(input: GenreInput!): Genre!
+}
+
+type Query {
+    chapters: [Chapter!]!
+    genres: [Genre!]!
+}

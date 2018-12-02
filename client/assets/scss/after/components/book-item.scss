@@ -28,7 +28,6 @@ $book-item-box-padding-y: $book-item-box-padding-bottom +
     $book-item-img-vh: $book-item-box-vh;
     $book-item-img-vw: $book-item-img-vh * $book-item-img-r;
 
-    // Tạo ra tỉ lệ cho toàn bộ box ở ngoài (bao gồm cả box nền và img)
     height: $book-item-box-vh + $book-item-space;
     > div {
         grid-template-columns:
@@ -46,11 +45,6 @@ $book-item-box-padding-y: $book-item-box-padding-bottom +
             [bottom-img] $book-item-space
             [bottom-box];
     }
-
-    // .book-item-description {
-    //     height: $book-item-description-line-height *
-    //         $book-item-description-lines;
-    // }
 }
 
 @mixin book-item-grid-up($book-item-description-lines, $up: null) {

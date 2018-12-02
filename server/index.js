@@ -1,5 +1,4 @@
 /* eslint-disable no-process-exit */
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import Koa from 'koa';
 import { Nuxt, Builder, Generator } from 'nuxt';

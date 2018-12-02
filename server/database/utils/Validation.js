@@ -77,7 +77,7 @@ export function isGenreNamesValid(genreNames) {
     const isInvalid = genreNames.some(
         genreName => Genre.getByName(genreName) === undefined,
     );
-    if (isInvalid) throw new Error('Tên thể loại không tồn tại');
+    if (isInvalid) throw new Error(`Tên thể loại không tồn tại: ${genreNames}`);
 }
 
 // export function isImageValid(imageId) {

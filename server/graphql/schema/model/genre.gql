@@ -1,0 +1,10 @@
+type Genre {
+    name: String!
+    description: String!
+    mangas: [Manga!]!
+}
+
+input GenreInput {
+    name: String!
+    description: String!
+}

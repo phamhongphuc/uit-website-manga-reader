@@ -1,4 +1,4 @@
-export interface Input {
+export interface IGenreInput {
     name: string;
-    description?: string;
+    description: string;
 }

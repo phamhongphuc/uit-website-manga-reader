@@ -1,12 +1,12 @@
-export interface Input {
+export interface IMangaInput {
     name: string;
     associatedNames?: string[];
     type?: number;
     status?: number;
     publishedFrom?: Date;
     publishedTo?: Date;
-    genreNames: string[];
+    genres: string[];
     authors?: string;
     description?: string;
-    imageId: number;
+    imageId?: number;
 }

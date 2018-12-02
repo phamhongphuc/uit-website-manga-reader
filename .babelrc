@@ -1,8 +1,6 @@
 {
     "presets": [["@babel/preset-env", { "useBuiltIns": "usage" }]],
     "plugins": [
-        "import-graphql",
-
         ["@babel/plugin-proposal-decorators", { "legacy": true }],
         "@babel/plugin-proposal-function-sent",
         "@babel/plugin-proposal-export-namespace-from",

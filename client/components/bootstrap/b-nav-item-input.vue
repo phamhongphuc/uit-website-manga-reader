@@ -6,9 +6,9 @@
             :class="`pl-0 pr-3 pl-${reverseWhen}-3 pr-${reverseWhen}-0`"
             :placeholder="placeholder"
             :value="value"
-            @input="$emit('input', $event.target.value);"
-            @focus="$emit('update:focus', true);"
-            @blur="$emit('update:focus', false);"
+            @input="$emit('input', $event.target.value)"
+            @focus="$emit('update:focus', true)"
+            @blur="$emit('update:focus', false)"
         />
     </b-nav-item>
 </template>

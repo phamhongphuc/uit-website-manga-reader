@@ -52,8 +52,8 @@ Image.schema = {
         id: 'int',
         name: 'string',
         url: 'string',
-        chapter: 'Chapter',
         deletehash: 'string',
+        chapter: 'Chapter',
         manga: {
             type: 'linkingObjects',
             objectType: 'Manga',

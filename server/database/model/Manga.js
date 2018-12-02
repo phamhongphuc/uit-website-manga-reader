@@ -22,14 +22,17 @@ export const MangaType = {
 };
 
 export const StatusType = {
-    ISGOING: 0,
+    ONGOING: 0,
     COMPLETED: 1,
     DROP: 2,
 };
 
+/**
+ * @typedef {import('../interface/manga').IMangaInput} IMangaInput
+ */
 class Manga extends Model {
     /**
-     * @param {import('../interface/manga').Input} input
+     * @param {IMangaInput} input
      */
     static isInputValid(input) {
         isNameValid(input.name);
@@ -38,14 +41,15 @@ class Manga extends Model {
         isStatusTypeValid(input.status);
         isDateValid(input.publishedFrom);
         isDateValid(input.publishedTo);
-        isGenreNamesValid(input.genreNames);
+        isGenreNamesValid(input.genres);
         isAuthorsValid(input.authors);
         isDescriptionValid(input.description);
-        Image.isIdValid(input.imageId);
+        // Image.isIdValid(input.imageId);
     }
 
     /**
-     * @param {import('../interface/manga').Input} input
+     * @param {IMangaInput} input
+     * @return {Manga}
      */
     static create(input) {
         Manga.isInputValid(input);
@@ -57,9 +61,7 @@ class Manga extends Model {
             status: input.status,
             publishedFrom: moment(input.publishedFrom, 'DD-MM-YYYY').toDate(),
             publishedTo: moment(input.publishedTo, 'DD-MM-YYYY').toDate(),
-            genres: input.genreNames.map(genreName =>
-                Genre.getByName(genreName),
-            ),
+            genres: input.genres.map(genreName => Genre.getByName(genreName)),
             authors: input.authors,
             description: input.description,
             image: Image.getById(input.imageId),
@@ -67,7 +69,8 @@ class Manga extends Model {
     }
 
     /**
-     * @param {import('../interface/manga').Input} input
+     * @param {IMangaInput} input
+     * @return {Manga}
      */
     update(input) {
         return new Promise(resolve => {
@@ -105,8 +108,8 @@ class Manga extends Model {
                     this.publishedTo = publishedTo;
                 }
                 if (input.hasOwnProperty('genres')) {
-                    isGenreNamesValid(input.genreNames);
-                    this.genres = input.genreNames.map(genreName =>
+                    isGenreNamesValid(input.genres);
+                    this.genres = input.genres.map(genreName =>
                         Genre.getByName(genreName),
                     );
                 }

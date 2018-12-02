@@ -1,0 +1,14 @@
+type Manga {
+    id: Int!
+    name: String!
+    associatedNames: [String!]!
+    type: MangaType!
+    status: StatusType!
+    publishedFrom: Date!
+    publishedTo: Date!
+    genres: [Genre!]!
+    authors: String!
+    description: String!
+    image: Image!
+    chapters: [Chapter!]!
+}

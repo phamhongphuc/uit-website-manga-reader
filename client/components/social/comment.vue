@@ -1,10 +1,7 @@
 <template>
     <div class="comment">
         <div class="comment-top border-bottom">
-            <image-
-                source="https://github.com/phamhongphuc.png"
-                class="shadow"
-            />
+            <image- :source="data.user.avatar" class="shadow" />
             <div class="comment-right">
                 <nuxt-link class="user-name font-pacifico" to="/">
                     {{ data.user.name }}
@@ -31,7 +28,7 @@ export default {
             default: () => ({
                 user: {
                     name: 'user name',
-                    avatar: 'https://github.com/phamhongphuc.png',
+                    avatar: '/img/avatar.jpg',
                 },
                 book: {
                     name: 'manga name',
@@ -71,11 +68,9 @@ export default {
         }
         > .book-name {
             font-weight: 600;
-            color: $netlify;
+            color: $main;
             @include text-truncate;
         }
-        // line-height: 3rem;
-        // font-size: 1.25em;
     }
 }
 

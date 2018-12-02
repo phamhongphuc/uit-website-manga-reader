@@ -10,8 +10,7 @@
                     {{ data.user.name }}
                 </nuxt-link>
                 <nuxt-link :to="data.book.link" class="book-name">
-                    <span class="icon"></span>
-                    <span class="book-name-title">{{ data.book.name }}</span>
+                    {{ data.book.name }}
                 </nuxt-link>
             </div>
         </div>
@@ -74,20 +73,6 @@ export default {
             font-weight: 600;
             color: $netlify;
             @include text-truncate;
-            > .icon {
-                transition: all 0.5s;
-                display: inline-block;
-            }
-            &:hover {
-                text-decoration: none;
-                > .icon {
-                    // margin: 0 0.3rem;
-                    transform: rotate(360deg);
-                }
-                > .book-name-title {
-                    text-decoration: underline;
-                }
-            }
         }
         // line-height: 3rem;
         // font-size: 1.25em;

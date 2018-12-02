@@ -5,7 +5,7 @@ export interface IMangaInput {
     status?: number;
     publishedFrom?: Date;
     publishedTo?: Date;
-    genreNames: string[];
+    genres: string[];
     authors?: string;
     description?: string;
     imageId?: number;

@@ -1,7 +1,7 @@
 import { Manga } from '../../database/model';
 
 /**
- * @typedef {import('../../database/model/Manga').IMangaInput} IMangaInput
+ * @typedef {import('../../database/interface/manga').IMangaInput} IMangaInput
  */
 
 const Query = {

@@ -6,7 +6,7 @@ import { isBufferValid, isNameValid } from '../utils/validation';
 
 class Image extends Model {
     /**
-     * @param {import('../interface/image').ImageInput} input
+     * @param {import('../interface/image').IImageInput} input
      */
     static isInputValid(input) {
         isNameValid(input.name);
@@ -14,7 +14,7 @@ class Image extends Model {
     }
 
     /**
-     * @param {import('../interface/image').ImageInput} input
+     * @param {import('../interface/image').IImageInput} input
      */
     static async create(input) {
         Image.isInputValid(input);

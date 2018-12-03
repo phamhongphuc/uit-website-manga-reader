@@ -1,4 +1,4 @@
-export interface ImageInput {
+export interface IImageInput {
     name: string;
     chapterId?: number;
     imageBuffer: Buffer;

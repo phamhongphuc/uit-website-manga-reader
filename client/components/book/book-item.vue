@@ -3,7 +3,7 @@
         <div>
             <div class="book-item-box" />
             <div class="book-item-image">
-                <image- redirect :source="item.img" />
+                <image- redirect :source="item.image.url" />
             </div>
             <div class="book-item-text">
                 <nuxt-link class="book-item-title" to="/">

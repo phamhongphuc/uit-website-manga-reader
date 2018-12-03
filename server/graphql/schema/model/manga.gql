@@ -9,7 +9,7 @@ type Manga {
     genres: [Genre!]!
     authors: String!
     description: String!
-    image: Image
+    image: Image!
     chapters: [Chapter!]!
 }
 

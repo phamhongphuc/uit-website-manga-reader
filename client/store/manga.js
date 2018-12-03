@@ -27,6 +27,12 @@ export const actions = {
                         id
                         name
                         description
+                        image {
+                            url
+                        }
+                        genres {
+                            name
+                        }
                     }
                 }
             `,

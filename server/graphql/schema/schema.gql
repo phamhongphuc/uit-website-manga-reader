@@ -5,7 +5,7 @@ type Mutation {
 
     addManga(input: MangaInput!): Manga
     updateManga(input: MangaInput!): Manga
-    deleteManga(name: String): Boolean
+    deleteManga(id: Int): Boolean
 }
 
 type Query {

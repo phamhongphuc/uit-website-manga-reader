@@ -2,6 +2,7 @@ import { Manga } from '../../database/model';
 
 const Query = {
     mangas() {
+        /** @type {Realm.Results<Manga>} */
         return Manga.list;
     },
 
@@ -26,8 +27,8 @@ const Mutation = {
         return manga;
     },
 
-    async deleteManga(_, { name }) {
-        const manga = Manga.getByName(name);
+    async deleteManga(_, { id }) {
+        const manga = Manga.getById(id);
         if (Manga === undefined) {
             throw new Error('Thể loại này chưa được tạo');
         }

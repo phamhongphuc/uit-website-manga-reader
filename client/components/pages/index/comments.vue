@@ -6,7 +6,7 @@
                 :key="index"
                 class="m-2 shadow"
                 size="md"
-                :variant="select === set ? 'netlify' : 'white'"
+                :variant="select === set ? 'main' : 'white'"
                 @click="select = set"
             >
                 {{ set }}

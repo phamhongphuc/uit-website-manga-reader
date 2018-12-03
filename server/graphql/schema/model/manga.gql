@@ -9,6 +9,21 @@ type Manga {
     genres: [Genre!]!
     authors: String!
     description: String!
-    image: Image!
+    image: Image
     chapters: [Chapter!]!
+}
+
+input MangaInput {
+    id: Int!
+    name: String!
+    associatedNames: [String!]!
+    type: MangaType!
+    status: StatusType!
+    publishedFrom: Date!
+    publishedTo: Date!
+    genres: [String!]!
+    authors: String!
+    description: String!
+    # image: Image!
+    # chapters: [Chapter!]!
 }

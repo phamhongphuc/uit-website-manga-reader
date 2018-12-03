@@ -2,6 +2,10 @@ type Mutation {
     addGenre(input: GenreInput!): Genre
     updateGenre(input: GenreInput!): Genre
     deleteGenre(name: String): Boolean
+
+    addManga(input: MangaInput!): Manga
+    updateManga(input: MangaInput!): Manga
+    deleteManga(name: String): Boolean
 }
 
 type Query {

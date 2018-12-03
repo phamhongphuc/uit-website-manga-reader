@@ -6,3 +6,10 @@ type Image {
     chapter: Chapter!
     manga: Manga!
 }
+
+input ImageInput {
+    name: String!
+    file: Upload!
+    chapter: String
+    Manga: String
+}

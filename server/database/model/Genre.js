@@ -1,6 +1,6 @@
 import { db } from '../database';
-import { Model } from '../utils/Model';
-import { isDescriptionValid, isNameValid } from '../utils/Validation';
+import { Model } from '../utils/model';
+import { isDescriptionValid, isNameValid } from '../utils/validation';
 
 /**
  * @typedef {import('../interface/genre').IGenreInput} IGenreInput

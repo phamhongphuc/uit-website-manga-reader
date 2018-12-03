@@ -6,6 +6,8 @@ type Mutation {
     addManga(input: MangaInput!): Manga
     updateManga(input: MangaInput!): Manga
     deleteManga(id: Int): Boolean
+
+    updateImage(input: ImageInput!): Image
 }
 
 type Query {

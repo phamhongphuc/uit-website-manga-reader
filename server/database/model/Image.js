@@ -1,12 +1,12 @@
 import { Chapter } from '.';
 import { db } from '../database';
-import { deleteImage, uploadImage } from '../utils/Imgur';
-import { Model } from '../utils/Model';
-import { isBufferValid, isNameValid } from '../utils/Validation';
+import { deleteImage, uploadImage } from '../utils/imgur';
+import { Model } from '../utils/model';
+import { isBufferValid, isNameValid } from '../utils/validation';
 
 class Image extends Model {
     /**
-     * @param {import('../interface/image').Input} input
+     * @param {import('../interface/image').ImageInput} input
      */
     static isInputValid(input) {
         isNameValid(input.name);
@@ -14,7 +14,7 @@ class Image extends Model {
     }
 
     /**
-     * @param {import('../interface/image').Input} input
+     * @param {import('../interface/image').ImageInput} input
      */
     static async create(input) {
         Image.isInputValid(input);

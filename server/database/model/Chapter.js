@@ -1,8 +1,8 @@
 import Promise from 'bluebird';
 import { Manga } from '.';
 import { db } from '../database';
-import { Model } from '../utils/Model';
-import { isNameValid } from '../utils/Validation';
+import { Model } from '../utils/model';
+import { isNameValid } from '../utils/validation';
 
 class Chapter extends Model {
     /**

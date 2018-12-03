@@ -22,7 +22,11 @@ const typeDefs = [
  * @param {Koa} app
  */
 export default function(app) {
-    const server = new ApolloServer({ typeDefs, resolvers });
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers,
+        uploads: true,
+    });
     server.applyMiddleware({ app, path: '/api/graphql' });
 
     // eslint-disable-next-line no-console

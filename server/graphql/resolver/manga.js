@@ -1,6 +1,6 @@
 import { Manga } from '../../database/model';
 
-export const Query = {
+const Query = {
     mangas() {
         return Manga.list;
     },
@@ -10,7 +10,7 @@ export const Query = {
     },
 };
 
-export const Mutation = {
+const Mutation = {
     async addManga(_, { input }) {
         const manga = await Manga.create(input);
         return manga;
@@ -34,4 +34,9 @@ export const Mutation = {
         await manga.delete();
         return true;
     },
+};
+
+export default {
+    Query,
+    Mutation,
 };

@@ -33,7 +33,7 @@ export default {
     },
     computed: {
         ...mapState({
-            items: state => state.book.items,
+            items: state => state.manga.items,
         }),
     },
 };

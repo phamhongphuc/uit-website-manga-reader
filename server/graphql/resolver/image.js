@@ -1,7 +1,4 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import { Image } from '../../database/model';
-import { uploadImage } from '../../database/utils/imgur';
 
 /**
  * @typedef {import('../../database/interface/image').IImageInput} IImageInput

@@ -13,6 +13,8 @@
 
 /yarn.lock
 
+/realm-object-server
+
 *.svg
 *.ttf
 *.woff
@@ -29,3 +31,6 @@
 
 *.code-workspace
 *.json
+
+*.ts
+*.gql

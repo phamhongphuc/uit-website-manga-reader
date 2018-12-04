@@ -70,7 +70,7 @@
         "@babel/plugin-proposal-throw-expressions": "^7.0.0",
         "@babel/plugin-syntax-dynamic-import": "^7.0.0",
         "@babel/plugin-syntax-import-meta": "^7.0.0",
-        "@babel/plugin-syntax-jsx": "^7.0.0",
+        "@babel/plugin-syntax-jsx": "^7.2.0",
         "@playlyfe/gql": "^2.6.0",
         "@types/node": "^10.12.12",
         "babel-eslint": "^10.0.1",

@@ -1,12 +1,12 @@
 import { Chapter } from '.';
 import { db } from '../database';
-import { deleteImage, uploadImage } from '../utils/imgur';
-import { Model } from '../utils/model';
+import { deleteImage, uploadImage } from '../utils/Imgur';
+import { Model } from '../utils/Model';
 import {
     isUploadInputValid,
     isThrow,
     isPromiseValid,
-} from '../utils/validation';
+} from '../utils/Validation';
 
 class Image extends Model {
     /**

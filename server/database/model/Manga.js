@@ -2,7 +2,7 @@ import Promise from 'bluebird';
 import moment from 'moment';
 import { db } from '../database';
 import { Image, Genre } from '.';
-import { Model } from '../utils/model';
+import { Model } from '../utils/Model';
 import {
     isAssociatedNamesValid,
     isAuthorsValid,
@@ -12,7 +12,7 @@ import {
     isMangaTypeValid,
     isNameValid,
     isStatusTypeValid,
-} from '../utils/validation';
+} from '../utils/Validation';
 import { parseDate } from '../utils/date';
 
 export const MangaType = {

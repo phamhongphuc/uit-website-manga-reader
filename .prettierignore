@@ -26,3 +26,6 @@
 *.ico
 
 *.log
+
+*.realm
+*.realm.lock

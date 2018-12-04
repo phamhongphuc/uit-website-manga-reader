@@ -7928,9 +7928,9 @@ readdirp@^2.0.0:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
-realm@^2.20.1:
-  version "2.20.1"
-  resolved "https://registry.yarnpkg.com/realm/-/realm-2.20.1.tgz#3a36d2df13ac53a8de5b75c5d6fd7bedd575d267"
+realm@^2.21.0:
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/realm/-/realm-2.21.0.tgz#fd70067ffede61e3749ffa4cb32d827585d0b735"
   dependencies:
     command-line-args "^4.0.6"
     decompress "^4.2.0"

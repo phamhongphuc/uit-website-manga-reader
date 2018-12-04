@@ -2,7 +2,11 @@ import { Chapter } from '.';
 import { db } from '../database';
 import { deleteImage, uploadImage } from '../utils/imgur';
 import { Model } from '../utils/model';
-import { isUploadInputValid } from '../utils/validation';
+import {
+    isUploadInputValid,
+    isThrow,
+    isPromiseValid,
+} from '../utils/validation';
 
 class Image extends Model {
     /**
@@ -11,13 +15,21 @@ class Image extends Model {
     static async create(input) {
         isUploadInputValid(input.file);
 
+        /** @type {import('../interface/image').IImageData} */
+        const imageData = {};
+        imageData.name = 'unknown';
+
+        if (!isThrow(() => isPromiseValid(input.file))) {
+            /** @type {import('../../graphql/interface/interface').FileUpload} */
+            const { stream, filename } = await input.file;
+            input.file = stream;
+            imageData.name = filename;
+        }
         const imageFromImgur = await uploadImage(input.file);
-        const imageData = {
-            id: Image.nextId,
-            name: 'input.name',
-            url: imageFromImgur.data.data.link,
-            deletehash: imageFromImgur.data.data.deletehash,
-        };
+
+        imageData.id = Image.nextId;
+        imageData.url = imageFromImgur.data.data.link;
+        imageData.deletehash = imageFromImgur.data.data.deletehash;
 
         if (input.chapterId !== undefined) {
             Chapter.isIdValid(input.chapterId);

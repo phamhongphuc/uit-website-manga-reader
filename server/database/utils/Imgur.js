@@ -6,18 +6,19 @@ const headers = {
 };
 
 /**
- * @typedef {import('stream').Stream} Stream
- * @param {import('../interface/image').ImageUploadInput} imageInput
+ * @param {string | Buffer | import('stream').Stream} imageInput
  */
-export const uploadImage = imageInput => {
+export const uploadImage = async imageInput => {
     const data = new FormData();
     data.append('image', imageInput);
-    return axios.post('https://api.imgur.com/3/image', data, {
+
+    const result = await axios.post('https://api.imgur.com/3/image', data, {
         headers: {
             ...data.getHeaders(),
             ...headers,
         },
     });
+    return result;
 };
 
 export const deleteImage = deletehash => {

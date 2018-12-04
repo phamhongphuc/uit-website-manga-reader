@@ -12,3 +12,10 @@ export declare type ImageUploadInput =
     | Buffer
     | Stream
     | Promise<FileUpload>;
+
+export interface IImageData {
+    id: number;
+    name: string;
+    url: string;
+    deletehash: string;
+}

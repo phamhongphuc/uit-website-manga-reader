@@ -9,8 +9,9 @@ type Manga {
     genres: [Genre!]!
     authors: String!
     description: String!
-    image: Image!
     chapters: [Chapter!]!
+
+    image: Image
 }
 
 input MangaInput {
@@ -24,6 +25,4 @@ input MangaInput {
     genres: [String!]!
     authors: String!
     description: String!
-    # image: Image!
-    # chapters: [Chapter!]!
 }

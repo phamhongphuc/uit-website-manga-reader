@@ -13,6 +13,7 @@ import {
     isNameValid,
     isStatusTypeValid,
 } from '../utils/validation';
+import { parseDate } from '../utils/date';
 
 export const MangaType = {
     MANGA: 0,
@@ -44,28 +45,30 @@ class Manga extends Model {
         isGenreNamesValid(input.genres);
         isAuthorsValid(input.authors);
         isDescriptionValid(input.description);
-        // Image.isIdValid(input.imageId);
     }
 
     /**
      * @param {IMangaInput} input
-     * @return {Manga}
      */
-    static create(input) {
+    static async create(input) {
         Manga.isInputValid(input);
-        return Manga.write({
+        const image = await Image.create(input.image);
+
+        /** @type {Manga} */
+        const manga = await Manga.write({
             id: Manga.nextId,
             name: input.name,
             associatedNames: input.associatedNames,
             type: input.type,
             status: input.status,
-            publishedFrom: moment(input.publishedFrom, 'DD-MM-YYYY').toDate(),
-            publishedTo: moment(input.publishedTo, 'DD-MM-YYYY').toDate(),
-            genres: input.genres.map(genreName => Genre.getByName(genreName)),
             authors: input.authors,
             description: input.description,
-            image: Image.getById(input.imageId),
+            publishedFrom: parseDate(input.publishedFrom),
+            publishedTo: parseDate(input.publishedTo),
+            genres: input.genres.map(genreName => Genre.getByName(genreName)),
+            image,
         });
+        return manga;
     }
 
     /**
@@ -122,8 +125,8 @@ class Manga extends Model {
                     this.description = input.description;
                 }
                 if (input.hasOwnProperty('image')) {
-                    Image.isIdValid(input.imageId);
-                    this.image = Image.getById(input.imageId);
+                    Image.isIdValid(input.image);
+                    this.image = Image.getById(input.image);
                 }
                 resolve(this);
             });

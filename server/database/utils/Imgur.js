@@ -5,9 +5,13 @@ const headers = {
     // Authorization: 'Client-ID xxx',
 };
 
-export const uploadImage = imageBuffer => {
+/**
+ * @typedef {import('stream').Stream} Stream
+ * @param {import('../interface/image').ImageUploadInput} imageInput
+ */
+export const uploadImage = imageInput => {
     const data = new FormData();
-    data.append('image', imageBuffer);
+    data.append('image', imageInput);
     return axios.post('https://api.imgur.com/3/image', data, {
         headers: {
             ...data.getHeaders(),

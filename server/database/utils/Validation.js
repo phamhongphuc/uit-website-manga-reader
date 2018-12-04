@@ -1,4 +1,6 @@
 import moment from 'moment';
+import isUrl from 'is-url';
+import { Stream } from 'stream';
 import { Genre } from '../model';
 import { MangaType, StatusType } from '../model/Manga';
 
@@ -40,9 +42,24 @@ export function isDescriptionValid(description) {
     }
 }
 
+/** @param {Buffer} buffer */
 export function isBufferValid(buffer) {
     if (typeof buffer !== 'object' || !(buffer instanceof Buffer)) {
         throw new Error('Buffer không khớp kiểu dữ liệu');
+    }
+}
+
+/** @param {Stream} stream */
+export function isStreamValid(stream) {
+    if (typeof stream !== 'object' || !(stream instanceof Stream)) {
+        throw new Error('Stream không khớp kiểu dữ liệu');
+    }
+}
+
+/** @param {Promise} promise */
+export function isPromiseValid(promise) {
+    if (typeof promise !== 'object' || !(promise instanceof Promise)) {
+        throw new Error('Promise không khớp kiểu dữ liệu');
     }
 }
 
@@ -50,7 +67,7 @@ export function isMangaTypeValid(type) {
     for (const key in MangaType) {
         if (type === MangaType[key]) return;
     }
-    throw new Error('Manga phải là một số trong các số 0,1,2,3');
+    throw new Error('Manga phải là một số trong các số 0, 1, 2, 3');
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some
     // const isValid = Object.entries(MangaType).some(([key, value]) => value === type);
@@ -68,20 +85,46 @@ export function isStatusTypeValid(type) {
  * @param {String[]} genreNames
  */
 export function isGenreNamesValid(genreNames) {
-    // for (let i = 0; i < genreNames.length; i++) {
-    //     if (Genre.getByName(genreNames[i]) === undefined) {
-    //         throw new Error('Tên thể loại không tồn tại');
-    //     }
-    // }
-
     const isInvalid = genreNames.some(
         genreName => Genre.getByName(genreName) === undefined,
     );
     if (isInvalid) throw new Error(`Tên thể loại không tồn tại: ${genreNames}`);
 }
 
-// export function isImageValid(imageId) {
-//     if (Image.getById(imageId) === undefined) {
-//         throw new Error('imageId không tồn tại');
-//     }
-// }
+/**
+ * @param {String} url
+ */
+export function isUrlValid(url) {
+    if (!isUrl(url)) {
+        throw new Error('Không phải là đường dẫn hợp lệ');
+    }
+}
+
+/**
+ * @param {import('../interface/image').ImageUploadInput} input
+ */
+export function isUploadInputValid(input) {
+    const allThrow =
+        isThrow(() => isUrlValid(input)) &&
+        isThrow(() => isBufferValid(input)) &&
+        isThrow(() => isStreamValid(input)) &&
+        isThrow(() => isPromiseValid(input));
+    if (allThrow) {
+        throw new Error(
+            'Không phải là chuỗi, Buffer Stream hay một Promise<FileUpload> (không thể kiểm tra kiểu trả về của Promise)',
+        );
+    }
+}
+
+/**
+ * @param {function} callback
+ * @return {Boolean}
+ */
+export function isThrow(callback) {
+    try {
+        callback();
+        return false;
+    } catch (e) {
+        return true;
+    }
+}

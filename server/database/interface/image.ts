@@ -1,5 +1,14 @@
+import { Stream } from 'stream';
+import { FileUpload } from '../../graphql/interface/interface';
+
 export interface IImageInput {
-    name: string;
+    file: ImageUploadInput;
+    name?: string;
     chapterId?: number;
-    imageBuffer: Buffer;
 }
+
+export declare type ImageUploadInput =
+    | string
+    | Buffer
+    | Stream
+    | Promise<FileUpload>;

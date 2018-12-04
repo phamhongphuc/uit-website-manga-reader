@@ -2,35 +2,31 @@ import { Chapter } from '.';
 import { db } from '../database';
 import { deleteImage, uploadImage } from '../utils/imgur';
 import { Model } from '../utils/model';
-import { isBufferValid, isNameValid } from '../utils/validation';
+import { isUploadInputValid } from '../utils/validation';
 
 class Image extends Model {
     /**
      * @param {import('../interface/image').IImageInput} input
      */
-    static isInputValid(input) {
-        isNameValid(input.name);
-        isBufferValid(input.imageBuffer);
-    }
-
-    /**
-     * @param {import('../interface/image').IImageInput} input
-     */
     static async create(input) {
-        Image.isInputValid(input);
-        const image = await uploadImage(input.imageBuffer);
+        isUploadInputValid(input.file);
+
+        const imageFromImgur = await uploadImage(input.file);
         const imageData = {
             id: Image.nextId,
-            name: input.name,
-            url: image.data.data.link,
-            deletehash: image.data.data.deletehash,
+            name: 'input.name',
+            url: imageFromImgur.data.data.link,
+            deletehash: imageFromImgur.data.data.deletehash,
         };
+
         if (input.chapterId !== undefined) {
             Chapter.isIdValid(input.chapterId);
             imageData.chapter = Chapter.getById(input.chapterId);
         }
-        const result = await Image.write(imageData);
-        return result;
+
+        /** @type {Image} */
+        const image = await Image.write(imageData);
+        return image;
     }
 
     delete() {

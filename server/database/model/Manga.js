@@ -13,7 +13,7 @@ import {
     isNameValid,
     isStatusTypeValid,
 } from '../utils/Validation';
-import { parseDate } from '../utils/date';
+import { parseDate } from '../utils/_Date';
 
 export const MangaType = {
     MANGA: 0,

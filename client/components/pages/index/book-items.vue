@@ -6,7 +6,7 @@
                 :key="index"
                 class="m-2 shadow"
                 size="md"
-                :variant="select === set ? 'netlify' : 'white'"
+                :variant="select === set ? 'main' : 'white'"
                 @click="select = set"
             >
                 {{ set }}
@@ -33,7 +33,7 @@ export default {
     },
     computed: {
         ...mapState({
-            items: state => state.book.items,
+            items: state => state.manga.items,
         }),
     },
 };

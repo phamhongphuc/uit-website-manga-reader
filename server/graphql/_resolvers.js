@@ -1,19 +1,19 @@
-import {
-    Mutation as genreMutation,
-    Query as genreQuery,
-} from './resolver/genre';
+import Genre from './resolver/genre';
+import Manga from './resolver/manga';
+import Image from './resolver/image';
 
-import ScalarDate from './scalar/date';
-import { MangaType, StatusType } from '../database/model/Manga';
+import util from './util/_util';
+
+const queryAndMutation = [Genre, Manga, Image].reduce(
+    (output, currentValue) => {
+        output.Query = { ...output.Query, ...currentValue.Query };
+        output.Mutation = { ...output.Mutation, ...currentValue.Mutation };
+        return output;
+    },
+    { Query: {}, Mutation: {} },
+);
 
 export default {
-    Query: {
-        ...genreQuery,
-    },
-    Mutation: {
-        ...genreMutation,
-    },
-    Date: ScalarDate,
-    MangaType,
-    StatusType,
+    ...queryAndMutation,
+    ...util,
 };

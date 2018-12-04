@@ -1,36 +1,44 @@
 import { Chapter } from '.';
 import { db } from '../database';
-import { deleteImage, uploadImage } from '../utils/Imgur';
-import { Model } from '../utils/Model';
-import { isBufferValid, isNameValid } from '../utils/Validation';
+import { deleteImage, uploadImage } from '../utils/imgur';
+import { Model } from '../utils/model';
+import {
+    isUploadInputValid,
+    isThrow,
+    isPromiseValid,
+} from '../utils/validation';
 
 class Image extends Model {
     /**
-     * @param {import('../interface/image').Input} input
-     */
-    static isInputValid(input) {
-        isNameValid(input.name);
-        isBufferValid(input.imageBuffer);
-    }
-
-    /**
-     * @param {import('../interface/image').Input} input
+     * @param {import('../interface/image').IImageInput} input
      */
     static async create(input) {
-        Image.isInputValid(input);
-        const image = await uploadImage(input.imageBuffer);
-        const imageData = {
-            id: Image.nextId,
-            name: input.name,
-            url: image.data.data.link,
-            deletehash: image.data.data.deletehash,
-        };
+        isUploadInputValid(input.file);
+
+        /** @type {import('../interface/image').IImageData} */
+        const imageData = {};
+        imageData.name = 'unknown';
+
+        if (!isThrow(() => isPromiseValid(input.file))) {
+            /** @type {import('../../graphql/interface/interface').FileUpload} */
+            const { stream, filename } = await input.file;
+            input.file = stream;
+            imageData.name = filename;
+        }
+        const imageFromImgur = await uploadImage(input.file);
+
+        imageData.id = Image.nextId;
+        imageData.url = imageFromImgur.data.data.link;
+        imageData.deletehash = imageFromImgur.data.data.deletehash;
+
         if (input.chapterId !== undefined) {
             Chapter.isIdValid(input.chapterId);
             imageData.chapter = Chapter.getById(input.chapterId);
         }
-        const result = await Image.write(imageData);
-        return result;
+
+        /** @type {Image} */
+        const image = await Image.write(imageData);
+        return image;
     }
 
     delete() {

@@ -9,7 +9,7 @@ router
     .post('/api/image', upload.single('image'), async ctx => {
         const image = await Image.create({
             name: ctx.req.file.originalname,
-            imageBuffer: ctx.req.file.buffer,
+            file: ctx.req.file.buffer,
             chapterId: ctx.req.body.chapterId,
         });
         ctx.body = {

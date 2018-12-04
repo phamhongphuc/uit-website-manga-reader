@@ -1,3 +1,5 @@
+import { ImageUploadInput } from './image';
+
 export interface IMangaInput {
     name: string;
     associatedNames?: string[];
@@ -8,5 +10,6 @@ export interface IMangaInput {
     genres: string[];
     authors?: string;
     description?: string;
-    imageId?: number;
+
+    image: ImageUploadInput;
 }

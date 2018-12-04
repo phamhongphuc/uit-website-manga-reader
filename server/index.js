@@ -24,12 +24,15 @@ const PORT = process.env.PORT || 3000;
 
     const nuxt = new Nuxt(config);
 
-    app.use(ctx => {
-        ctx.status = 200;
-        ctx.respond = false;
-        ctx.req.ctx = ctx;
-        nuxt.render(ctx.req, ctx.res);
-    });
+    if (['development', 'generation'].indexOf(process.env.NODE_ENV) === -1) {
+        // Render every route with Nuxt.js
+        app.use(ctx => {
+            ctx.status = 200;
+            ctx.respond = false;
+            ctx.req.ctx = ctx;
+            nuxt.render(ctx.req, ctx.res);
+        });
+    }
 
     app.listen(PORT, HOST, async () => {
         console.log(`Server is running on port ${PORT}!`);

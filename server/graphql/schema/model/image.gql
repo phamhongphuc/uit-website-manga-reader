@@ -2,7 +2,13 @@ type Image {
     id: Int!
     name: String!
     url: String!
-    # deletehash: String // Not public
     chapter: Chapter!
     manga: Manga!
+    # deletehash: String // Not public
+}
+
+input ImageInput {
+    name: String!
+    file: Upload!
+    chapterId: String
 }

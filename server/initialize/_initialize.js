@@ -28,7 +28,6 @@ import { MangaType, StatusType } from '../database/model/Manga';
         async data => {
             data.type = MangaType[data.type];
             data.status = StatusType[data.status];
-            data.imageId = 0;
             await Manga.create(data);
             console.log('create', data.name);
         },

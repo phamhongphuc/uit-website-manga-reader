@@ -44,6 +44,7 @@
         "graphql": "^14.0.2",
         "graphql-tag": "^2.10.0",
         "graphql-tools": "^4.0.3",
+        "is-url": "^1.2.4",
         "koa": "^2.6.2",
         "koa-bodyparser": "^4.2.1",
         "koa-multer": "^1.0.2",

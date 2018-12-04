@@ -1,6 +1,6 @@
 import { Genre } from '../../database/model';
 
-export const Query = {
+const Query = {
     genres() {
         return Genre.list;
     },
@@ -10,7 +10,7 @@ export const Query = {
     },
 };
 
-export const Mutation = {
+const Mutation = {
     async addGenre(_, { input }) {
         const genre = await Genre.create(input);
         return genre;
@@ -33,4 +33,9 @@ export const Mutation = {
         await genre.delete();
         return true;
     },
+};
+
+export default {
+    Query,
+    Mutation,
 };

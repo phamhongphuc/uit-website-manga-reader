@@ -1,4 +1,4 @@
-export interface Input {
+export interface IChapterInput {
     name?: string;
     mangaId?: number;
 }

@@ -7,7 +7,12 @@ type Mutation {
     updateManga(input: MangaInput!): Manga
     deleteManga(id: Int): Boolean
 
+    addChapter(input: ChapterInput!): Chapter
+    updateChapter(input: ChapterInput!): Chapter
+    deleteChapter(id: Int): Boolean
+
     addImage(input: ImageInput!): Image
+
 }
 
 type Query {
@@ -18,5 +23,5 @@ type Query {
     genre(name: String): Genre
 
     images: [Image!]!
-    # chapters: [Chapter!]!
+    chapter(id: Int): [Chapter!]!
 }

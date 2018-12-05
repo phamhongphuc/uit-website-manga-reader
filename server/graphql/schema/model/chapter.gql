@@ -7,3 +7,8 @@ type Chapter {
     isPublished: Boolean!
     image: Image!
 }
+
+input ChapterInput {
+    name: String
+    mangaId: Int
+}

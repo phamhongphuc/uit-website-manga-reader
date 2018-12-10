@@ -8,8 +8,8 @@ cache:
 before_script:
     - git lfs pull
 
-env: ❤ = NodeJS Lint + Build + Test
+env: ❤ = NodeJS Lint + Build + Generate
 script:
     - yarn lint
     - yarn build
-    - yarn test
+    - yarn generate

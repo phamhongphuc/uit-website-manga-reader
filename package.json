@@ -13,7 +13,7 @@
         "dev:server:data": "babel-node server/initialize/_initialize",
         "dev:client": "cross-env NODE_ENV=development nuxt",
         "build:client": "nuxt build",
-        "build:server": "babel server -d build",
+        "build:server": "babel server -d build --copy-files",
         "build": "run-s build:*",
         "start": "node build/index.js",
         "generate": "cross-env NODE_ENV=generation babel-node server/index",
@@ -53,7 +53,7 @@
         "moment": "^2.22.2",
         "nuxt": "^2.3.4",
         "nuxt-sass-resources-loader": "^2.0.5",
-        "realm": "^2.21.0",
+        "realm": "2.21.0",
         "vue-import-loader": "phamhongphuc/vue-import-loader#v0.2.0",
         "vue-line-clamp": "^1.2.4"
     },

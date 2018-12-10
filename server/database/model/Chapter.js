@@ -6,7 +6,7 @@ import { isNameValid } from '../utils/Validation';
 
 class Chapter extends Model {
     /**
-     * @param {import('../interface/chapter').Input} input
+     * @param {import('../interface/chapter').IChapterInput} input
      */
     static create(input) {
         Manga.isIdValid(input.mangaId);

@@ -8,6 +8,7 @@ import middleware from './api/_middleware';
 import graphql from './graphql/_graphql';
 
 import config from '../nuxt.config';
+import initializeDatabase from './initialize/initializeDatabase';
 
 config.dev = process.env.NODE_ENV === 'development';
 
@@ -38,6 +39,8 @@ const PORT = process.env.PORT || 3000;
         console.log(`Server is running on port ${PORT}!`);
 
         if (process.env.NODE_ENV === 'generation') {
+            await initializeDatabase();
+
             const builder = new Builder(nuxt);
             const generate = new Generator(nuxt, builder);
             try {

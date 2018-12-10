@@ -27,7 +27,7 @@ const Mutation = {
         /** @type {Manga} **/
         const oldManga = Manga.getById(name);
         if (oldManga === undefined) {
-            throw new Error('Thể loại này chưa được tạo');
+            throw new Error('Truyện này chưa được tạo');
         }
         const manga = await oldManga.update(input);
         return manga;
@@ -37,7 +37,7 @@ const Mutation = {
     async deleteManga(_, { id }) {
         const manga = Manga.getById(id);
         if (Manga === undefined) {
-            throw new Error('Thể loại này chưa được tạo');
+            throw new Error('Truyện này chưa được tạo');
         }
         await manga.delete();
         return true;

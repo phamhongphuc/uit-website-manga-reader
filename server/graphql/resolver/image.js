@@ -5,14 +5,7 @@ import { Image } from '../../database/model';
  */
 
 const Query = {
-    images() {
-        return Image.list;
-    },
-
-    /** @type {import('graphql-tools').IFieldResolver<any, any, {id: Number}>} */
-    manga(_, { id }) {
-        return Image.getById(id);
-    },
+    // Empty
 };
 
 const Mutation = {

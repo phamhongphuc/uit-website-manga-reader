@@ -18,7 +18,7 @@
         "start": "node build/index.js",
         "generate": "cross-env NODE_ENV=generation babel-node server/index",
         "prettier:fix": "prettier ** --write",
-        "lint:js": "eslint --ext .* .",
+        "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
         "lint:css": "stylelint **/*.{vue,scss}",
         "lint": "run-s lint:*",
         "type:fix": "run-s prettier:fix \"lint:* --fix\""

@@ -12,7 +12,6 @@ type Mutation {
     deleteChapter(id: Int): Boolean
 
     addImage(input: ImageInput!): Image
-
 }
 
 type Query {

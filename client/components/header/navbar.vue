@@ -33,7 +33,7 @@
                 <b-nav-item-input-
                     class="flex-fill"
                     reverse-when="md"
-                    placeholder="Tìm kiếm"
+                    placeholder="Search..."
                     icon=""
                     :focus.sync="isInputFocus"
                 />

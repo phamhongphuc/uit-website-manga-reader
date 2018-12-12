@@ -3,12 +3,16 @@
         <b-navbar-nav>
             <!-- <b-nav-item-icon- to="/staff" icon="" text="Bảng điều khiển" /> -->
             <b-nav-item-icon-
-                to="/staff/uploaded"
+                to="/staff/manga"
                 icon=""
-                text="Truyện đã đăng"
+                text="Uploaded Manga"
             />
-            <b-nav-item-icon- to="/staff/group" icon="" text="Nhóm dịch" />
-            <b-nav-item-icon- to="/staff/help" icon="" text="Trợ giúp" />
+            <b-nav-item-icon-
+                to="/staff/group"
+                icon=""
+                text="Scanlation Groups"
+            />
+            <b-nav-item-icon- to="/staff/help" icon="" text="Tutorial" />
         </b-navbar-nav>
     </b-navbar>
 </template>
@@ -34,7 +38,7 @@ export default {
             padding-left: 0.5rem;
             border-radius: 0 1.25rem 1.25rem 0;
             font-weight: 600;
-            transition: all 0.5s;
+            transition: all 0.25s;
             &:hover {
                 color: $main;
             }

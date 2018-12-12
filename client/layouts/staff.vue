@@ -1,0 +1,49 @@
+<template>
+    <div id="staff">
+        <navbar- />
+        <main>
+            <sidebar- />
+            <div class="content">
+                <div class="container-staff"><nuxt /></div>
+            </div>
+        </main>
+    </div>
+</template>
+<script>
+export default {
+    components: {
+        ...'~/components/footer/footer.vue',
+        ...'~/components/header/navbar.vue',
+        ...'~/components/staff/sidebar.vue',
+    },
+};
+</script>
+<style lang="scss">
+#staff {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    > main {
+        display: flex;
+        flex: 1;
+        .content {
+            flex: 1;
+            padding: 0.5rem 0;
+            overflow-y: scroll;
+        }
+    }
+}
+
+.container-staff {
+    @include make-container();
+    @include make-container-max-widths(
+        (
+            md: 720px - 100px,
+            lg: 960px - 200px,
+            xl: 1140px - 200px,
+        )
+    );
+}
+</style>

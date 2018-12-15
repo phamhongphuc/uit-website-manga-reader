@@ -27,10 +27,36 @@ export const actions = {
                         id
                         name
                         description
+                        status
                         image {
                             url
                         }
                         genres {
+                            name
+                        }
+                    }
+                }
+            `,
+        });
+        commit('setItems', value.data.mangas);
+    },
+
+    async fetchItemsWithChapter({ state, commit }) {
+        const value = await apollo(this).query({
+            query: gql`
+                query {
+                    mangas {
+                        id
+                        name
+                        status
+                        genres {
+                            name
+                        }
+                        image {
+                            url
+                        }
+                        chapters {
+                            id
                             name
                         }
                     }

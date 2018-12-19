@@ -12,7 +12,7 @@ class Chapter extends Model {
         Manga.isIdValid(input.mangaId);
         return Chapter.write({
             id: Chapter.nextId,
-            name: '',
+            name: 'Unnamed Chapter',
             date: new Date(),
             manga: Manga.getById(input.mangaId),
             isPublished: false,
@@ -22,7 +22,7 @@ class Chapter extends Model {
     update(input) {
         return new Promise(resolve => {
             db.realm.write(() => {
-                if (input.hasOwnProperty('name')) {
+                if (input.hasOwnProperty('id')) {
                     isNameValid(input.name);
                     this.name = input.name;
                 }

@@ -14,6 +14,16 @@ const Mutation = {
         const image = await Image.create(input);
         return image;
     },
+
+    /** @type {import('graphql-tools').IFieldResolver<any, any, {id: number}>} */
+    async deleteImage(_, { id }) {
+        const image = Image.getById(id);
+        if (image === undefined) {
+            throw new Error('Thể loại này chưa được tạo');
+        }
+        await image.delete();
+        return true;
+    },
 };
 
 export default {

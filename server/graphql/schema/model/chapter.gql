@@ -5,10 +5,15 @@ type Chapter {
     date: Date!
     manga: Manga!
     isPublished: Boolean!
-    image: Image!
+    images: [Image!]!
 }
 
 input ChapterInput {
-    name: String
-    mangaId: Int
+    name: String!
+    mangaId: Int!
+}
+
+input ChapterUpdateInput {
+    id: Int!
+    name: String!
 }

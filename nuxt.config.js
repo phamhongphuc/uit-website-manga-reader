@@ -24,7 +24,7 @@ module.exports = {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css?family=Pacifico',
             },
-            { rel: 'icon', type: 'image/png', href: 'favicon.png' },
+            { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         ],
     },
     srcDir: 'client/',

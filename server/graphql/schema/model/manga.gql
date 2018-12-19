@@ -11,7 +11,7 @@ type Manga {
     description: String!
     chapters: [Chapter!]!
 
-    image: Image
+    image: Image!
 }
 
 input MangaInput {

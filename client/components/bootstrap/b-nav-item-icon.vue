@@ -1,5 +1,5 @@
 <template>
-    <b-nav-item to="/mangas" class="nav-item-icon">
+    <b-nav-item :to="to" class="nav-item-icon">
         <div v-if="icon !== ''" class="icon">{{ icon }}</div>
         <div v-else-if="image !== ''" class="icon">
             <image-
@@ -19,6 +19,10 @@ export default {
         ...'~/components/utilities/image.vue',
     },
     props: {
+        to: {
+            type: String,
+            default: '',
+        },
         image: {
             type: String,
             default: '',

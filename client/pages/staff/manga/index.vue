@@ -21,7 +21,7 @@
                     class="table-border-inside table-list-manga"
                     :per-page="2"
                     :current-page="currentPage"
-                    :items="items"
+                    :items="mangas"
                     :fields="fields"
                 >
                     <template slot="image" slot-scope="data">
@@ -61,23 +61,31 @@
                             </div>
                             <div>
                                 <span class="text-bold">Latest chapter:</span>
-                                This project don't have any chapter.
+                                This project doesn't have any chapter.
                             </div>
-                            <div>
-                                <!-- asdasd -->
-                                <b-button variant="main" class="shadow">
-                                    New chapter
+                            <div class="nmx-1">
+                                <b-button
+                                    variant="main"
+                                    class="shadow m-1"
+                                    :to="`/staff/manga/${data.item.id}`"
+                                >
+                                    <span class="icon"></span>
+                                    <span>List Chapters</span>
+                                </b-button>
+                                <b-button
+                                    variant="main"
+                                    class="shadow m-1"
+                                    :to="`/staff/manga/${data.item.id}/new`"
+                                >
+                                    <span class="icon"></span>
+                                    <span>New Chapter</span>
                                 </b-button>
                             </div>
                         </div>
                     </template>
                     <template slot="chapters" slot-scope="data">
                         <nuxt-link to="/">
-                            {{
-                                data.value.length >= 2
-                                    ? data.value.length + ' chapters'
-                                    : data.value.length + ' chapter'
-                            }}
+                            {{ getChapterLength(data.item.id) }}
                         </nuxt-link>
                     </template>
                 </b-table>
@@ -91,7 +99,7 @@
                     last-text="<span class=&quot;icon&quot;></span>"
                     class="mx-2 ml-auto d-inline-flex shadow pagination-border-inside"
                     size="md"
-                    :total-rows="items.length"
+                    :total-rows="mangas.length"
                     :per-page="2"
                 />
             </div>
@@ -99,7 +107,7 @@
     </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 export default {
     layout: 'staff',
@@ -109,7 +117,7 @@ export default {
         };
     },
     async asyncData({ store }) {
-        await store.dispatch('manga/fetchItemsWithChapter');
+        await store.dispatch('manga/fetchMangas');
         return {};
     },
     data() {
@@ -134,14 +142,20 @@ export default {
     },
     computed: {
         ...mapState({
-            items: state => state.manga.items,
+            mangas: state => state.manga.mangas,
         }),
+        ...mapGetters({
+            getChapters: 'chapter/getChapters',
+        }),
+    },
+    methods: {
+        getChapterLength(mangaId) {
+            const chapters = this.getChapters(mangaId);
+            if (!chapters) return;
+            return chapters.length >= 2
+                ? chapters.length + ' chapters'
+                : chapters.length + ' chapter';
+        },
     },
 };
 </script>
-<style lang="scss">
-.table-list-manga {
-    user-select: none;
-    cursor: pointer;
-}
-</style>

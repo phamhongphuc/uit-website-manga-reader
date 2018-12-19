@@ -1,3 +1,13 @@
+.table {
+    margin-bottom: 0;
+}
+
+.table-cell-middle {
+    td {
+        vertical-align: middle;
+    }
+}
+ 
 .table-border-inside {
     th {
         border-bottom-color: $main !important;
@@ -21,4 +31,8 @@
     tr th:last-child {
         border-right: 0;
     }
+}
+
+.table-cell-id {
+    min-width: 3rem !important;
 }

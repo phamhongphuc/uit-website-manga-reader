@@ -8,19 +8,20 @@ type Mutation {
     deleteManga(id: Int): Boolean
 
     addChapter(input: ChapterInput!): Chapter
-    updateChapter(input: ChapterInput!): Chapter
+    updateChapter(input: ChapterUpdateInput!): Chapter
     deleteChapter(id: Int): Boolean
 
     addImage(input: ImageInput!): Image
+    deleteImage(id: Int): Boolean
 }
 
 type Query {
     mangas: [Manga!]!
-    manga(name: String): Manga
+    manga(id: Int): Manga
 
     genres: [Genre!]!
     genre(name: String): Genre
 
     images: [Image!]!
-    chapter(id: Int): [Chapter!]!
+    chapter(id: Int): Chapter!
 }

@@ -8,7 +8,6 @@ type Image {
 }
 
 input ImageInput {
-    name: String!
     file: Upload!
-    chapterId: String
+    chapterId: Int
 }

@@ -28,9 +28,10 @@ export default {
     > main {
         display: flex;
         flex: 1;
+        max-height: calc(100% - 3.5rem);
         .content {
             flex: 1;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             overflow-y: scroll;
         }
     }

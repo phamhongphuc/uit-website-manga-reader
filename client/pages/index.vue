@@ -18,7 +18,7 @@ export default {
         };
     },
     async asyncData({ store }) {
-        await store.dispatch('manga/fetchItems');
+        await store.dispatch('manga/fetchMangas');
         return {};
     },
 };

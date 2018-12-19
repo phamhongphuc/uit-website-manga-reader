@@ -2,6 +2,7 @@ import { Chapter } from '../../database/model';
 
 /**
  * @typedef {import('../../database/interface/chapter').IChapterInput} IChapterInput
+ * @typedef {import('../../database/interface/chapter').IChapterUpdateInput} IChapterUpdateInput
  */
 
 const Query = {
@@ -24,14 +25,14 @@ const Mutation = {
     },
 
     /**
-     * @type {import('graphql-tools').IFieldResolver<any, any, {input: IChapterInput}>}
+     * @type {import('graphql-tools').IFieldResolver<any, any, {input: IChapterUpdateInput}>}
      * @description
      * Cập nhật chương cũng là lúc đã tải lên ảnh xong
      * Khi ấn đăng thì chương truyện sẽ được công khai
      */
     async updateChapter(_, { input }) {
         /** @type {Chapter} **/
-        const oldChapter = Chapter.getById(name);
+        const oldChapter = Chapter.getById(input.id);
         if (oldChapter === undefined) {
             throw new Error('Chương này chưa được tạo');
         }

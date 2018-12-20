@@ -29,6 +29,8 @@ class Image extends Model {
 
         imageData.id = Image.nextId;
         imageData.url = imageFromImgur.data.data.link;
+        imageData.width = imageFromImgur.data.data.width;
+        imageData.height = imageFromImgur.data.data.height;
         imageData.deletehash = imageFromImgur.data.data.deletehash;
 
         if (input.chapterId !== undefined) {
@@ -60,6 +62,8 @@ Image.schema = {
         id: 'int',
         name: 'string',
         url: 'string',
+        width: 'int',
+        height: 'int',
         deletehash: 'string',
         chapter: 'Chapter',
         manga: {

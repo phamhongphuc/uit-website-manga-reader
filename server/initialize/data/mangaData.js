@@ -1,7 +1,7 @@
 export default [
     {
         _id: '1',
-        name: 'kure-nai',
+        name: 'Kure-nai',
         associatedNames: ['紅 kure-nai'],
         type: 'MANGA',
         status: 'COMPLETED',

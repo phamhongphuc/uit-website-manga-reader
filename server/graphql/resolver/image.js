@@ -12,8 +12,6 @@ const Mutation = {
     /** @type {import('graphql-tools').IFieldResolver<any, any, {input: IImageInput}>} */
     async addImage(_, { input }) {
         const image = await Image.create(input);
-        console.log('image.js: addImage', image);
-
         return image;
     },
 

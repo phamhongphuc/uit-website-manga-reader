@@ -13,6 +13,7 @@ class Image extends Model {
      * @param {import('../interface/image').IImageInput} input
      */
     static async create(input) {
+        console.log('Image.js: create.input', input);
         isUploadInputValid(input.file);
 
         /** @type {import('../interface/image').IImageData} */

@@ -18,6 +18,7 @@ export const uploadImage = async imageInput => {
             ...headers,
         },
     });
+    console.log('Imgur.js: updateImage.result', result);
     return result;
 };
 

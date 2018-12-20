@@ -21,8 +21,8 @@ class Image extends Model {
 
         if (!isThrow(() => isPromiseValid(input.file))) {
             /** @type {import('../../graphql/interface/interface').FileUpload} */
-            const { stream, filename } = await input.file;
-            input.file = stream;
+            const { createReadStream, filename } = await input.file;
+            input.file = createReadStream();
             imageData.name = filename;
         }
         const imageFromImgur = await uploadImage(input.file);

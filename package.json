@@ -33,7 +33,7 @@
         "node": "8.11.2"
     },
     "dependencies": {
-        "@koa/cors": "^2.2.2",
+        "@koa/cors": "^2.2.3",
         "@nuxtjs/apollo": "^4.0.0-rc2.3",
         "animejs": "^2.2.0",
         "apollo-server-koa": "^2.3.1",

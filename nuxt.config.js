@@ -1,9 +1,10 @@
+const autoprefixer = require('autoprefixer');
+
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isGeneration = process.env.NODE_ENV === 'generation';
 const LOCALHOST = `http://localhost:3000`;
 const DATA_API = isDevelopment || isGeneration ? LOCALHOST : '';
 const REDIRECT_API = isDevelopment ? LOCALHOST : '';
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
     head: {

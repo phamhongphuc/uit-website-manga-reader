@@ -14,7 +14,7 @@
         "dev:client": "cross-env NODE_ENV=development nuxt",
         "build:client": "nuxt build",
         "build:server": "babel server -d build --copy-files",
-        "build:data": "download --out database https://github.com/phamhongphuc/uit.open.source.project/raw/feature/mix/config/database/realm.realm",
+        "build:data": "download --out database https://github.com/phamhongphuc/uit.open.source.project/raw/dev/database/realm.realm",
         "build": "run-s build:*",
         "start": "node build/index.js",
         "generate": "cross-env NODE_ENV=generation babel-node server/index",

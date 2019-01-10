@@ -62,7 +62,7 @@
                     />
                 </div>
                 <b-table
-                    class="table-border-inside table-list-manga rounded border-top"
+                    class="table-style table-list-manga rounded border-top"
                     :items="images"
                     :fields="fields"
                 >

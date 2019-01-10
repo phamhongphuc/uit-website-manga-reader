@@ -2,9 +2,10 @@
 /.nuxt
 /dist
 /build
-/database
 
 /coverage
 /.nyc_output
 
 /realm-object-server
+
+# /database

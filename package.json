@@ -50,7 +50,7 @@
         "koa-bodyparser": "^4.2.1",
         "koa-multer": "^1.0.2",
         "koa-router": "^7.4.0",
-        "koa-session": "^5.10.0",
+        "koa-session": "^5.10.1",
         "moment": "^2.23.0",
         "nuxt": "^2.3.4",
         "nuxt-sass-resources-loader": "^2.0.5",

@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="row mb-2 justify-content-end">
+        <div class="row mb-2 justify-content-end px-2">
             <b-button
-                v-for="(set, index) in ['Recent comments', 'Top comments']"
+                v-for="(set, index) in ['Recent comments']"
                 :key="index"
                 class="m-2 shadow"
                 size="md"
@@ -12,8 +12,8 @@
                 {{ set }}
             </b-button>
         </div>
-        <div class="row px-2">
-            <div v-for="(item, index) in 2" :key="index" class="col-12 p-2">
+        <div class="row px-2 pt-2-5">
+            <div v-for="(item, index) in 5" :key="index" class="col-12 px-2">
                 <comment- />
             </div>
         </div>
@@ -21,13 +21,15 @@
 </template>
 <script>
 export default {
-    components: {
-        ...'~/components/social/comment.vue',
-    },
     data() {
         return {
-            select: 'recommended',
+            select: 'Recent comments',
         };
     },
 };
 </script>
+<style lang="scss">
+.pt-2-5 {
+    padding-top: 0.75rem;
+}
+</style>

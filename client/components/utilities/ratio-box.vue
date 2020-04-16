@@ -4,7 +4,6 @@
         <div v-else><slot /></div>
     </div>
 </template>
-
 <script>
 export default {
     props: {

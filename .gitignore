@@ -8,4 +8,4 @@
 
 /realm-object-server
 
-# /database
+/database/*.realm.lock

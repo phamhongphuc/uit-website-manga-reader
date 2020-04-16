@@ -2,7 +2,7 @@ $book-item-highlight-color: $main;
 
 $book-item-space: 0.75rem;
 
-$book-item-img-rw: 852;
+$book-item-img-rw: 850;
 $book-item-img-rh: 1200;
 $book-item-img-r: $book-item-img-rw / $book-item-img-rh;
 
@@ -29,22 +29,20 @@ $book-item-box-padding-y: $book-item-box-padding-bottom +
     $book-item-img-vw: $book-item-img-vh * $book-item-img-r;
 
     height: $book-item-box-vh + $book-item-space;
-    > div {
-        grid-template-columns:
-            [left-img] $book-item-space
-            [left-box] #{$book-item-img-vw - $book-item-space}
-            [right-img] $book-item-space * 1.5
-            [left-text] auto
-            [right-text] $book-item-space * 1.5
-            [right-box];
-        grid-template-rows:
-            [top-img] $book-item-space
-            [top-box] $book-item-box-padding-top
-            [top-text] auto
-            [bottom-text] #{$book-item-box-padding-bottom - $book-item-space}
-            [bottom-img] $book-item-space
-            [bottom-box];
-    }
+    grid-template-columns:
+        [left-img] $book-item-space
+        [left-box] #{$book-item-img-vw - $book-item-space}
+        [right-img] $book-item-space * 1.5
+        [left-text] auto
+        [right-text] $book-item-space * 1.5
+        [right-box];
+    grid-template-rows:
+        [top-img] $book-item-space
+        [top-box] $book-item-box-padding-top
+        [top-text] auto
+        [bottom-text] #{$book-item-box-padding-bottom - $book-item-space}
+        [bottom-img] $book-item-space
+        [bottom-box];
 }
 
 @mixin book-item-grid-up($book-item-description-lines, $up: null) {

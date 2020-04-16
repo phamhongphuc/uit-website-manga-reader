@@ -12,7 +12,7 @@
                 class="font-pacifico font-size-bigger ml-md-2 mx-auto"
                 to="/"
             >
-                Ai Scanlation {{ breakpoint }}
+                Ai Scanlation
             </b-nav-item>
             <b-nav-item-icon-
                 class="d-md-none mx-1"
@@ -55,16 +55,10 @@
         </b-collapse>
     </b-navbar>
 </template>
-
 <script>
 import { mapState } from 'vuex';
 
 export default {
-    components: {
-        ...'~/components/bootstrap/b-nav-item-icon.vue',
-        ...'~/components/bootstrap/b-nav-item-input.vue',
-        ...'~/components/bootstrap/b-navbar-hr.vue',
-    },
     data() {
         return {
             isInputFocus: false,

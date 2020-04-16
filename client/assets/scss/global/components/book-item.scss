@@ -8,6 +8,7 @@
         grid-row: top-box / bottom-box;
         @include white-card;
     }
+
     .book-item-image {
         grid-column: left-img / right-img;
         grid-row: top-img / bottom-img;
@@ -17,6 +18,7 @@
             @include fit-image;
         }
     }
+
     .book-item-text {
         grid-column: left-text / right-text;
         grid-row: top-text / bottom-text;

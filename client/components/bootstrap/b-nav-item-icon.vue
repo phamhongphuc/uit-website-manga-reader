@@ -15,9 +15,6 @@
 </template>
 <script>
 export default {
-    components: {
-        ...'~/components/utilities/image.vue',
-    },
     props: {
         to: {
             type: String,

@@ -16,14 +16,6 @@
         </b-navbar-nav>
     </b-navbar>
 </template>
-<script>
-export default {
-    components: {
-        ...'~/components/bootstrap/b-nav-item-icon.vue',
-    },
-};
-</script>
-
 <style lang="scss">
 #sidebar {
     flex-direction: column;

@@ -12,32 +12,28 @@
                 {{ set }}
             </b-button>
         </div>
-        <div class="row px-2">
-            <div v-for="(item, index) in items" :key="index" class="col-12 p-2">
-                <book-item- :item="item" />
-            </div>
-        </div>
+        <query- :query="getMangas" :poll-interval="0" class="row px-2">
+            <template slot-scope="{ data: { mangas } }">
+                <div
+                    v-for="(item, index) in mangas"
+                    :key="index"
+                    class="col-12 p-2"
+                >
+                    <book-item- :item="item" />
+                </div>
+            </template>
+        </query->
     </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { getMangas } from '~/query/manga';
 
 export default {
-    components: {
-        ...'~/components/book/book-item.vue',
-    },
     data() {
         return {
-            select: 'recommended',
+            select: 'Recommended',
+            getMangas,
         };
-    },
-    computed: {
-        ...mapState({
-            items: state => state.manga.items,
-        }),
     },
 };
 </script>
-<style lang="scss">
-//@at-root
-</style>

@@ -113,7 +113,7 @@ export default {
             },
         };
     },
-    data({ route }) {
+    data({ $route }) {
         return {
             isHover: false,
             files: [],
